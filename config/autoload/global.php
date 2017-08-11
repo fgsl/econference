@@ -12,5 +12,13 @@
  */
 
 return [
-    // ...
+    'db' => [
+    		'driver' => 'Mysqli',
+    		'database' => 'econference',
+    		],
+	'service_manager' => [	
+		'factories' => [
+				'Zend\Db\Adapter' => 'Zend\Db\Adapter\AdapterServiceFactory'
+				]
+	]	
 ];

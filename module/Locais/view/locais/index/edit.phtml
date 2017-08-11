@@ -1,0 +1,8 @@
+<h1>Cadastro de Locais</h1>
+<form action="<?=$this->url('locais',['action'=>'save'])?>" method="post">
+Nome :
+<input type="text" autofocus="autofocus" name="nome">
+<br/>
+<input type="submit" value="gravar">
+</form>
+<a href="<?=$this->url('locais')?>">Voltar</a>
