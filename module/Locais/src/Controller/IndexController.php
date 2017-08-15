@@ -22,7 +22,8 @@ class IndexController extends AbstractActionController
 	
     public function indexAction()
     {
-        return new ViewModel();
+    	$locais = $this->sm->get('LocalTable')->getAll();
+        return new ViewModel(['locais'=>$locais]);
     }
     
     public function editAction()

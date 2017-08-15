@@ -2,6 +2,8 @@
 namespace Locais\Model;
 
 use Zend\Db\TableGateway\TableGatewayInterface;
+use Zend\Db\Sql\Where;
+use Zend\Db\Sql\Select;
 class LocalTable
 {
 	private $tableGateway;
@@ -16,5 +18,12 @@ class LocalTable
 		$set = $model->toArray();
 		
 		$this->tableGateway->insert($set);
+	}
+	
+	public function getAll()
+	{
+		$select = new Select('locais');
+		$select->order('codigo');
+		return $this->tableGateway->selectWith($select);
 	}
 }
