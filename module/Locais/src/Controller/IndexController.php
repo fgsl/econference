@@ -28,14 +28,21 @@ class IndexController extends AbstractActionController
     
     public function editAction()
     {
-    	return new ViewModel();
+    	$codigo = $this->params('codigo');
+    	if (is_null($codigo)){
+    		$local = new Local();
+    	} else {    	
+    		$local = $this->sm->get('LocalTable')->getOne($codigo);
+    	}
+    	return new ViewModel(['local' => $local]);
     }
     
     public function saveAction()
     {
+    	$codigo = $this->getRequest()->getPost('codigo');
     	$nome = $this->getRequest()->getPost('nome');
     	$local = new Local();
-    	$local->nome = $nome;
+    	$local->exchangeArray(['codigo'=>$codigo,'nome'=>$nome]);
     	$this->sm->get('LocalTable')->save($local);
     	return $this->redirect()->toRoute('locais');
     }

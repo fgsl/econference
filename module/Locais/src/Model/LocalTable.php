@@ -17,13 +17,28 @@ class LocalTable
 	{
 		$set = $model->toArray();
 		
-		$this->tableGateway->insert($set);
+		if (is_null($set['codigo'])){
+			$this->tableGateway->insert($set);
+		} else {
+			$this->tableGateway->update($set,['codigo'=>$set['codigo']]);
+		}
 	}
 	
-	public function getAll()
+	public function getAll($where = null)
 	{
 		$select = new Select('locais');
 		$select->order('codigo');
+		if (!is_null($where)){
+			$select->where($where);
+		}
 		return $this->tableGateway->selectWith($select);
 	}
+	
+	public function getOne($codigo)
+	{
+		$locais = $this->getAll(['codigo' => $codigo]);
+		return $locais->current();
+	}
+	
+	
 }

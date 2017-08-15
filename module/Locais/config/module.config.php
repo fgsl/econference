@@ -18,7 +18,7 @@ return [
             'locais' => [
                 'type' => Segment::class,
                 'options' => [
-                    'route'    => '/locais[/:action]',
+                    'route'    => '/locais[/:action[/:codigo]]',
                     'defaults' => [
                         'controller' => Controller\IndexController::class,
                         'action'     => 'index',

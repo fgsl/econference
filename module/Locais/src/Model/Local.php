@@ -2,7 +2,15 @@
 namespace Locais\Model;
 class Local
 {
+	public $codigo;
 	public $nome;
+	
+	public function exchangeArray($array)
+	{
+		foreach($array as $attribute => $value){
+			$this->$attribute = $value;
+		}
+	}
 	
 	public function toArray()
 	{
