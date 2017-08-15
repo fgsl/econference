@@ -17,7 +17,8 @@ class LocalTable
 	{
 		$set = $model->toArray();
 		
-		if (is_null($set['codigo'])){
+		if (empty($set['codigo'])){
+			unset($set['codigo']);
 			$this->tableGateway->insert($set);
 		} else {
 			$this->tableGateway->update($set,['codigo'=>$set['codigo']]);
@@ -39,6 +40,16 @@ class LocalTable
 		$locais = $this->getAll(['codigo' => $codigo]);
 		return $locais->current();
 	}
+	
+	public function delete($codigo)
+	{
+		$this->tableGateway->delete(['codigo' => $codigo]);
+		return;
+	}
+	
+	
+	
+	
 	
 	
 }

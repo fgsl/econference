@@ -47,6 +47,13 @@ class IndexController extends AbstractActionController
     	return $this->redirect()->toRoute('locais');
     }
     
-    
+    public function deleteAction()
+    {
+    	$codigo = $this->params('codigo');
+    	$this->sm->get('LocalTable')->delete($codigo);
+    	return $this->redirect()->toRoute('locais');
+    	
+    	
+    }
     
 }
