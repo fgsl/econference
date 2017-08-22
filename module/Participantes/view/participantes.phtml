@@ -1,0 +1,12 @@
+<tr>
+<td><a href="<?=$this->url('participantes',['action'=>'edit','codigo'=>$this->codigo])?>"><?=$this->codigo?></a></td>
+<td><?=$this->usuario?></td>
+<td><?=$this->email?></td>
+<td><?=$this->nome?></td>
+<td><?=$this->cidade?></td>
+<td><?=$this->telefone?></td>
+<td><?=$this->instituiçao?></td>
+<td><?=$this->cpf?></td>
+<td><?=$this->passaporte?></td>
+<td><a href="<?=$this->url('participantes',['action'=>'delete','codigo'=>$this->codigo])?>">X</a></td>
+</tr>
