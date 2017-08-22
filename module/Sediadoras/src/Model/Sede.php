@@ -3,7 +3,7 @@ namespace Sediadoras\Model;
 class Sede
 {
 	public $codigo;
-	public $nome;
+	public $sede;
 	
 	public function exchangeArray($array)
 	{

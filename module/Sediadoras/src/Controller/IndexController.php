@@ -40,12 +40,12 @@ class IndexController extends AbstractActionController
         
         public function saveAction()
         {
-        $codigo = $this->getRequest()->getPost('codigo');
-        $nome = $this->getRequest()->getPost('nome');
-        $sede = new Sede();
-        $sede ->exchangeArray(['codigo'=>$codigo,'nome'=>$nome]);
-        $this->sm->get('SedeTable')->save($sede);
-        return $this->redirect()->toRoute('sediadoras');
+        	$codigo = $this->getRequest()->getPost('codigo');
+        	$sede = $this->getRequest()->getPost('sede');
+        	$sediadoras = new Sediadoras();
+        	$sediadoras->exchangeArray(['codigo'=>$codigo,'sede'=>$sede,]);
+        	$this->sm->get('SedeTable')->save($sediadoras);
+        	return $this->redirect()->toRoute('Sediadoras');
         }
         
         public function deleteAction()

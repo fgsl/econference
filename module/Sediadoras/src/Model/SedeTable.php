@@ -27,7 +27,7 @@ class SedeTable
 	
 	public function getAll($where = null)
 	{
-		$select = new Select('Sediadoras');
+		$select = new Select('sediadoras');
 		$select->order('codigo');
 		if (!is_null($where)){
 			$select->where($where);

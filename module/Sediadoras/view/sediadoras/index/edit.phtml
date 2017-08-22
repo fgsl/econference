@@ -1,0 +1,9 @@
+<h1>Cadastro de Sedes</h1>
+<form action="<?=$this->url('sediadoras',['action'=>'save'])?>" method="post">
+sede :
+<input type="text" autofocus="autofocus" name="sede" value="<?=$this->sediadoras->sede?>">
+<br>
+<input type="hidden" value="<?=$this->sediadoras->codigo?>" name="codigo">
+<input type="submit" value="gravar">
+</form>
+<a href="<?=$this->url('sediadoras')?>">Voltar</a>

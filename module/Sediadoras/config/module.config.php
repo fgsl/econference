@@ -10,8 +10,9 @@ namespace Sediadoras;
 use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
 use Zend\ServiceManager\Factory\InvokableFactory;
-use Sediadoras\Model\LocalTable;
+use Sediadoras\Model\SedeTable;
 use Sediadoras\Controller\IndexController;
+use Zend\Db\TableGateway\TableGateway;
 
 return [
     'router' => [
@@ -19,7 +20,7 @@ return [
             'sediadoras' => [
                 'type' => Segment::class,
                 'options' => [
-                    'route'    => '/Sediadoras[/:action[/:codigo]]',
+                    'route'    => '/sediadoras[/:action[/:codigo]]',
                     'defaults' => [
                         'controller' => Controller\IndexController::class,
                         'action'     => 'index',
@@ -31,7 +32,7 @@ return [
     'controllers' => [
          'factories' => [
               Controller\IndexController::class => function($sm){
-                  return new Controller\indexController($sm);
+                  return new Controller\IndexController($sm);
 
             }
         ],

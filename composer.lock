@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d1f0d097f4a09084e14692985d51579c",
+    "hash": "6f7bd44dcab07a89c931270f18348ebb",
     "content-hash": "13dfd454a5c02ba020b6820c2a2e2901",
     "packages": [
         {
@@ -785,16 +785,16 @@
         },
         {
             "name": "zendframework/zend-validator",
-            "version": "2.10.0",
+            "version": "2.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-validator.git",
-                "reference": "07ef29e31353592e99eb32b2feb7248681ffb630"
+                "reference": "010084ddbd33299bf51ea6f0e07f8f4e8bd832a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-validator/zipball/07ef29e31353592e99eb32b2feb7248681ffb630",
-                "reference": "07ef29e31353592e99eb32b2feb7248681ffb630",
+                "url": "https://api.github.com/repos/zendframework/zend-validator/zipball/010084ddbd33299bf51ea6f0e07f8f4e8bd832a8",
+                "reference": "010084ddbd33299bf51ea6f0e07f8f4e8bd832a8",
                 "shasum": ""
             },
             "require": {
@@ -852,7 +852,7 @@
                 "validator",
                 "zf2"
             ],
-            "time": "2017-08-14 20:36:46"
+            "time": "2017-08-22 14:19:23"
         },
         {
             "name": "zendframework/zend-view",
