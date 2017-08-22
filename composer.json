@@ -21,7 +21,8 @@
     "autoload": {
         "psr-4": {
             "Application\\": "module/Application/src/",
-            "Locais\\" : "module/Locais/src/"
+            "Locais\\" : "module/Locais/src/",
+            "Sediadoras\\" : "module/Sediadoras/src/"
         }
     },
     "autoload-dev": {

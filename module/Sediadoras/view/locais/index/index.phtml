@@ -1,0 +1,12 @@
+<a href="<?=$this->url('sediadoras',['action'=>'edit'])?>">Adicionar sede</a>
+<table>
+<thead>
+<tr>
+<th>Código </th>
+<th> Local Sede</th>
+</tr>
+</thead>
+<tbody>
+<?=$this->partialLoop('locais.phtml',$this->sediadoras)?>
+</tbody>
+</table>
