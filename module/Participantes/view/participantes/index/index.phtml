@@ -1,0 +1,19 @@
+<a href="<?=$this->url('participantes',['action'=>'edit'])?>">Adicionar participante</a>
+<table>
+<thead>
+<tr>
+<th>Código</th>
+<th>Usuario</th>
+<th>Email</th>
+<th>Nome</th>
+<th>Cidade</th>
+<th>Telefone</th>
+<th>Instituição</th>
+<th>Cpf</th>
+<th>Passaporte</th>
+</tr>
+</thead>
+<tbody>
+<?=$this->partialLoop('participantes.phtml',$this->participantes)?>
+</tbody>
+</table>

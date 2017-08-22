@@ -1,0 +1,9 @@
+<h1>Cadastro de Participantes</h1>
+<form action="<?=$this->url('participantes',['action'=>'save'])?>" method="post">
+Nome :
+<input type="text" autofocus="autofocus" name="nome" value="<?=$this->participante->nome?>">
+<br/>
+<input type="hidden" value="<?=$this->participante->codigo?>" name="codigo">
+<input type="submit" value="gravar">
+</form>
+<a href="<?=$this->url('participantes')?>">Voltar</a>
