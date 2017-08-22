@@ -1,7 +1,28 @@
 <h1>Cadastro de Participantes</h1>
 <form action="<?=$this->url('participantes',['action'=>'save'])?>" method="post">
+Usuario :
+<input type="text" autofocus="autofocus" name="usuario" value="<?=$this->participante->usuario?>">
+<br>
+Email :
+<input type="text" name="email" value="<?=$this->participante->email?>">
+<br>
 Nome :
-<input type="text" autofocus="autofocus" name="nome" value="<?=$this->participante->nome?>">
+<input type="text" name="nome" value="<?=$this->participante->nome?>">
+<br>
+Cidade :
+<input type="text" name="cidade" value="<?=$this->participante->cidade?>">
+<br>
+Telefone :
+<input type="text" name="telefone" value="<?=$this->participante->telefone?>">
+<br>
+Instituição :
+<input type="text" name="instituiçao" value="<?=$this->participante->instituiçao?>">
+<br>
+Cpf :
+<input type="text" name="cpf" value="<?=$this->participante->cpf?>">
+<br>
+Passaporte :
+<input type="text" name="passaporte" value="<?=$this->participante->passaporte?>">
 <br/>
 <input type="hidden" value="<?=$this->participante->codigo?>" name="codigo">
 <input type="submit" value="gravar">

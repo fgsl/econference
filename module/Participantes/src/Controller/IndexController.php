@@ -9,7 +9,7 @@ namespace Participantes\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-use Locais\Model\Local;
+use Participantes\Model\Participante;
 
 class IndexController extends AbstractActionController
 {
