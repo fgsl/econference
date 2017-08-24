@@ -37,8 +37,8 @@ class SedeTable
 	
 	public function getOne($codigo)
 	{
-		$locais = $this->getAll(['codigo' => $codigo]);
-		return $locais->current();
+		$sediadoras = $this->getAll(['codigo' => $codigo]);
+		return $sediadoras->current();
 	}
 	
 	public function delete($codigo)
