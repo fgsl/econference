@@ -16,6 +16,12 @@ class ParticipanteTable
 	public function save($model)
 	{
 		$set = $model->toArray();
+		if (empty($set['cpf'])){
+			$set['cpf']="";
+		}
+		if (empty($set['passaporte'])){
+			$set['passaporte']="";
+		}
 		
 		if (empty($set['codigo'])){
 			unset($set['codigo']);
