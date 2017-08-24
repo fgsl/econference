@@ -45,11 +45,12 @@ class IndexController extends AbstractActionController
     	$nome = $this->getRequest()->getPost('nome');
     	$cidade = $this->getRequest()->getPost('cidade');
     	$telefone = $this->getRequest()->getPost('telefone');
-    	$instituição = $this->getRequest()->getPost('instituição');
+    	$instituição = $this->getRequest()->getPost('instituicao');
     	$cpf = $this->getRequest()->getPost('cpf');
     	$passaporte = $this->getRequest()->getPost('passaporte');
     	$participante = new Participante();
     	$participante->exchangeArray(['codigo'=>$codigo,'usuario'=>$usuario,'email'=>$email,'nome'=>$nome,'cidade'=>$cidade,'telefone'=>$telefone,'instituição'=>$instituição,'cpf'=>$cpf,'passaporte'=>$passaporte]);
+    	$this->sm->get('Zend\Log')->info(print_r($participante,true));
     	$this->sm->get('ParticipanteTable')->save($participante);
     	return $this->redirect()->toRoute('participantes');
     }

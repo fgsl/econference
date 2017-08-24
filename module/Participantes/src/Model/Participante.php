@@ -8,7 +8,7 @@ class Participante
 	public $nome;
 	public $cidade;
 	public $telefone;
-	public $instituição;
+	public $instituicao;
 	public $cpf;
 	public $passaporte;
 	
