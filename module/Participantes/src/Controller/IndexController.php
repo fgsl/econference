@@ -50,6 +50,7 @@ class IndexController extends AbstractActionController
     	$passaporte = $this->getRequest()->getPost('passaporte');
     	$participante = new Participante();
     	$participante->exchangeArray(['codigo'=>$codigo,'usuario'=>$usuario,'email'=>$email,'nome'=>$nome,'cidade'=>$cidade,'telefone'=>$telefone,'instituição'=>$instituição,'cpf'=>$cpf,'passaporte'=>$passaporte]);
+    	$this->sm->get('Log\App')->info(print_r($participante, true));
     	$this->sm->get('ParticipanteTable')->save($participante);
     	return $this->redirect()->toRoute('participantes');
     }

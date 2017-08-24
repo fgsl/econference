@@ -10,15 +10,30 @@
  * control, so do not include passwords or other sensitive information in this
  * file.
  */
-
 return [
     'db' => [
-    		'driver' => 'Mysqli',
-    		'database' => 'econference',
-    		],
-	'service_manager' => [	
-		'factories' => [
-				'Zend\Db\Adapter' => 'Zend\Db\Adapter\AdapterServiceFactory'
-				]
-	]	
+        'driver' => 'Mysqli',
+        'database' => 'econference'
+    ],
+    'log' => [
+        'Log\App' => [
+            'writers' => [
+                [
+                    'name' => 'stream',
+                    'priority' => 1000,
+                    'options' => [
+                        'stream' => 'data/logs/app.log'
+                    ]
+                ]
+            ]
+        ]
+    ],
+    'service_manager' => [
+        'abstract_factories' => [
+            'Zend\Log' => 'Zend\Log\LoggerAbstractServiceFactory'
+        ],
+        'factories' => [
+            'Zend\Db\Adapter' => 'Zend\Db\Adapter\AdapterServiceFactory'
+        ]
+    ]
 ];
