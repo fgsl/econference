@@ -17,10 +17,10 @@ class ParticipanteTable
 	{
 		$set = $model->toArray();
 		if (empty($set['cpf'])){
-			unset($set['cpf']);
+			$set['cpf']="";
 		}
 		if (empty($set['passaporte'])){
-			unset($set['passaporte']);
+			$set['passaporte']="";
 		}
 		
 		if (empty($set['codigo'])){
