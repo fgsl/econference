@@ -34,7 +34,7 @@ class IndexController extends AbstractActionController
     	} else {    	
     		$perfil = $this->sm->get('PerfilTable')->getOne($codigo);
     	}
-    	return new ViewModel(['perfil' => $local]);
+    	return new ViewModel(['perfil' => $perfil]);
     }
     
     public function saveAction()

@@ -54,7 +54,7 @@ return [
 			'factories' => [
 					'PerfilTable' => function($sm){
 						$adapter = $sm->get('Zend\Db\Adapter');
-						$tableGateway = new TableGateway('locais', $adapter);
+						$tableGateway = new TableGateway('perfis', $adapter);
 						$perfilTable = new PerfilTable($tableGateway);
 						return $perfilTable;
 					}
