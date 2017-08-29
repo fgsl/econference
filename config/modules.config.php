@@ -15,6 +15,7 @@ return [
     'Zend\Router',
     'Zend\Validator',
 	'Sediadoras',
+	'Perfis',
 	'Participantes',
 	'Locais',	
     'Application',

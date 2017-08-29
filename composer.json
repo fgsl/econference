@@ -24,7 +24,7 @@
             "Application\\": "module/Application/src/",
             "Locais\\" : "module/Locais/src/",
             "Sediadoras\\" : "module/Sediadoras/src/",
-            "Participantes\\" : "module/Participantes/src/"
+            "Participantes\\" : "module/Participantes/src/",
             "Perfis\\" : "module/Perfis/src/"
         }
     },
