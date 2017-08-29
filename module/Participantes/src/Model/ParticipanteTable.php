@@ -43,7 +43,7 @@ class ParticipanteTable
 	
 	public function getOne($codigo)
 	{
-		$locais = $this->getAll(['codigo' => $codigo]);
+		$participantes = $this->getAll(['codigo' => $codigo]);
 		return $participantes->current();
 	}
 	

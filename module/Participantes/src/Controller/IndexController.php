@@ -59,7 +59,7 @@ class IndexController extends AbstractActionController
     {
     	$codigo = $this->params('codigo');
     	$this->sm->get('ParticipanteTable')->delete($codigo);
-    	return $this->redirect()->toRoute('participante');
+    	return $this->redirect()->toRoute('participantes');
     	
     	
     }
