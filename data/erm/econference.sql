@@ -173,3 +173,34 @@ ALTER TABLE `perfis`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+CREATE TABLE `trabalhos` (
+  `codigo` int(11) NOT NULL,
+  `resumo` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
+  `categoria` tinyint(4) NOT NULL,
+  `tipo` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Índices de tabelas apagadas
+--
+
+--
+-- Índices de tabela `trabalhos`
+--
+ALTER TABLE `trabalhos`
+  ADD PRIMARY KEY (`codigo`);
+
+--
+-- AUTO_INCREMENT de tabelas apagadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `trabalhos`
+--
+ALTER TABLE `trabalhos`
+  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
