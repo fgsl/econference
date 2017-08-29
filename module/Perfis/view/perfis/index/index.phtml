@@ -1,0 +1,12 @@
+<a href="<?=$this->url('perfis',['action'=>'edit'])?>">Adicionar perfil</a>
+<table>
+<thead>
+<tr>
+<th>Código</th>
+<th>Nome</th>
+</tr>
+</thead>
+<tbody>
+<?=$this->partialLoop('perfis.phtml',$this->perfis)?>
+</tbody>
+</table>
