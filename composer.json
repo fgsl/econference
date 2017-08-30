@@ -26,7 +26,8 @@
             "Sediadoras\\" : "module/Sediadoras/src/",
             "Participantes\\" : "module/Participantes/src/",
             "Perfis\\" : "module/Perfis/src/",
-            "Trabalhos\\" : "module/Trabalhos/src/"
+            "Trabalhos\\" : "module/Trabalhos/src/",
+            "Categorias\\" : "module/Categorias/src/"
         }
     },
     "autoload-dev": {

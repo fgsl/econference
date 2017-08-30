@@ -1,0 +1,9 @@
+<h1>Adicionar categoria</h1>
+<form action="<?=$this->url('categorias',['action'=>'save'])?>" method="post">
+nome :
+<input type="text" autofocus="autofocus" name="nome" value="<?=$this->categoria->nome?>">
+<br>
+<input type="hidden" value="<?=$this->categoria->codigo?>" name="codigo">
+<input type="submit" value="gravar">
+</form>
+<a href="<?=$this->url('categorias')?>">Voltar</a>

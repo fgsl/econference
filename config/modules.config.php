@@ -14,7 +14,8 @@ use Sediadoras;
 return [
     'Zend\Router',
     'Zend\Validator',
-	'Trabalhos',
+	'Categorias',
+    'Trabalhos',
     'Sediadoras',
 	'Perfis',
 	'Participantes',
