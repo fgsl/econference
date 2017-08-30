@@ -14,9 +14,10 @@ use Sediadoras;
 return [
     'Zend\Router',
     'Zend\Validator',
-	'Sediadoras',
+	'Trabalhos',
+    'Sediadoras',
 	'Perfis',
 	'Participantes',
 	'Locais',	
     'Application',
-];
+    ];
