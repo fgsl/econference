@@ -174,7 +174,41 @@ ALTER TABLE `perfis`
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
+<<<<<<< HEAD
 CREATE TABLE `permissoes` (
+=======
+CREATE TABLE `trabalhos` (
+  `codigo` int(11) NOT NULL,
+  `resumo` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
+  `categoria` tinyint(4) NOT NULL,
+  `tipo` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Índices de tabelas apagadas
+--
+
+--
+-- Índices de tabela `trabalhos`
+--
+ALTER TABLE `trabalhos`
+  ADD PRIMARY KEY (`codigo`);
+
+--
+-- AUTO_INCREMENT de tabelas apagadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `trabalhos`
+--
+ALTER TABLE `trabalhos`
+  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+CREATE TABLE `categorias` (
+>>>>>>> 69bfedb4c708f625cc2a295da7d272a498f3e545
   `codigo` int(11) NOT NULL,
   `nome` varchar(80) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -184,9 +218,15 @@ CREATE TABLE `permissoes` (
 --
 
 --
+<<<<<<< HEAD
 -- Índices de tabela `permissoes`
 --
 ALTER TABLE `permissoes`
+=======
+-- Índices de tabela `categorias`
+--
+ALTER TABLE `categorias`
+>>>>>>> 69bfedb4c708f625cc2a295da7d272a498f3e545
   ADD PRIMARY KEY (`codigo`);
 
 --
@@ -194,6 +234,7 @@ ALTER TABLE `permissoes`
 --
 
 --
+<<<<<<< HEAD
 -- AUTO_INCREMENT de tabela `permissoes`
 --
 ALTER TABLE `permissoes`
@@ -201,3 +242,13 @@ ALTER TABLE `permissoes`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+=======
+-- AUTO_INCREMENT de tabela `categorias`
+--
+ALTER TABLE `categorias`
+  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+>>>>>>> 69bfedb4c708f625cc2a295da7d272a498f3e545

@@ -1,0 +1,14 @@
+<a href="<?=$this->url('trabalhos',['action'=>'edit'])?>">Adicionar trabalhos</a>
+<table>
+<thead>
+<tr>
+<th>Código </th>
+<th>Resumo</th>
+<th>Categoria</th>
+<th>Tipo</th>
+</tr>
+</thead>
+<tbody>
+<?=$this->partialLoop('trabalhos.phtml',$this->trabalhos)?>
+</tbody>
+</table>

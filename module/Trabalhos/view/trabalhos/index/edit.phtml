@@ -1,0 +1,15 @@
+<h1>Trabalhos</h1>
+<form action="<?=$this->url('trabalhos',['action'=>'save'])?>" method="post">
+Resumo :
+<input type="text" autofocus="autofocus" name="resumo" value="<?=$this->trabalho->resumo?>">
+<br>
+Categoria :
+<input type="text" name="categoria" value="<?=$this->trabalho->categoria?>">
+<br>
+Tipo :
+<input type="text" name="tipo" value="<?=$this->trabalho->tipo?>">
+<br/>
+<input type="hidden" value="<?=$this->trabalho->codigo?>" name="codigo">
+<input type="submit" value="gravar">
+</form>
+<a href="<?=$this->url('trabalhos')?>">Voltar</a>
