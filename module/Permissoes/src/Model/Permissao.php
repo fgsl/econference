@@ -1,6 +1,6 @@
 <?php
-namespace Perfis\Model;
-class Perfil
+namespace Permissoes\Model;
+class Permissao
 {
 	public $codigo;
 	public $nome;

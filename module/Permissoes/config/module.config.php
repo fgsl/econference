@@ -5,20 +5,20 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Perfis;
+namespace Permissoes;
 
 use Zend\Router\Http\Segment;
 use Zend\ServiceManager\Factory\InvokableFactory;
 use Zend\Db\TableGateway\TableGateway;
-use Perfis\Model\PerfilTable;
+use Permissoes\Model\PermissaoTable;
 
 return [
     'router' => [
         'routes' => [
-            'perfis' => [
+            'permissoes' => [
                 'type' => Segment::class,
                 'options' => [
-                    'route'    => '/perfis[/:action[/:codigo]]',
+                    'route'    => '/permissoes[/:action[/:codigo]]',
                     'defaults' => [
                         'controller' => Controller\IndexController::class,
                         'action'     => 'index',
@@ -42,7 +42,7 @@ return [
         'exception_template'       => 'error/index',
         'template_map' => [
             'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
-            'perfis/index/index' => __DIR__ . '/../view/perfis/index/index.phtml',
+            'permissoes/index/index' => __DIR__ . '/../view/permissoes/index/index.phtml',
             'error/404'               => __DIR__ . '/../view/error/404.phtml',
             'error/index'             => __DIR__ . '/../view/error/index.phtml',
         ],
@@ -52,11 +52,11 @@ return [
     ],
 	'service_manager' => [
 			'factories' => [
-					'PerfilTable' => function($sm){
+					'PermissaoTable' => function($sm){
 						$adapter = $sm->get('Zend\Db\Adapter');
-						$tableGateway = new TableGateway('perfis', $adapter);
-						$perfilTable = new PerfilTable($tableGateway);
-						return $perfilTable;
+						$tableGateway = new TableGateway('permissoes', $adapter);
+						$permissaoTable = new PermissaoTable($tableGateway);
+						return $permissaoTable;
 					}
 			]
 	]	

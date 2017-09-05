@@ -1,4 +1,4 @@
-<a href="<?=$this->url('perfis',['action'=>'edit'])?>">Adicionar perfil</a>
+<a href="<?=$this->url('permissoes',['action'=>'edit'])?>">Adicionar permissao</a>
 <table>
 <thead>
 <tr>
@@ -7,6 +7,6 @@
 </tr>
 </thead>
 <tbody>
-<?=$this->partialLoop('perfis.phtml',$this->perfis)?>
+<?=$this->partialLoop('permissoes.phtml',$this->permissoes)?>
 </tbody>
 </table>

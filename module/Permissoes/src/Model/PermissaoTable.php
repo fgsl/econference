@@ -1,10 +1,10 @@
 <?php
-namespace Perfis\Model;
+namespace Permissoes\Model;
 
 use Zend\Db\TableGateway\TableGatewayInterface;
 use Zend\Db\Sql\Where;
 use Zend\Db\Sql\Select;
-class PerfilTable
+class PermissaoTable
 {
 	private $tableGateway;
 	
@@ -27,7 +27,7 @@ class PerfilTable
 	
 	public function getAll($where = null)
 	{
-		$select = new Select('perfis');
+		$select = new Select('permissoes');
 		$select->order('codigo');
 		if (!is_null($where)){
 			$select->where($where);
@@ -37,8 +37,8 @@ class PerfilTable
 	
 	public function getOne($codigo)
 	{
-		$perfis = $this->getAll(['codigo' => $codigo]);
-		return $perfis->current();
+		$permissoes = $this->getAll(['codigo' => $codigo]);
+		return $permissoes->current();
 	}
 	
 	public function delete($codigo)

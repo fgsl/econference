@@ -17,6 +17,7 @@ return [
 	'Categorias',
     'Trabalhos',
     'Sediadoras',
+	'Permissoes',
 	'Perfis',
 	'Participantes',
 	'Locais',	
