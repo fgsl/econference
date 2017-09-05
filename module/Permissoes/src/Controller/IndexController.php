@@ -5,11 +5,11 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Perfis\Controller;
+namespace Permissoes\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-use Perfis\Model\Perfil;
+use Permissoes\Model\Permissao;
 
 class IndexController extends AbstractActionController
 {
@@ -22,36 +22,36 @@ class IndexController extends AbstractActionController
 	
     public function indexAction()
     {
-    	$perfis = $this->sm->get('PerfilTable')->getAll();
-        return new ViewModel(['perfis'=>$perfis]);
+    	$permissoes = $this->sm->get('PermissaoTable')->getAll();
+        return new ViewModel(['permissoes'=>$permissoes]);
     }
     
     public function editAction()
     {
     	$codigo = $this->params('codigo');
     	if (is_null($codigo)){
-    		$perfil = new Perfil();
+    		$permissao = new Permissao();
     	} else {    	
-    		$perfil = $this->sm->get('PerfilTable')->getOne($codigo);
+    		$permissao = $this->sm->get('PermissaoTable')->getOne($codigo);
     	}
-    	return new ViewModel(['perfil' => $perfil]);
+    	return new ViewModel(['permissao' => $permissao]);
     }
     
     public function saveAction()
     {
     	$codigo = $this->getRequest()->getPost('codigo');
     	$nome = $this->getRequest()->getPost('nome');
-    	$perfil = new Perfil();
-    	$perfil->exchangeArray(['codigo'=>$codigo,'nome'=>$nome]);
-    	$this->sm->get('PerfilTable')->save($perfil);
-    	return $this->redirect()->toRoute('perfis');
+    	$permissao = new Permissao();
+    	$permissao->exchangeArray(['codigo'=>$codigo,'nome'=>$nome]);
+    	$this->sm->get('PermissaoTable')->save($permissao);
+    	return $this->redirect()->toRoute('permissoes');
     }
     
     public function deleteAction()
     {
     	$codigo = $this->params('codigo');
-    	$this->sm->get('PerfilTable')->delete($codigo);
-    	return $this->redirect()->toRoute('perfis');
+    	$this->sm->get('PermissaoTable')->delete($codigo);
+    	return $this->redirect()->toRoute('permissoes');
     	
     	
     }
