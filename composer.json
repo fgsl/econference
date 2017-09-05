@@ -28,7 +28,8 @@
             "Perfis\\" : "module/Perfis/src/",
             "Trabalhos\\" : "module/Trabalhos/src/",
             "Categorias\\" : "module/Categorias/src/",
-            "Permissoes\\" : "module/Permissoes/src/"
+            "Permissoes\\" : "module/Permissoes/src/",
+            "Usuarios\\" : "module/Usuarios/src/"
         }
     },
     "autoload-dev": {
