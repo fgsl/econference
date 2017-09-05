@@ -15,6 +15,7 @@ return [
     'Zend\Router',
     'Zend\Validator',
 	'Categorias',
+	'Usuarios',
     'Trabalhos',
     'Sediadoras',
 	'Permissoes',

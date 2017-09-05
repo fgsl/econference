@@ -5,11 +5,11 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Perfis\Controller;
+namespace Usuarios\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-use Perfis\Model\Perfil;
+use Usuarios\Model\Usuario;
 
 class IndexController extends AbstractActionController
 {
@@ -22,36 +22,37 @@ class IndexController extends AbstractActionController
 	
     public function indexAction()
     {
-    	$perfis = $this->sm->get('PerfilTable')->getAll();
-        return new ViewModel(['perfis'=>$perfis]);
+    	$usuarios = $this->sm->get('UsuarioTable')->getAll();
+        return new ViewModel(['usuarios'=>$perfis]);
     }
     
     public function editAction()
     {
     	$codigo = $this->params('codigo');
     	if (is_null($codigo)){
-    		$perfil = new Perfil();
+    		$usuario = new Usuario();
     	} else {    	
-    		$perfil = $this->sm->get('PerfilTable')->getOne($codigo);
+    		$usuario = $this->sm->get('UsuarioTable')->getOne($codigo);
     	}
-    	return new ViewModel(['perfil' => $perfil]);
+    	return new ViewModel(['usuario' => $usuario]);
     }
     
     public function saveAction()
     {
     	$codigo = $this->getRequest()->getPost('codigo');
     	$nome = $this->getRequest()->getPost('nome');
-    	$perfil = new Perfil();
-    	$perfil->exchangeArray(['codigo'=>$codigo,'nome'=>$nome]);
-    	$this->sm->get('PerfilTable')->save($perfil);
-    	return $this->redirect()->toRoute('perfis');
+    	$codigo_perfil = $this->getRequest()->getPost('codigo_perfil');
+    	$usuario = new Usuario();
+    	$usuario->exchangeArray(['codigo'=>$codigo,'nome'=>$nome,'codigo_perfil'=>$codigo_perfil]);
+    	$this->sm->get('UsuarioTable')->save($usuario);
+    	return $this->redirect()->toRoute('usuarios');
     }
     
     public function deleteAction()
     {
     	$codigo = $this->params('codigo');
-    	$this->sm->get('PerfilTable')->delete($codigo);
-    	return $this->redirect()->toRoute('perfis');
+    	$this->sm->get('UsuarioTable')->delete($codigo);
+    	return $this->redirect()->toRoute('usuarios');
     	
     	
     }

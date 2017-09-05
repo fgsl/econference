@@ -5,20 +5,20 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Perfis;
+namespace Usuarios;
 
 use Zend\Router\Http\Segment;
 use Zend\ServiceManager\Factory\InvokableFactory;
 use Zend\Db\TableGateway\TableGateway;
-use Perfis\Model\PerfilTable;
+use Usuarios\Model\UsuarioTable;
 
 return [
     'router' => [
         'routes' => [
-            'perfis' => [
+            'usuarios' => [
                 'type' => Segment::class,
                 'options' => [
-                    'route'    => '/perfis[/:action[/:codigo]]',
+                    'route'    => '/usuarios[/:action[/:codigo]]',
                     'defaults' => [
                         'controller' => Controller\IndexController::class,
                         'action'     => 'index',
@@ -42,7 +42,7 @@ return [
         'exception_template'       => 'error/index',
         'template_map' => [
             'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
-            'perfis/index/index' => __DIR__ . '/../view/perfis/index/index.phtml',
+            'usuarios/index/index' => __DIR__ . '/../view/usuarios/index/index.phtml',
             'error/404'               => __DIR__ . '/../view/error/404.phtml',
             'error/index'             => __DIR__ . '/../view/error/index.phtml',
         ],
@@ -52,11 +52,11 @@ return [
     ],
 	'service_manager' => [
 			'factories' => [
-					'PerfilTable' => function($sm){
+					'UsuarioTable' => function($sm){
 						$adapter = $sm->get('Zend\Db\Adapter');
-						$tableGateway = new TableGateway('perfis', $adapter);
-						$perfilTable = new PerfilTable($tableGateway);
-						return $perfilTable;
+						$tableGateway = new TableGateway('usuarios', $adapter);
+						$usuarioTable = new UsuarioTable($tableGateway);
+						return $usuarioTable;
 					}
 			]
 	]	

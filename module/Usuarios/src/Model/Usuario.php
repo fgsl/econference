@@ -1,9 +1,10 @@
 <?php
-namespace Perfis\Model;
-class Perfil
+namespace Usuarios\Model;
+class Usuario
 {
 	public $codigo;
 	public $nome;
+	public $codigo_perfil;
 	
 	public function exchangeArray($array)
 	{
