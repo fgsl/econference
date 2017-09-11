@@ -280,3 +280,33 @@ ALTER TABLE `usuarios`
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
+CREATE TABLE `grade` (
+  `codigo` int(11) NOT NULL,
+  `codigo_trabalho` int(11) NOT NULL,
+  `data` date NOT NULL,
+  `horario` time NOT NULL,
+  `codigo_local` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Índices de tabelas apagadas
+--
+
+--
+-- Índices de tabela `grade`
+--
+ALTER TABLE `grade`
+  ADD PRIMARY KEY (`codigo`);
+
+--
+-- AUTO_INCREMENT de tabelas apagadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `grade`
+--
+ALTER TABLE `grade`
+  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -1,0 +1,13 @@
+<a href="<?=$this->url('usuarios',['action'=>'edit'])?>">Adicionar usuario</a>
+<table>
+<thead>
+<tr>
+<th>Código</th>
+<th>Nome</th>
+<th>Código_perfil</th>
+</tr>
+</thead>
+<tbody>
+<?=$this->partialLoop('usuarios.phtml',$this->usuarios)?>
+</tbody>
+</table>
