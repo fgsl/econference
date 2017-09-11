@@ -23,7 +23,7 @@ class IndexController extends AbstractActionController
     public function indexAction()
     {
     	$usuarios = $this->sm->get('UsuarioTable')->getAll();
-        return new ViewModel(['usuarios'=>$perfis]);
+        return new ViewModel(['usuarios'=>$usuarios]);
     }
     
     public function editAction()
@@ -33,8 +33,10 @@ class IndexController extends AbstractActionController
     		$usuario = new Usuario();
     	} else {    	
     		$usuario = $this->sm->get('UsuarioTable')->getOne($codigo);
+    		
     	}
-    	return new ViewModel(['usuario' => $usuario]);
+    	$perfis = $this->sm->get('PerfilTable')->getAll();
+    	return new ViewModel(['usuario' => $usuario,'perfis' => $perfis]);
     }
     
     public function saveAction()

@@ -14,9 +14,9 @@ class UsuarioTable
 	}
 	
 	public function save($model)
-	{
-		$set = $model->toArray();
-		
+	{	
+		$set = $model->toArray();		
+
 		if (empty($set['codigo'])){
 			unset($set['codigo']);
 			$this->tableGateway->insert($set);
