@@ -21,6 +21,7 @@ return [
 	'Permissoes',
 	'Perfis',
 	'Participantes',
-	'Locais',	
+	'Locais',
+	'Grades',	
     'Application',
     ];

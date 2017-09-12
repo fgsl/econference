@@ -1,0 +1,15 @@
+<a href="<?=$this->url('grades',['action'=>'edit'])?>">Adicionar grade</a>
+<table>
+<thead>
+<tr>
+<th>Código</th>
+<th>Código_trabalho</th>
+<th>Data</th>
+<th>Horário</th>
+<th>Código_local</th>
+</tr>
+</thead>
+<tbody>
+<?=$this->partialLoop('grades.phtml',$this->grades)?>
+</tbody>
+</table>

@@ -5,17 +5,17 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Usuarios;
+namespace Grades;
 
 use Zend\Router\Http\Segment;
 use Zend\ServiceManager\Factory\InvokableFactory;
 use Zend\Db\TableGateway\TableGateway;
-use Usuarios\Model\UsuarioTable;
+use Grades\Model\GradeTable;
 
 return [
     'router' => [
         'routes' => [
-            'usuarios' => [
+            'grades' => [
                 'type' => Segment::class,
                 'options' => [
                     'route'    => '/usuarios[/:action[/:codigo]]',
@@ -42,7 +42,7 @@ return [
         'exception_template'       => 'error/index',
         'template_map' => [
             'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
-            'usuarios/index/index' => __DIR__ . '/../view/usuarios/index/index.phtml',
+            'grades/index/index' => __DIR__ . '/../view/grades/index/index.phtml',
             'error/404'               => __DIR__ . '/../view/error/404.phtml',
             'error/index'             => __DIR__ . '/../view/error/index.phtml',
         ],
@@ -52,11 +52,11 @@ return [
     ],
 	'service_manager' => [
 			'factories' => [
-					'UsuarioTable' => function($sm){
+					'GradeTable' => function($sm){
 						$adapter = $sm->get('Zend\Db\Adapter');
-						$tableGateway = new TableGateway('usuarios', $adapter);
-						$usuarioTable = new UsuarioTable($tableGateway);
-						return $usuarioTable;
+						$tableGateway = new TableGateway('grades', $adapter);
+						$gradeTable = new GradeTable($tableGateway);
+						return $gradeTable;
 					}
 			]
 	]	

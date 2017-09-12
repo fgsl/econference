@@ -1,10 +1,10 @@
 <?php
-namespace Usuarios\Model;
+namespace Grades\Model;
 
 use Zend\Db\TableGateway\TableGatewayInterface;
 use Zend\Db\Sql\Where;
 use Zend\Db\Sql\Select;
-class UsuarioTable
+class GradeTable
 {
 	private $tableGateway;
 	
@@ -27,7 +27,7 @@ class UsuarioTable
 	
 	public function getAll($where = null)
 	{
-		$select = new Select('usuarios');
+		$select = new Select('grades');
 		$select->order('codigo');
 		if (!is_null($where)){
 			$select->where($where);
@@ -37,8 +37,8 @@ class UsuarioTable
 	
 	public function getOne($codigo)
 	{
-		$usuarios = $this->getAll(['codigo' => $codigo]);
-		return $usuarios->current();
+		$grades = $this->getAll(['codigo' => $codigo]);
+		return $grades->current();
 	}
 	
 	public function delete($codigo)

@@ -1,10 +1,12 @@
 <?php
-namespace Usuarios\Model;
-class Usuario
+namespace Grades\Model;
+class Grade
 {
 	public $codigo;
-	public $nome;
-	public $codigo_perfil;
+	public $codigo_trabalho;
+	public $data;
+	public $horario;
+	public $codigo_local;
 	
 	public function exchangeArray($array)
 	{

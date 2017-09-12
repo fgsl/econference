@@ -5,11 +5,11 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Usuarios\Controller;
+namespace Grades\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-use Usuarios\Model\Usuario;
+use Grades\Model\Grade;
 
 class IndexController extends AbstractActionController
 {
@@ -22,39 +22,42 @@ class IndexController extends AbstractActionController
 	
     public function indexAction()
     {
-    	$usuarios = $this->sm->get('UsuarioTable')->getAll();
-        return new ViewModel(['usuarios'=>$usuarios]);
+    	$grades = $this->sm->get('GradeTable')->getAll();
+        return new ViewModel(['grades'=>$grades]);
     }
     
     public function editAction()
     {
     	$codigo = $this->params('codigo');
     	if (is_null($codigo)){
-    		$usuario = new Usuario();
+    		$grade = new Grade();
     	} else {    	
-    		$usuario = $this->sm->get('UsuarioTable')->getOne($codigo);
+    		$grade = $this->sm->get('GradeTable')->getOne($codigo);
     		
     	}
-    	$perfis = $this->sm->get('PerfilTable')->getAll();
-    	return new ViewModel(['usuario' => $usuario,'perfis' => $perfis]);
+    	$trabalhos = $this->sm->get('TrabalhoTable')->getAll();
+    	$locais = $this->sm->get('LocalTable')->getAll();
+    	return new ViewModel(['grade' => $grade,'trabalhos' => $trabalhos,'locais' => $locais]);
     }
     
     public function saveAction()
     {
     	$codigo = $this->getRequest()->getPost('codigo');
-    	$nome = $this->getRequest()->getPost('nome');
-    	$codigo_perfil = $this->getRequest()->getPost('codigo_perfil');
-    	$usuario = new Usuario();
-    	$usuario->exchangeArray(['codigo'=>$codigo,'nome'=>$nome,'codigo_perfil'=>$codigo_perfil]);
-    	$this->sm->get('UsuarioTable')->save($usuario);
-    	return $this->redirect()->toRoute('usuarios');
+    	$codigo_trabalho = $this->getRequest()->getPost('codigo_trabalho');
+    	$data = $this->getRequest()->getPost('data');
+    	$horario = $this->getRequest()->getPost('horario');
+    	$codigo_local = $this->getRequest()->getPost('codigo_local');
+    	$grade = new Grade();
+    	$grade->exchangeArray(['codigo'=>$codigo,'codigo_trabalho'=>$codigo_trabalho,'data'=>$data,'horario'=>$horario,'codigo_local'=>$codigo_local]);
+    	$this->sm->get('GradeTable')->save($grade);
+    	return $this->redirect()->toRoute('grades');
     }
     
     public function deleteAction()
     {
     	$codigo = $this->params('codigo');
-    	$this->sm->get('UsuarioTable')->delete($codigo);
-    	return $this->redirect()->toRoute('usuarios');
+    	$this->sm->get('GradeTable')->delete($codigo);
+    	return $this->redirect()->toRoute('grades');
     	
     	
     }

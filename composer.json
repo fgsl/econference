@@ -29,7 +29,8 @@
             "Trabalhos\\" : "module/Trabalhos/src/",
             "Categorias\\" : "module/Categorias/src/",
             "Permissoes\\" : "module/Permissoes/src/",
-            "Usuarios\\" : "module/Usuarios/src/"
+            "Usuarios\\" : "module/Usuarios/src/",
+            "Grades\\" : "module/Grades/src/"
         }
     },
     "autoload-dev": {
