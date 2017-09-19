@@ -280,7 +280,7 @@ ALTER TABLE `usuarios`
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
-CREATE TABLE `grade` (
+CREATE TABLE `grades` (
   `codigo` int(11) NOT NULL,
   `codigo_trabalho` int(11) NOT NULL,
   `data` date NOT NULL,
@@ -293,9 +293,9 @@ CREATE TABLE `grade` (
 --
 
 --
--- Índices de tabela `grade`
+-- Índices de tabela `grades`
 --
-ALTER TABLE `grade`
+ALTER TABLE `grades`
   ADD PRIMARY KEY (`codigo`);
 
 --
@@ -303,9 +303,9 @@ ALTER TABLE `grade`
 --
 
 --
--- AUTO_INCREMENT de tabela `grade`
+-- AUTO_INCREMENT de tabela `grades`
 --
-ALTER TABLE `grade`
+ALTER TABLE `grades`
   MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

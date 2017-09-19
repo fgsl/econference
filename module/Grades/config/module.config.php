@@ -18,7 +18,7 @@ return [
             'grades' => [
                 'type' => Segment::class,
                 'options' => [
-                    'route'    => '/usuarios[/:action[/:codigo]]',
+                    'route'    => '/grades[/:action[/:codigo]]',
                     'defaults' => [
                         'controller' => Controller\IndexController::class,
                         'action'     => 'index',

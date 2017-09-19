@@ -10,6 +10,7 @@ namespace Grades\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Grades\Model\Grade;
+use Application\DatabaseHelper;
 
 class IndexController extends AbstractActionController
 {
@@ -36,8 +37,10 @@ class IndexController extends AbstractActionController
     		
     	}
     	$trabalhos = $this->sm->get('TrabalhoTable')->getAll();
+    	$this->sm->get('Zend\Db\Adapter')->closeConnection();
+    	$this->sm->get('Zend\Db\Adapter')->openConnection();
     	$locais = $this->sm->get('LocalTable')->getAll();
-    	return new ViewModel(['grade' => $grade,'trabalhos' => $trabalhos,'locais' => $locais]);
+    	return new ViewModel(['grade' => $grade,'trabalho' => $trabalho,'local' => $local]);
     }
     
     public function saveAction()
