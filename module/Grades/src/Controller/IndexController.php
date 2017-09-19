@@ -37,10 +37,10 @@ class IndexController extends AbstractActionController
     		
     	}
     	$trabalhos = $this->sm->get('TrabalhoTable')->getAll();
-    	$this->sm->get('Zend\Db\Adapter')->closeConnection();
-    	$this->sm->get('Zend\Db\Adapter')->openConnection();
+    	$this->sm->get('Zend\Db\Adapter')->getDriver()->getConnection()->disconnect();
+    	$this->sm->get('Zend\Db\Adapter')->getDriver()->getConnection()->connect();
     	$locais = $this->sm->get('LocalTable')->getAll();
-    	return new ViewModel(['grade' => $grade,'trabalho' => $trabalho,'local' => $local]);
+    	return new ViewModel(['grade' => $grade,'trabalhos' => $trabalhos,'locais' => $locais]);
     }
     
     public function saveAction()
