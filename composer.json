@@ -30,7 +30,8 @@
             "Categorias\\" : "module/Categorias/src/",
             "Permissoes\\" : "module/Permissoes/src/",
             "Usuarios\\" : "module/Usuarios/src/",
-            "Grades\\" : "module/Grades/src/"
+            "Grades\\" : "module/Grades/src/",
+            "Permissoes_perfil\\" : "module/Permissoes_perfil/src/"
         }
     },
     "autoload-dev": {

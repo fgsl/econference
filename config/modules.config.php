@@ -19,6 +19,7 @@ return [
     'Trabalhos',
     'Sediadoras',
 	'Permissoes',
+	'Permissoes_perfil',
 	'Perfis',
 	'Participantes',
 	'Locais',
