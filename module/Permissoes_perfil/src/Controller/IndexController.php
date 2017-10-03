@@ -5,11 +5,11 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Grades\Controller;
+namespace Permissoes_perfil\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-use Grades\Model\Grade;
+use Permissoes_perfil\Model\Permissao_perfil;
 use Application\DatabaseHelper;
 
 class IndexController extends AbstractActionController
@@ -23,44 +23,41 @@ class IndexController extends AbstractActionController
 	
     public function indexAction()
     {
-    	$grades = $this->sm->get('GradeTable')->getAll();
-        return new ViewModel(['grades'=>$grades]);
+    	$permissoes_perfil = $this->sm->get('Permissao_perfilTable')->getAll();
+        return new ViewModel(['permissoes_perfil'=>$permissoes_perfil]);
     }
     
     public function editAction()
     {
     	$codigo = $this->params('codigo');
     	if (is_null($codigo)){
-    		$grade = new Grade();
+    		$permissao_perfil = new Permissao_perfil();
     	} else {    	
-    		$grade = $this->sm->get('GradeTable')->getOne($codigo);
+    		$Permissao_perfil = $this->sm->get('Permissao_perfilTable')->getOne($codigo);
     		
     	}
-    	$trabalhos = $this->sm->get('TrabalhoTable')->getAll();
+    	$permissoes = $this->sm->get('PermissaoTable')->getAll();
     	$this->sm->get('Zend\Db\Adapter')->getDriver()->getConnection()->disconnect();
     	$this->sm->get('Zend\Db\Adapter')->getDriver()->getConnection()->connect();
-    	$locais = $this->sm->get('LocalTable')->getAll();
-    	return new ViewModel(['grade' => $grade,'trabalhos' => $trabalhos,'locais' => $locais]);
+    	$perfis = $this->sm->get('PerfilTable')->getAll();
+    	return new ViewModel(['permissoes_perfil' => $permissoes_perfil,'permissoes' => $permissoes,'perfis' => $perfis]);
     }
     
     public function saveAction()
     {
-    	$codigo = $this->getRequest()->getPost('codigo');
-    	$codigo_trabalho = $this->getRequest()->getPost('codigo_trabalho');
-    	$data = $this->getRequest()->getPost('data');
-    	$horario = $this->getRequest()->getPost('horario');
-    	$codigo_local = $this->getRequest()->getPost('codigo_local');
-    	$grade = new Grade();
-    	$grade->exchangeArray(['codigo'=>$codigo,'codigo_trabalho'=>$codigo_trabalho,'data'=>$data,'horario'=>$horario,'codigo_local'=>$codigo_local]);
-    	$this->sm->get('GradeTable')->save($grade);
-    	return $this->redirect()->toRoute('grades');
+    	$codigo_perfil = $this->getRequest()->getPost('codigo_perfil');
+    	$codigo_permissao = $this->getRequest()->getPost('codigo_permissao');
+    	$permissao_perfil = new Permissao_perfil();
+    	$permissao_perfil->exchangeArray(['codigo_perfil'=>$codigoperfil,'codigo_permissao'=>$codigo_permissao]);
+    	$this->sm->get('Permissao_perfilTable')->save($grade);
+    	return $this->redirect()->toRoute('permissoes_perfil');
     }
     
     public function deleteAction()
     {
     	$codigo = $this->params('codigo');
-    	$this->sm->get('GradeTable')->delete($codigo);
-    	return $this->redirect()->toRoute('grades');
+    	$this->sm->get('Permissao_perfilTable')->delete($codigo);
+    	return $this->redirect()->toRoute('permissoes_perfil');
     	
     	
     }

@@ -1,12 +1,9 @@
 <?php
-namespace Grades\Model;
-class Grade
+namespace Permissoes_perfil\Model;
+class Permissao_perfil
 {
-	public $codigo;
-	public $codigo_trabalho;
-	public $data;
-	public $horario;
-	public $codigo_local;
+	public $codigo_permissao;
+	public $codigo_perfil;
 	
 	public function exchangeArray($array)
 	{

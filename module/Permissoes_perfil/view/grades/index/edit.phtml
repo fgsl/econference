@@ -1,18 +1,12 @@
-<h1>Cadastro de Grades</h1>
-<form action="<?=$this->url('grades',['action'=>'save'])?>" method="post">
-Data :
-<input type="text" autofocus="autofocus" name="data" value="<?=$this->grade->data?>">
-<br/>
-Horario :
-<input type="text" autofocus="autofocus" name="horario" value="<?=$this->grade->horario?>">
-<br/>
-<select name="codigo_trabalho">
-<?=$this->partialLoop('trabalhos_grade.phtml',$this->trabalhos)?>
+<h1>Cadastro de Permissoes_perfil</h1>
+<form action="<?=$this->url('permissoes_perfil',['action'=>'save'])?>" method="post">
+<select name="codigo_perfil">
+<?=$this->partialLoop('perfis_permissao_perfil.phtml',$this->perfis)?>
 </select>
-<select name="codigo_local">
-<?=$this->partialLoop('locais_grade.phtml',$this->locais)?>
+<select name="codigo_permissao">
+<?=$this->partialLoop('permissoes_permissoes_perfil.phtml',$this->permissoes)?>
 </select>
 <input type="hidden" value="<?=$this->grade->codigo?>" name="codigo">
 <input type="submit" value="gravar">
 </form>
-<a href="<?=$this->url('grades')?>">Voltar</a>
+<a href="<?=$this->url('permissoes_perfil')?>">Voltar</a>

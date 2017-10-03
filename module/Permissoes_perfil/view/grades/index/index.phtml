@@ -1,15 +1,12 @@
-<a href="<?=$this->url('grades',['action'=>'edit'])?>">Adicionar grade</a>
+<a href="<?=$this->url('permissoes_perfil',['action'=>'edit'])?>">Adicionar permissao_perfil</a>
 <table>
 <thead>
 <tr>
-<th>Código</th>
-<th>Código_trabalho</th>
-<th>Data</th>
-<th>Horário</th>
-<th>Código_local</th>
+<th>Código_perfil</th>
+<th>Código_permissao</th>
 </tr>
 </thead>
 <tbody>
-<?=$this->partialLoop('grades.phtml',$this->grades)?>
+<?=$this->partialLoop('permissoes_perfil.phtml',$this->permissoes_perfil)?>
 </tbody>
 </table>

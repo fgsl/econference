@@ -5,20 +5,20 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Grades;
+namespace Permissoes_perfil;
 
 use Zend\Router\Http\Segment;
 use Zend\ServiceManager\Factory\InvokableFactory;
 use Zend\Db\TableGateway\TableGateway;
-use Grades\Model\GradeTable;
+use Permissoes_perfil\Model\Permissao_perfilTable;
 
 return [
     'router' => [
         'routes' => [
-            'grades' => [
+            'permissoes_perfil' => [
                 'type' => Segment::class,
                 'options' => [
-                    'route'    => '/grades[/:action[/:codigo]]',
+                    'route'    => '/permissoes_perfil[/:action[/:codigo]]',
                     'defaults' => [
                         'controller' => Controller\IndexController::class,
                         'action'     => 'index',
@@ -42,7 +42,7 @@ return [
         'exception_template'       => 'error/index',
         'template_map' => [
             'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
-            'grades/index/index' => __DIR__ . '/../view/grades/index/index.phtml',
+            'grades/index/index' => __DIR__ . '/../view/permissoes_perfil/index/index.phtml',
             'error/404'               => __DIR__ . '/../view/error/404.phtml',
             'error/index'             => __DIR__ . '/../view/error/index.phtml',
         ],
@@ -52,9 +52,9 @@ return [
     ],
 	'service_manager' => [
 			'factories' => [
-					'GradeTable' => function($sm){
+					'Permissao_perfilTable' => function($sm){
 						$adapter = $sm->get('Zend\Db\Adapter');
-						$tableGateway = new TableGateway('grades', $adapter);
+						$tableGateway = new TableGateway('permissoes_perfil', $adapter);
 						$gradeTable = new GradeTable($tableGateway);
 						return $gradeTable;
 					}
