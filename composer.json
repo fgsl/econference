@@ -31,7 +31,7 @@
             "Permissoes\\" : "module/Permissoes/src/",
             "Usuarios\\" : "module/Usuarios/src/",
             "Grades\\" : "module/Grades/src/",
-            "Permissoes_perfil\\" : "module/Permissoes_perfil/src/"
+            "PermissoesPerfil\\" : "module/PermissoesPerfil/src/"
         }
     },
     "autoload-dev": {

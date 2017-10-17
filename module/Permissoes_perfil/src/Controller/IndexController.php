@@ -5,11 +5,11 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Permissoes_perfil\Controller;
+namespace PermissoesPerfil\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-use Permissoes_perfil\Model\Permissao_perfil;
+use PermissoesPerfil\Model\PermissaoPerfil;
 use Application\DatabaseHelper;
 
 class IndexController extends AbstractActionController
@@ -23,41 +23,41 @@ class IndexController extends AbstractActionController
 	
     public function indexAction()
     {
-    	$permissoes_perfil = $this->sm->get('Permissao_perfilTable')->getAll();
-        return new ViewModel(['permissoes_perfil'=>$permissoes_perfil]);
+    	$permissoesperfil = $this->sm->get('PermissaoPerfilTable')->getAll();
+        return new ViewModel(['permissoesperfil'=>$permissoesperfil]);
     }
     
     public function editAction()
     {
     	$codigo = $this->params('codigo');
     	if (is_null($codigo)){
-    		$permissao_perfil = new Permissao_perfil();
+    		$permissaoperfil = new PermissaoPerfil();
     	} else {    	
-    		$Permissao_perfil = $this->sm->get('Permissao_perfilTable')->getOne($codigo);
+    		$PermissaoPerfil = $this->sm->get('PermissaoPerfilTable')->getOne($codigo);
     		
     	}
     	$permissoes = $this->sm->get('PermissaoTable')->getAll();
     	$this->sm->get('Zend\Db\Adapter')->getDriver()->getConnection()->disconnect();
     	$this->sm->get('Zend\Db\Adapter')->getDriver()->getConnection()->connect();
     	$perfis = $this->sm->get('PerfilTable')->getAll();
-    	return new ViewModel(['permissoes_perfil' => $permissoes_perfil,'permissoes' => $permissoes,'perfis' => $perfis]);
+    	return new ViewModel(['permissoesperfil' => $permissoesperfil,'permissoes' => $permissoes,'perfis' => $perfis]);
     }
     
     public function saveAction()
     {
     	$codigo_perfil = $this->getRequest()->getPost('codigo_perfil');
     	$codigo_permissao = $this->getRequest()->getPost('codigo_permissao');
-    	$permissao_perfil = new Permissao_perfil();
-    	$permissao_perfil->exchangeArray(['codigo_perfil'=>$codigoperfil,'codigo_permissao'=>$codigo_permissao]);
-    	$this->sm->get('Permissao_perfilTable')->save($grade);
-    	return $this->redirect()->toRoute('permissoes_perfil');
+    	$permissaoperfil = new PermissaoPerfil();
+    	$permissaoperfil->exchangeArray(['codigo_perfil'=>$codigo_perfil,'codigo_permissao'=>$codigo_permissao]);
+    	$this->sm->get('PermissaoPerfilTable')->save($grade);
+    	return $this->redirect()->toRoute('permissoesperfil');
     }
     
     public function deleteAction()
     {
     	$codigo = $this->params('codigo');
-    	$this->sm->get('Permissao_perfilTable')->delete($codigo);
-    	return $this->redirect()->toRoute('permissoes_perfil');
+    	$this->sm->get('PermissaoPerfilTable')->delete($codigo);
+    	return $this->redirect()->toRoute('permissoesperfil');
     	
     	
     }

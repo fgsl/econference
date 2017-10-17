@@ -1,10 +1,10 @@
 <?php
-namespace Permissoes_perfil\Model;
+namespace PermissoesPerfil\Model;
 
 use Zend\Db\TableGateway\TableGatewayInterface;
 use Zend\Db\Sql\Where;
 use Zend\Db\Sql\Select;
-class Permissao_perfilTable
+class PermissaoPerfilTable
 {
 	private $tableGateway;
 	
@@ -27,7 +27,7 @@ class Permissao_perfilTable
 	
 	public function getAll($where = null)
 	{
-		$select = new Select('Permissao_perfil');
+		$select = new Select('PermissaoPerfil');
 		$select->order('codigo');
 		if (!is_null($where)){
 			$select->where($where);

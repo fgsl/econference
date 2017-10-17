@@ -1,7 +1,7 @@
 <h1>Cadastro de Permissoes_perfil</h1>
 <form action="<?=$this->url('permissoes_perfil',['action'=>'save'])?>" method="post">
 <select name="codigo_perfil">
-<?=$this->partialLoop('perfis_permissao_perfil.phtml',$this->perfis)?>
+<?=$this->partialLoop('perfis_permissoes_perfil.phtml',$this->perfis)?>
 </select>
 <select name="codigo_permissao">
 <?=$this->partialLoop('permissoes_permissoes_perfil.phtml',$this->permissoes)?>

@@ -5,7 +5,7 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Permissoes_perfil;
+namespace PermissoesPerfil;
 
 class Module
 {
