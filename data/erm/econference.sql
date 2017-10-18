@@ -151,17 +151,9 @@ CREATE TABLE IF NOT EXISTS `grades` (
 -- Estrutura para tabela `permissoes_perfil`
 --
 
-CREATE TABLE `permissoes_perfil` (
+CREATE TABLE IF NOT EXISTS `permissoes_perfil` (
   `codigo_perfil` int(11) NOT NULL,
-  `codigo_permissao` int(11) NOT NULL
+  `codigo_permissao` int(11) NOT NULL,
+  PRIMARY KEY (`codigo_perfil`,`codigo_permissao`);
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Índices de tabelas apagadas
---
-
---
--- Índices de tabela `permissoes_perfil`
---
-ALTER TABLE `permissoes_perfil`
-  ADD PRIMARY KEY (`codigo_perfil`,`codigo_permissao`);
