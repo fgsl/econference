@@ -1,3 +1,4 @@
+.project
 .vagrant/
 vendor/
 config/development.config.php
