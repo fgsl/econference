@@ -91,19 +91,6 @@ CREATE TABLE IF NOT EXISTS `permissoes` (
   PRIMARY KEY (`codigo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `trabalhos`
---
-
-CREATE TABLE IF NOT EXISTS `trabalhos` (
-  `codigo` int(11) NOT NULL AUTO_INCREMENT,
-  `resumo` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
-  `categoria` tinyint(4) NOT NULL,
-  `tipo` tinyint(4) NOT NULL,
-  PRIMARY KEY (`codigo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -155,5 +142,18 @@ CREATE TABLE IF NOT EXISTS `permissoes_perfil` (
   `codigo_perfil` int(11) NOT NULL,
   `codigo_permissao` int(11) NOT NULL,
   PRIMARY KEY (`codigo_perfil`,`codigo_permissao`);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `trabalhos`
+--
+
+CREATE TABLE `trabalhos` (
+  `codigo` int(11) NOT NULL,
+  `resumo` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
+  `codigo_categoria` tinyint(4) NOT NULL,
+  `tipo` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 

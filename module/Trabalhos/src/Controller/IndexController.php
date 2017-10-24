@@ -37,7 +37,7 @@ class IndexController extends AbstractActionController
             $trabalho = $this->sm->get('TrabalhoTable')->getOne($codigo);
         }
         
-        $catagorias = $this->sm->get('CategoriaTable')->getAll();
+        $categorias = $this->sm->get('CategoriaTable')->getAll();
         return new ViewModel([
             'trabalho' => $trabalho,
             'categorias' => $categorias
