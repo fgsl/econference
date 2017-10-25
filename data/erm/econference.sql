@@ -169,3 +169,16 @@ CREATE TABLE `credenciamentos` (
   `credenciado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `edicoes`
+--
+
+CREATE TABLE `edicoes` (
+  `codigo` int(11) NOT NULL,
+  `edicao` tinyint(4) NOT NULL,
+  `codigo_sediadora` tinyint(4) NOT NULL,
+  `encerrada` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
