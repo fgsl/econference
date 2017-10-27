@@ -14,6 +14,27 @@ return [
         'constraints' => [
             PrimaryKey::class => 'codigo'
         ]        
+    ],
+    'credenciamentos' => [
+        'fields' => [
+            'codigo_participante' => [Integer::class,false,null],
+            'codigo_edicao'       => [Integer::class,false,null],            
+            'credenciado'         => [Integer::class,false,null],
+        ],
+        'constraints' => [
+            PrimaryKey::class => ['codigo_participante','codigo_edicao']
+        ]
+    ],
+    'edicoes' => [
+        'fields' => [
+            'codigo'                => [Integer::class,false,null,['AUTO_INCREMENT']],
+            'edicao'                => [Integer::class,false,null],
+            'codigo_sediadora'      => [Integer::class,false,null],                        
+            'encerrada'             => [Boolean::class,false,null],
+        ],
+        'constraints' => [
+            PrimaryKey::class => 'codigo'
+        ]
     ],    
     'grades' => [
         'fields' => [
