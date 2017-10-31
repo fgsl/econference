@@ -8,9 +8,6 @@
 namespace Permissoes;
 
 use Zend\Router\Http\Segment;
-use Zend\ServiceManager\Factory\InvokableFactory;
-use Zend\Db\TableGateway\TableGateway;
-use Permissoes\Model\PermissaoTable;
 
 return [
     'router' => [
@@ -29,9 +26,7 @@ return [
     ],
     'controllers' => [
         'factories' => [
-            Controller\IndexController::class => function($sm){
-            	return new Controller\IndexController($sm);
-            }
+            Controller\IndexController::class => 'Permissoes\Controller\IndexControllerFactory'
         ],
     ],
     'view_manager' => [
@@ -52,12 +47,7 @@ return [
     ],
 	'service_manager' => [
 			'factories' => [
-					'PermissaoTable' => function($sm){
-						$adapter = $sm->get('Zend\Db\Adapter');
-						$tableGateway = new TableGateway('permissoes', $adapter);
-						$permissaoTable = new PermissaoTable($tableGateway);
-						return $permissaoTable;
-					}
+					'PermissaoTable' => 'Permissoes\Model\PermissaoTableFactory'
 			]
 	]	
 ];
