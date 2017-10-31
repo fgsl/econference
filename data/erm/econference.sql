@@ -166,8 +166,19 @@ CREATE TABLE `trabalhos` (
 CREATE TABLE `credenciamentos` (
   `codigo_participante` int(11) NOT NULL,
   `codigo_edicao` tinyint(4) NOT NULL,
-  `credenciado` tinyint(1) NOT NULL
+  `credenciados` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Índices de tabelas apagadas
+--
+
+--
+-- Índices de tabela `credenciamentos`
+--
+ALTER TABLE `credenciamentos`
+  ADD PRIMARY KEY (`codigo_participante`,`codigo_edicao`);
+
 
 -- --------------------------------------------------------
 

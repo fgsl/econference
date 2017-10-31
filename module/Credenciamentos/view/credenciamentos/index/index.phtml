@@ -1,0 +1,12 @@
+<a href="<?=$this->url('credenciamentos',['action'=>'edit'])?>">Nome ou e-mail</a>
+<table>
+<thead>
+<tr>
+<th>Código </th>
+<th>nome</th>
+</tr>
+</thead>
+<tbody>
+<?=$this->partialLoop('credenciamentos.phtml',$this->credenciamentos)?>
+</tbody>
+</table>
