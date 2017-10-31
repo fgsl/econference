@@ -8,9 +8,6 @@
 namespace Perfis;
 
 use Zend\Router\Http\Segment;
-use Zend\ServiceManager\Factory\InvokableFactory;
-use Zend\Db\TableGateway\TableGateway;
-use Perfis\Model\PerfilTable;
 
 return [
     'router' => [
@@ -29,9 +26,7 @@ return [
     ],
     'controllers' => [
         'factories' => [
-            Controller\IndexController::class => function($sm){
-            	return new Controller\IndexController($sm);
-            }
+            Controller\IndexController::class => 'Perfis\Controller\IndexControllerFactory'
         ],
     ],
     'view_manager' => [
@@ -52,12 +47,7 @@ return [
     ],
 	'service_manager' => [
 			'factories' => [
-					'PerfilTable' => function($sm){
-						$adapter = $sm->get('Zend\Db\Adapter');
-						$tableGateway = new TableGateway('perfis', $adapter);
-						$perfilTable = new PerfilTable($tableGateway);
-						return $perfilTable;
-					}
+					'PerfilTable' => 'Perfis\Model\PerfilTableFactory'
 			]
 	]	
 ];

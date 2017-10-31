@@ -8,9 +8,6 @@
 namespace PermissoesPerfil;
 
 use Zend\Router\Http\Segment;
-use Zend\ServiceManager\Factory\InvokableFactory;
-use Zend\Db\TableGateway\TableGateway;
-use PermissoesPerfil\Model\PermissaoPerfilTable;
 
 return [
     'router' => [
@@ -29,9 +26,7 @@ return [
     ],
     'controllers' => [
         'factories' => [
-            Controller\IndexController::class => function($sm){
-            	return new Controller\IndexController($sm);
-            }
+            Controller\IndexController::class => 'PermissoesPerfil\Controller\IndexControllerFactory'
         ],
     ],
     'view_manager' => [
@@ -52,12 +47,7 @@ return [
     ],
 	'service_manager' => [
 			'factories' => [
-					'PermissaoPerfilTable' => function($sm){
-						$adapter = $sm->get('Zend\Db\Adapter');
-						$tableGateway = new TableGateway('permissoesperfil', $adapter);
-						$gradeTable = new GradeTable($tableGateway);
-						return $gradeTable;
-					}
+					'PermissaoPerfilTable' => 'PermissoesPerfil\Model\PermissaoPerfilTableFactory'
 			]
 	]	
 ];

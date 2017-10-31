@@ -7,12 +7,7 @@
 
 namespace Sediadoras;
 
-use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
-use Zend\ServiceManager\Factory\InvokableFactory;
-use Sediadoras\Model\SedeTable;
-use Sediadoras\Controller\IndexController;
-use Zend\Db\TableGateway\TableGateway;
 
 return [
     'router' => [
@@ -31,10 +26,7 @@ return [
     ],
     'controllers' => [
          'factories' => [
-              Controller\IndexController::class => function($sm){
-                  return new Controller\IndexController($sm);
-
-            }
+              Controller\IndexController::class => 'Sediadoras\Controller\IndexControllerFactory'
         ],
     ],
     'view_manager' => [
@@ -55,12 +47,7 @@ return [
     ],
         'service_manager' => [
                         'factories' => [
-                                        'SedeTable' => function($sm){
-                                                $adapter = $sm->get('Zend\Db\Adapter');
-                                                $tableGateway = new TableGateway('sediadoras', $adapter);                              
-                                                $sedeTable = new SedeTable($tableGateway);                                   
-                                                return $sedeTable;
-                                        }
+                                        'SedeTable' => 'Sediadoras\Model\SedeTableFactory'
                         ]
         ]
 
