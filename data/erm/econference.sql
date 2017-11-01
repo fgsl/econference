@@ -151,7 +151,7 @@ CREATE TABLE IF NOT EXISTS `permissoes_perfil` (
 --
 
 CREATE TABLE IF NOT EXISTS `trabalhos` (
-  `codigo` int(11) NOT NULL,
+  `codigo` int(11) NOT NULL AUTO_INCREMENT,
   `resumo` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
   `codigo_categoria` tinyint(4) NOT NULL,
   `tipo` tinyint(4) NOT NULL,
