@@ -7,12 +7,9 @@
 
 namespace Credenciamentos;
 
-use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
 use Zend\ServiceManager\Factory\InvokableFactory;
-use Credenciamentos\Model\CredenciadoTable;
 use Credenciamentos\Controller\IndexController;
-use Zend\Db\TableGateway\TableGateway;
 
 return [
     'router' => [
@@ -55,12 +52,7 @@ return [
     ],
         'service_manager' => [
                         'factories' => [
-                                        'CredenciadoTable' => function($sm){
-                                                $adapter = $sm->get('Zend\Db\Adapter');
-                                                $tableGateway = new TableGateway('credenciamentos', $adapter);                              
-                                                $credenciadoTable = new CredenciadoTable($tableGateway);                                   
-                                                return $credenciadoTable;
-                                        }
+                            'CredenciadoTable' => 'Credenciamentos\Model\CredenciadoTableFactory'
                         ]
         ]
 
