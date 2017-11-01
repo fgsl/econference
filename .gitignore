@@ -7,3 +7,4 @@ data/cache/*
 phpunit.xml
 .settings
 config/autoload/local.php
+data/logs/app.log
