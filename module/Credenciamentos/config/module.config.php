@@ -8,8 +8,6 @@
 namespace Credenciamentos;
 
 use Zend\Router\Http\Segment;
-use Zend\ServiceManager\Factory\InvokableFactory;
-use Credenciamentos\Controller\IndexController;
 
 return [
     'router' => [
@@ -28,10 +26,7 @@ return [
     ],
     'controllers' => [
          'factories' => [
-              Controller\IndexController::class => function($sm){
-                  return new Controller\IndexController($sm);
-
-            }
+              Controller\IndexController::class => 'Credenciamentos\Controller\IndexControllerFactory' 
         ],
     ],
     'view_manager' => [
