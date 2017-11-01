@@ -1,12 +1,11 @@
-<a href="<?=$this->url('credenciamentos',['action'=>'edit'])?>">Nome ou e-mail</a>
-<table>
-<thead>
-<tr>
-<th>Código </th>
-<th>nome</th>
-</tr>
-</thead>
+<h1>Nome ou e-mail</h1>
+<form action="<?=$this->url('credenciamentos',['action'=>'save'])?>" method="post">
+<input type="text" autofocus="autofocus" name="nome" value="<?=$this->credenciado->nome?>">
+<br>
+<input type="hidden" value="<?=$this->credenciado->codigo?>" name="codigo">
+<input type="submit" value="gravar">
+</form>
 <tbody>
 <?=$this->partialLoop('credenciamentos.phtml',$this->credenciamentos)?>
 </tbody>
-</table>
+
