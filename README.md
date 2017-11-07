@@ -47,16 +47,22 @@ $ composer install
 
 A configuração global do banco de dados está no arquivo config/autoload/global.php. O nome padrão do banco é econference, mas você pode alterá-lo, assim como o driver de banco de dados. As opções de drivers são: 
 
-*IbmDb2
-*Mysqli
-*Oci8
-*Pgsql
-*Sqlsrv
-*Pdo_Mysql
-*Pdo_Sqlite
-*Pdo_Pgsql 
+* IbmDb2
+* Mysqli
+* Oci8
+* Pgsql
+* Mqlsrv
+* Pdo_Mysql
+* Pdo_Sqlite
+* Pdo_Pgsql 
 
 O driver selecionado precisa estar instalado para que a aplicação funcione. Para informações sobre driver de banco de dados para PHP, consulte a documentação [aqui] (http://php.net/manual/pt_BR/refs.database.php).
+
+Para sistemas baseados em Debian, a instalação dos drivers pode ser feita com o aplicativo apt-get. O exemplo a seguir mostra como instalar o driver para MySQL no Debian 9. Consulte a documentação do seu sistema operacional para saber qual o nome dos pacotes com os drivers.
+
+```bash
+sudo apt-get install php-mysql
+```
 
 Você precisa criar a configuração local da aplicação. Crie no diretório config/autoload o arquivo local.php com o seguinte conteúdo:
 
@@ -82,7 +88,7 @@ Após criar o banco de dados, você pode usar um cliente de MySQL para executar 
 * No terminal (supondo que você esteja no diretório econference):
 
 ```bash
-mysql [nome do banco de dados] < data/erm/econference.sql
+mysql -u [usuário] -p [nome do banco de dados] < data/erm/econference.sql
 ```
 
 * Pelo phpmyadmin:
@@ -96,6 +102,8 @@ mysql [nome do banco de dados] < data/erm/econference.sql
 4) Clique em Executar
 
 #### Para qualquer banco
+
+**IMPORTANTE**: O script a seguir NÃO FUNCIONARÁ se o driver PHP do seu banco de dados não estiver instalado. Veja a seção sobre configuração do banco de dados.
 
 Execute o script createdatabase.php a partir do diretório raiz:
 
