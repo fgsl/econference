@@ -1,8 +1,6 @@
 <?php
 
 use Zend\Db\Sql\Ddl\CreateTable;
-use Zend\Db\Sql\Ddl\Column\Integer;
-use Zend\Db\Sql\Ddl\Column\Varchar;
 use Zend\Db\Adapter\Adapter;
 use Zend\Db\Sql\Sql;
 chdir(dirname(__DIR__));
