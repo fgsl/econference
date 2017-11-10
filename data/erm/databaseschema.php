@@ -9,7 +9,7 @@ use Zend\Db\Sql\Ddl\Column\Time;
 return [
     'categorias' => [
         'fields' => [
-            'codigo'    => [Integer::class,false,null,['AUTO_INCREMENT']],
+            'codigo'    => [Integer::class,false,null,['AUTO_INCREMENT' => 'AUTO_INCREMENT']],
             'nome'      => [Varchar::class,30,false,null],
         ],
         'constraints' => [
@@ -28,7 +28,7 @@ return [
     ],
     'edicoes' => [
         'fields' => [
-            'codigo'                => [Integer::class,false,null,['AUTO_INCREMENT']],
+            'codigo'                => [Integer::class,false,null,['AUTO_INCREMENT' => 'AUTO_INCREMENT']],
             'edicao'                => [Integer::class,false,null],
             'codigo_sediadora'      => [Integer::class,false,null],                        
             'encerrada'             => [Boolean::class,false,null],
@@ -39,7 +39,7 @@ return [
     ],    
     'grades' => [
         'fields' => [
-            'codigo'            => [Integer::class,false,null,['AUTO_INCREMENT']],
+            'codigo'            => [Integer::class,false,null,['AUTO_INCREMENT' => 'AUTO_INCREMENT']],
             'codigo_trabalho'   => [Integer::class,false,null],            
             'data'              => [Date::class,false,null],
             'horario'           => [Time::class,false,null],
@@ -51,7 +51,7 @@ return [
     ],
     'locais' => [
         'fields' => [
-            'codigo'    => [Integer::class,false,null,['AUTO_INCREMENT']],
+            'codigo'    => [Integer::class,false,null,['AUTO_INCREMENT' => 'AUTO_INCREMENT']],
             'nome'      => [Varchar::class,30,false,null],
         ],
         'constraints' => [
@@ -60,7 +60,7 @@ return [
     ],
     'participantes' => [
         'fields' => [
-            'codigo'        => [Integer::class,false,null,['AUTO_INCREMENT']],
+            'codigo'        => [Integer::class,false,null,['AUTO_INCREMENT' => 'AUTO_INCREMENT']],
             'usuario'       => [Varchar::class,20,false,null],
             'email'         => [Varchar::class,80,false,null],
             'nome'          => [Varchar::class,80,false,null],
@@ -76,7 +76,7 @@ return [
     ],
     'perfis' => [
         'fields' => [
-            'codigo'    => [Integer::class,false,null,['AUTO_INCREMENT']],
+            'codigo'    => [Integer::class,false,null,['AUTO_INCREMENT' => 'AUTO_INCREMENT']],
             'nome'      => [Varchar::class,30,false,null],
         ],
         'constraints' => [
@@ -85,7 +85,7 @@ return [
     ],
     'permissoes' => [
         'fields' => [
-            'codigo'    => [Integer::class,false,null,['AUTO_INCREMENT']],
+            'codigo'    => [Integer::class,false,null,['AUTO_INCREMENT' => 'AUTO_INCREMENT']],
             'nome'      => [Varchar::class,30,false,null],
         ],
         'constraints' => [
@@ -103,7 +103,7 @@ return [
     ],
     'sediadoras' => [
         'fields' => [
-            'codigo'    => [Integer::class,false,null,['AUTO_INCREMENT']],
+            'codigo'    => [Integer::class,false,null,['AUTO_INCREMENT' => 'AUTO_INCREMENT']],
             'nome'      => [Varchar::class,30,false,null],
         ],
         'constraints' => [
@@ -112,7 +112,7 @@ return [
     ],
     'trabalhos' => [
         'fields' => [
-            'codigo'        => [Integer::class,false,null,['AUTO_INCREMENT']],
+            'codigo'        => [Integer::class,false,null,['AUTO_INCREMENT' => 'AUTO_INCREMENT']],
             'nome'          => [Varchar::class,30,false,null],
             'categoria'     => [Integer::class,false,null],
             'tipo'          => [Integer::class,false,null],                        
@@ -123,7 +123,7 @@ return [
     ],
     'usuarios' => [
         'fields' => [
-            'codigo'            => [Integer::class,false,null,['AUTO_INCREMENT']],
+            'codigo'            => [Integer::class,false,null,['AUTO_INCREMENT' => 'AUTO_INCREMENT']],
             'nome'              => [Varchar::class,30,false,null],
             'codigo_perfil'     => [Integer::class,false,null],            
         ],
