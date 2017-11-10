@@ -56,7 +56,7 @@ A configuração global do banco de dados está no arquivo config/autoload/globa
 * Pdo_Sqlite
 * Pdo_Pgsql 
 
-O driver selecionado precisa estar instalado para que a aplicação funcione. Para informações sobre driver de banco de dados para PHP, consulte a documentação [aqui] (http://php.net/manual/pt_BR/refs.database.php).
+O driver selecionado precisa estar instalado para que a aplicação funcione. Para informações sobre driver de banco de dados para PHP, consulte a documentação [aqui](http://php.net/manual/pt_BR/refs.database.php).
 
 Para sistemas baseados em Debian, a instalação dos drivers pode ser feita com o aplicativo apt-get. O exemplo a seguir mostra como instalar o driver para MySQL no Debian 9. Consulte a documentação do seu sistema operacional para saber qual o nome dos pacotes com os drivers.
 
@@ -124,4 +124,23 @@ $ composer run --timeout 0 serve
 ```
 
 Rodando diretamente pelo PHP é possível ver as mensagens de log pelo terminal.
+
+
+## Orientações para contribuição
+
+Sempre que modificar algo no projeto, execute os testes automatizados, para verificar se algo não foi "quebrado" durante a mudança.
+
+No terminal, na pasta raiz do projeto, execute a instância interna do phpunit assim:
+
+```bash
+vendor\bin\phpunit
+```
+
+Quando criar novas classes, adicionar ou modificar métodos existentes, crie um teste no respectivo módulo. Os testes automatizados devem ser criados na pasta test do módulo. Cada módulo novo deve ser incluído no arquivo phpunit.xml, para que seus testes sejam executados pelo comando acima.
+
+Os testes automatizados no projeto eConference são feitos de acordo com os padrões xUnit implementados pelo PHPUnit. Para saber mais sobre o PHPUnit, leia a documentação [aqui](https://phpunit.de/manual/current/pt_br/phpunit-book.html)
+
+NUNCA submeta código enquanto um teste estiver falhando.
+
+
 

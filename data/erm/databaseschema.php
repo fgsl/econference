@@ -1,6 +1,7 @@
 <?php
 use Zend\Db\Sql\Ddl\Column\Integer;
 use Zend\Db\Sql\Ddl\Column\Varchar;
+use Zend\Db\Sql\Ddl\Column\Boolean;
 use Zend\Db\Sql\Ddl\Constraint\PrimaryKey;
 use Zend\Db\Sql\Ddl\Column\Date;
 use Zend\Db\Sql\Ddl\Column\Time;
