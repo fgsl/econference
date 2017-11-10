@@ -21,8 +21,8 @@ class IndexControllerTest extends AbstractHttpControllerTestCase
         // etc.
         $configOverrides = [];
 
-        $this->setLocaisConfig(ArrayUtils::merge(
-            include __DIR__ . '/../../../../config/Locais.config.php',
+        $this->setApplicationConfig(ArrayUtils::merge(
+            include __DIR__ . '/../../../../config/application.config.php',
             $configOverrides
         ));
 
@@ -31,12 +31,12 @@ class IndexControllerTest extends AbstractHttpControllerTestCase
 
     public function testIndexActionCanBeAccessed()
     {
-        $this->dispatch('/', 'GET');
+        $this->dispatch('/locais', 'GET');
         $this->assertResponseStatusCode(200);
         $this->assertModuleName('Locais');
         $this->assertControllerName(IndexController::class); // as specified in router's controller name alias
         $this->assertControllerClass('IndexController');
-        $this->assertMatchedRouteName('home');
+        $this->assertMatchedRouteName('locais');
     }
 
     public function testIndexActionViewModelTemplateRenderedWithinLayout()

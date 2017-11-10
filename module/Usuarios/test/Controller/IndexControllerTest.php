@@ -21,8 +21,8 @@ class IndexControllerTest extends AbstractHttpControllerTestCase
         // etc.
         $configOverrides = [];
 
-        $this->setUsuariosConfig(ArrayUtils::merge(
-            include __DIR__ . '/../../../../config/Usuarios.config.php',
+        $this->setApplicationConfig(ArrayUtils::merge(
+            include __DIR__ . '/../../../../config/application.config.php',
             $configOverrides
         ));
 
@@ -31,12 +31,12 @@ class IndexControllerTest extends AbstractHttpControllerTestCase
 
     public function testIndexActionCanBeAccessed()
     {
-        $this->dispatch('/', 'GET');
+        $this->dispatch('/usuarios', 'GET');
         $this->assertResponseStatusCode(200);
         $this->assertModuleName('Usuarios');
         $this->assertControllerName(IndexController::class); // as specified in router's controller name alias
         $this->assertControllerClass('IndexController');
-        $this->assertMatchedRouteName('home');
+        $this->assertMatchedRouteName('usuarios');
     }
 
     public function testIndexActionViewModelTemplateRenderedWithinLayout()

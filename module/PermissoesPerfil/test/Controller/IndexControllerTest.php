@@ -21,8 +21,8 @@ class IndexControllerTest extends AbstractHttpControllerTestCase
         // etc.
         $configOverrides = [];
 
-        $this->setPermissoesPerfilConfig(ArrayUtils::merge(
-            include __DIR__ . '/../../../../config/PermissoesPerfil.config.php',
+        $this->setApplicationConfig(ArrayUtils::merge(
+            include __DIR__ . '/../../../../config/application.config.php',
             $configOverrides
         ));
 
@@ -31,12 +31,12 @@ class IndexControllerTest extends AbstractHttpControllerTestCase
 
     public function testIndexActionCanBeAccessed()
     {
-        $this->dispatch('/', 'GET');
+        $this->dispatch('/permissoesperfil', 'GET');
         $this->assertResponseStatusCode(200);
         $this->assertModuleName('PermissoesPerfil');
         $this->assertControllerName(IndexController::class); // as specified in router's controller name alias
         $this->assertControllerClass('IndexController');
-        $this->assertMatchedRouteName('home');
+        $this->assertMatchedRouteName('permissoesperfil');
     }
 
     public function testIndexActionViewModelTemplateRenderedWithinLayout()
