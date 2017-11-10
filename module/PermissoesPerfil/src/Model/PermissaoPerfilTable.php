@@ -27,8 +27,8 @@ class PermissaoPerfilTable
 	
 	public function getAll($where = null)
 	{
-		$select = new Select('PermissaoPerfil');
-		$select->order('codigo');
+		$select = new Select('permissoes_perfil');
+		$select->order('codigo_perfil');
 		if (!is_null($where)){
 			$select->where($where);
 		}

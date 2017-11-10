@@ -1,5 +1,5 @@
 <h1>Cadastro de Permissoes_perfil</h1>
-<form action="<?=$this->url('permissoes_perfil',['action'=>'save'])?>" method="post">
+<form action="<?=$this->url('permissoesperfil',['action'=>'save'])?>" method="post">
 <select name="codigo_perfil">
 <?=$this->partialLoop('perfis_permissoes_perfil.phtml',$this->perfis)?>
 </select>
@@ -9,4 +9,4 @@
 <input type="hidden" value="<?=$this->grade->codigo?>" name="codigo">
 <input type="submit" value="gravar">
 </form>
-<a href="<?=$this->url('permissoes_perfil')?>">Voltar</a>
+<a href="<?=$this->url('permissoesperfil')?>">Voltar</a>

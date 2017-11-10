@@ -8,7 +8,7 @@ namespace Credenciamentos\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-use Credenciamentos\Model\Credenciado;
+use Credenciamentos\Model\Credenciados;
 
 class IndexController extends AbstractActionController
 {
@@ -22,9 +22,9 @@ class IndexController extends AbstractActionController
 
     public function indexAction()
     {
-        $credenciamentos = $this->sm->get('CredenciadoTable')->getAll();
+        $credenciados = $this->sm->get('CredenciadoTable')->getAll();
         return new ViewModel([
-            'credenciamentos' => $credenciamentos
+            'credenciados' => $credenciados
         ]);
     }
 
