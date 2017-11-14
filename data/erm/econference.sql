@@ -91,19 +91,6 @@ CREATE TABLE IF NOT EXISTS `permissoes` (
   PRIMARY KEY (`codigo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `trabalhos`
---
-
-CREATE TABLE IF NOT EXISTS `trabalhos` (
-  `codigo` int(11) NOT NULL AUTO_INCREMENT,
-  `resumo` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
-  `categoria` tinyint(4) NOT NULL,
-  `tipo` tinyint(4) NOT NULL,
-  PRIMARY KEY (`codigo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -151,17 +138,49 @@ CREATE TABLE IF NOT EXISTS `grades` (
 -- Estrutura para tabela `permissoes_perfil`
 --
 
-CREATE TABLE `permissoes_perfil` (
+CREATE TABLE IF NOT EXISTS `permissoes_perfil` (
   `codigo_perfil` int(11) NOT NULL,
-  `codigo_permissao` int(11) NOT NULL
+  `codigo_permissao` int(11) NOT NULL,
+  PRIMARY KEY (`codigo_perfil`,`codigo_permissao`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Índices de tabelas apagadas
---
+-- --------------------------------------------------------
 
 --
--- Índices de tabela `permissoes_perfil`
+-- Estrutura para tabela `trabalhos`
 --
-ALTER TABLE `permissoes_perfil`
-  ADD PRIMARY KEY (`codigo_perfil`,`codigo_permissao`);
+
+CREATE TABLE IF NOT EXISTS `trabalhos` (
+  `codigo` int(11) NOT NULL AUTO_INCREMENT,
+  `resumo` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
+  `codigo_categoria` tinyint(4) NOT NULL,
+  `tipo` tinyint(4) NOT NULL,
+  PRIMARY KEY (`codigo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `credenciamentos`
+--
+
+CREATE TABLE `credenciamentos` (
+  `codigo_participante` int(11) NOT NULL,
+  `codigo_edicao` tinyint(4) NOT NULL,
+  `credenciados` tinyint(1) NOT NULL,
+  PRIMARY KEY (`codigo_participante`,`codigo_edicao`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `edicoes`
+--
+
+CREATE TABLE IF NOT EXISTS `edicoes` (
+  `codigo` int(11) NOT NULL AUTO_INCREMENT,
+  `edicao` tinyint(4) NOT NULL,
+  `codigo_sediadora` tinyint(4) NOT NULL,
+  `encerrada` tinyint(1) NOT NULL,
+  PRIMARY KEY (`codigo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

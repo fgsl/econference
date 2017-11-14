@@ -8,9 +8,6 @@
 namespace Grades;
 
 use Zend\Router\Http\Segment;
-use Zend\ServiceManager\Factory\InvokableFactory;
-use Zend\Db\TableGateway\TableGateway;
-use Grades\Model\GradeTable;
 
 return [
     'router' => [
@@ -29,9 +26,7 @@ return [
     ],
     'controllers' => [
         'factories' => [
-            Controller\IndexController::class => function($sm){
-            	return new Controller\IndexController($sm);
-            }
+            Controller\IndexController::class => 'Grades\Controller\IndexControllerFactory'
         ],
     ],
     'view_manager' => [
@@ -52,12 +47,7 @@ return [
     ],
 	'service_manager' => [
 			'factories' => [
-					'GradeTable' => function($sm){
-						$adapter = $sm->get('Zend\Db\Adapter');
-						$tableGateway = new TableGateway('grades', $adapter);
-						$gradeTable = new GradeTable($tableGateway);
-						return $gradeTable;
-					}
+					'GradeTable' => 'Grades\Model\GradeTableFactory'
 			]
 	]	
 ];

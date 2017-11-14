@@ -4,8 +4,8 @@ class Trabalho
 {
 	public $codigo;
 	public $resumo;
-	public $categoria;
 	public $tipo;
+	public $codigo_categoria;
 	
 	public function exchangeArray($array)
 	{

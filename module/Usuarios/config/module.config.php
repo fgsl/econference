@@ -8,9 +8,6 @@
 namespace Usuarios;
 
 use Zend\Router\Http\Segment;
-use Zend\ServiceManager\Factory\InvokableFactory;
-use Zend\Db\TableGateway\TableGateway;
-use Usuarios\Model\UsuarioTable;
 
 return [
     'router' => [
@@ -29,10 +26,8 @@ return [
     ],
     'controllers' => [
         'factories' => [
-            Controller\IndexController::class => function($sm){
-            	return new Controller\IndexController($sm);
-            }
-        ],
+            Controller\IndexController::class => 'Usuarios\Controller\IndexControllerFactory'
+        ]
     ],
     'view_manager' => [
         'display_not_found_reason' => true,
@@ -52,12 +47,7 @@ return [
     ],
 	'service_manager' => [
 			'factories' => [
-					'UsuarioTable' => function($sm){
-						$adapter = $sm->get('Zend\Db\Adapter');
-						$tableGateway = new TableGateway('usuarios', $adapter);
-						$usuarioTable = new UsuarioTable($tableGateway);
-						return $usuarioTable;
-					}
+					'UsuarioTable' => 'Usuarios\Model\UsuarioTableFactory'
 			]
 	]	
 ];

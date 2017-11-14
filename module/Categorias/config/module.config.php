@@ -7,12 +7,7 @@
 
 namespace Categorias;
 
-use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
-use Zend\ServiceManager\Factory\InvokableFactory;
-use Categorias\Model\CategoriaTable;
-use Categorias\Controller\IndexController;
-use Zend\Db\TableGateway\TableGateway;
 
 return [
     'router' => [
@@ -31,11 +26,8 @@ return [
     ],
     'controllers' => [
          'factories' => [
-              Controller\IndexController::class => function($sm){
-                  return new Controller\IndexController($sm);
-
-            }
-        ],
+              Controller\IndexController::class => 'Categorias\Controller\IndexControllerFactory'
+         ],
     ],
     'view_manager' => [
         'display_not_found_reason' => true,
@@ -55,12 +47,7 @@ return [
     ],
         'service_manager' => [
                         'factories' => [
-                                        'CategoriaTable' => function($sm){
-                                                $adapter = $sm->get('Zend\Db\Adapter');
-                                                $tableGateway = new TableGateway('categorias', $adapter);                              
-                                                $categoriaTable = new CategoriaTable($tableGateway);                                   
-                                                return $categoriaTable;
-                                        }
+                            'CategoriaTable' => 'Categorias\Model\CategoriaTableFactory'
                         ]
         ]
 

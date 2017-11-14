@@ -36,8 +36,11 @@ class IndexController extends AbstractActionController
         } else {
             $trabalho = $this->sm->get('TrabalhoTable')->getOne($codigo);
         }
+        
+        $categorias = $this->sm->get('CategoriaTable')->getAll();
         return new ViewModel([
-            'trabalho' => $trabalho
+            'trabalho' => $trabalho,
+            'categorias' => $categorias
         ]);
     }
 
@@ -45,14 +48,15 @@ class IndexController extends AbstractActionController
     {
         $codigo = $this->getRequest()->getPost('codigo');
         $resumo = $this->getRequest()->getPost('resumo');
-        $categoria = $this->getRequest()->getPost('categoria');
         $tipo = $this->getRequest()->getPost('tipo');
+        $codigo_categoria = $this->getRequest()->getPost('codigo_categoria');
         $trabalho = new Trabalho();
         $trabalho->exchangeArray([
             'codigo' => $codigo,
             'resumo' => $resumo,
-            'categoria' => $categoria,
-            'tipo' => $tipo
+            'tipo' => $tipo,
+            'codigo_categoria'=>$codigo_categoria
+       
         ]);
         $this->sm->get('TrabalhoTable')->save($trabalho);
         return $this->redirect()->toRoute('trabalhos');

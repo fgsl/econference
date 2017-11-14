@@ -1,3 +1,4 @@
+.project
 .vagrant/
 vendor/
 config/development.config.php
@@ -6,3 +7,6 @@ data/cache/*
 phpunit.xml
 .settings
 config/autoload/local.php
+data/logs/*
+.phpunit.xml.swo
+.phpunit.xml.swp

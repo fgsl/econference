@@ -1,0 +1,11 @@
+<h1>Nome ou e-mail</h1>
+<form action="<?=$this->url('credenciamentos',['action'=>'save'])?>" method="post">
+<input type="text" autofocus="autofocus" name="nome" >
+<br>
+<input type="hidden" name="codigo">
+<input type="submit" value="gravar">
+</form>
+<tbody>
+<?=$this->partialLoop('credenciamentos.phtml',$this->credenciados)?>
+</tbody>
+

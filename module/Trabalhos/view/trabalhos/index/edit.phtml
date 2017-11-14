@@ -1,15 +1,21 @@
 <h1>Trabalhos</h1>
 <form action="<?=$this->url('trabalhos',['action'=>'save'])?>" method="post">
-Resumo :
-<input type="text" autofocus="autofocus" name="resumo" value="<?=$this->trabalho->resumo?>">
-<br>
-Categoria :
-<input type="text" name="categoria" value="<?=$this->trabalho->categoria?>">
+Resumo :<br/>
+<textarea name="resumo" cols="60" rows="10" autofocus="autofocus">
+<?=$this->trabalho->resumo?>
+</textarea>
 <br>
 Tipo :
-<input type="text" name="tipo" value="<?=$this->trabalho->tipo?>">
+<select name="tipo">
+<option value="1" <?=($this->trabalho->tipo == 1 ? 'selected' : '')?>>Palestra</option>
+<option value="2" <?=($this->trabalho->tipo == 2 ? 'selected' : '')?>>Minicurso</option>
+</select>
 <br/>
-<input type="hidden" value="<?=$this->trabalho->codigo?>" name="codigo">
+Categoria:
+<select name="codigo_categoria">
+<?=$this->partialLoop('categorias_trabalho.phtml',$this->categorias)?>
+</select>
+<input type="hidden" value="<?=$this->trabalho->codigo?>" name="codigo"><br/>
 <input type="submit" value="gravar">
 </form>
 <a href="<?=$this->url('trabalhos')?>">Voltar</a>

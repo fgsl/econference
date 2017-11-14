@@ -8,9 +8,6 @@
 namespace Participantes;
 
 use Zend\Router\Http\Segment;
-use Zend\ServiceManager\Factory\InvokableFactory;
-use Zend\Db\TableGateway\TableGateway;
-use Participantes\Model\ParticipanteTable;
 
 return [
     'router' => [
@@ -29,9 +26,7 @@ return [
     ],
     'controllers' => [
         'factories' => [
-            Controller\IndexController::class => function($sm){
-            	return new Controller\IndexController($sm);
-            }
+            Controller\IndexController::class => 'Participantes\Controller\IndexControllerFactory'
         ],
     ],
     'view_manager' => [
@@ -52,12 +47,7 @@ return [
     ],
 	'service_manager' => [
 			'factories' => [
-					'ParticipanteTable' => function($sm){
-						$adapter = $sm->get('Zend\Db\Adapter');
-						$tableGateway = new TableGateway('participantes', $adapter);
-						$participanteTable = new ParticipanteTable($tableGateway);
-						return $participanteTable;
-					}
+					'ParticipanteTable' => 'Participantes\Model\ParticipanteTableFactory'
 			]
 	]	
 ];

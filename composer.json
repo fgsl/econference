@@ -17,6 +17,7 @@
         "zendframework/zend-db": "^2.8.2",
         "zendframework/zend-log": "^2.9.2",
         "zendframework/zend-mvc": "^3.0.1",
+        "zendframework/zend-test": "^3.1.1",
         "zfcampus/zf-development-mode": "^3.0"
     },
     "autoload": {
@@ -31,7 +32,8 @@
             "Permissoes\\" : "module/Permissoes/src/",
             "Usuarios\\" : "module/Usuarios/src/",
             "Grades\\" : "module/Grades/src/",
-            "PermissoesPerfil\\" : "module/PermissoesPerfil/src/"
+            "PermissoesPerfil\\" : "module/PermissoesPerfil/src/",
+            "Credenciamentos\\" : "module/Credenciamentos/src/"
         }
     },
     "autoload-dev": {
