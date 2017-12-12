@@ -36,7 +36,8 @@
             "Usuarios\\" : "module/Usuarios/src/",
             "Grades\\" : "module/Grades/src/",
             "PermissoesPerfil\\" : "module/PermissoesPerfil/src/",
-            "Credenciamentos\\" : "module/Credenciamentos/src/"
+            "Credenciamentos\\" : "module/Credenciamentos/src/",
+            "Mock\\" : "module/Mock/src/"
         }
     },
     "autoload-dev": {

@@ -13,6 +13,7 @@
 return [
     'Zend\Router',
     'Zend\Validator',
+    'Mock',
 	'Categorias',
 	'Usuarios',
     'Trabalhos',
@@ -23,6 +24,6 @@ return [
 	'Participantes',
 	'Locais',
 	'Grades',
-    'Credenciamentos',    	
+    'Credenciamentos',
     'Application',
     ];

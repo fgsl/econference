@@ -9,6 +9,7 @@ namespace Application\Controller;
 use Interop\Container\ContainerInterface;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
+use Zend\Mvc\Controller\AbstractController;
 
 abstract class AbstractControllerFactory implements FactoryInterface
 {
@@ -31,10 +32,10 @@ abstract class AbstractControllerFactory implements FactoryInterface
     }
 
     /**
-     * Create table gateway adapter service (v2)
+     * Create controller service (v2)
      *
      * @param ServiceLocatorInterface $container
-     * @return Adapter
+     * @return AbstractController
      */
     public function createService(ServiceLocatorInterface $container)
     {
