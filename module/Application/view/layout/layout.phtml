@@ -1,5 +1,7 @@
-<?= $this->doctype() ?>
-
+<?php
+use Zend\Authentication\AuthenticationService;
+?>
+<?=$this->doctype()?>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -35,17 +37,22 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
+<?php
+$authenticationService = new AuthenticationService();
+if ($authenticationService->hasIdentity()):
+?>
+                        <li class="active">Usuário: <?=$authenticationService->getIdentity()?>"></li>
                         <li class="active"><a href="<?= $this->url('home') ?>">Home</a></li>
-                        <li class="active"><a href="<?= $this->url('locais') ?>">Locais</a></li>
-                        <li class="active"><a href="<?= $this->url('sediadoras')?>">Sediadoras</a></li>
-                        <li class="active"><a href="<?= $this->url('participantes') ?>">Participantes</a></li>
-                        <li class="active"><a href="<?= $this->url('perfis') ?>">Perfis</a></li>
-                        <li class="active"><a href="<?= $this->url('trabalhos') ?>">Trabalhos</a></li>
-                        <li class="active"><a href="<?= $this->url('categorias') ?>">Categorias</a></li>
-                        <li class="active"><a href="<?= $this->url('permissoes') ?>">Permissoes</a></li>
-                        <li class="active"><a href="<?= $this->url('usuarios') ?>">Usuarios</a></li>
-                        <li class="active"><a href="<?= $this->url('grades') ?>">Grades</a></li>
-                        <li class="active"><a href="<?= $this->url('credenciamentos') ?>">Credenciamentos</a></li>
+                        <li class="active"><a href="<?= $this->url('application',['action' => 'access-control']) ?>">Controle de Acesso ao Sistema</a></li>
+                        <li class="active"><a href="<?= $this->url('application',['action' => 'event-control']) ?>">Administração do Evento</a></li>
+                        <li class="active"><a href="<?= $this->url('application',['action' => 'logout']) ?>">Sair</a></li>                        
+<?php
+else:
+?>
+                        <li style="color: white">Sistema de Controle de Conferências</li>
+<?php
+endif; 
+?>                    
                     </ul>
                 </div>
             </div>

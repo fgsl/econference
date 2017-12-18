@@ -10,6 +10,7 @@ namespace Application;
 use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
 use Zend\ServiceManager\Factory\InvokableFactory;
+use Zend\Mvc\Plugin\FlashMessenger\FlashMessenger;
 
 return [
     'router' => [
@@ -57,4 +58,12 @@ return [
             __DIR__ . '/../view',
         ],
     ],
+	'controller_plugins' => [
+			'factories' => [
+                FlashMessenger::class => InvokableFactory::class
+			],
+			'aliases' => [
+			    'flashMessenger' => FlashMessenger::class
+			]				
+	]	
 ];

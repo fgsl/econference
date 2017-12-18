@@ -1,9 +1,15 @@
 <?php
+/**
+ * @link      http://github.com/fgsl/econference for the canonical source repository
+ * @copyright Copyleft 2017 FTSL. (http://www.ftsl.org.br)
+ * @license   https://www.gnu.org/licenses/agpl-3.0.en.html GNU Affero General Public License
+ */
 namespace Application\Controller;
 
 use Interop\Container\ContainerInterface;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
+use Zend\Mvc\Controller\AbstractController;
 
 abstract class AbstractControllerFactory implements FactoryInterface
 {
@@ -26,10 +32,10 @@ abstract class AbstractControllerFactory implements FactoryInterface
     }
 
     /**
-     * Create table gateway adapter service (v2)
+     * Create controller service (v2)
      *
      * @param ServiceLocatorInterface $container
-     * @return Adapter
+     * @return AbstractController
      */
     public function createService(ServiceLocatorInterface $container)
     {
