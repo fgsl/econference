@@ -10,7 +10,7 @@ use Application\Controller\AbstractCrudController;
 
 class IndexController extends AbstractCrudController
 {
-	protected $mainTableFactory = 'LcaisTable';
+	protected $mainTableFactory = 'LocaisTable';
 	
 	protected $rowsObjectName = 'locais';
 	
