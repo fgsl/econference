@@ -1,8 +1,8 @@
 <?php
 /**
- * @link      http://github.com/zendframework/ZendSkeletonLocais for the canonical source repository
- * @copyright Copyright (c) 2005-2016 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @link      http://github.com/fgsl/econference for the canonical source repository
+ * @copyright Copyleft 2017 FTSL. (http://www.ftsl.org.br)
+ * @license   https://www.gnu.org/licenses/agpl-3.0.en.html GNU Affero General Public License
  */
 
 namespace LocaisTest\Controller;
@@ -22,7 +22,7 @@ class IndexControllerTest extends AbstractHttpControllerTestCase
         $configOverrides = [];
 
         $this->setApplicationConfig(ArrayUtils::merge(
-            include __DIR__ . '/../../../../config/application.config.php',
+         	include __DIR__ . '/../../../../config/application.config.php',
             $configOverrides
         ));
 
