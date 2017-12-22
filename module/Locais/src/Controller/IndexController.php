@@ -10,7 +10,7 @@ use Application\Controller\AbstractCrudController;
 
 class IndexController extends AbstractCrudController
 {
-	protected $mainTableFactory = 'LocaisTable';
+	protected $mainTableFactory = 'LocalTable';
 	
 	protected $rowsObjectName = 'locais';
 	
@@ -25,8 +25,8 @@ class IndexController extends AbstractCrudController
     	$codigo = $this->getRequest()->getPost('codigo');
     	$nome = $this->getRequest()->getPost('nome');
     	return [
-    			'codigo' => $codigo,
-    			'nome' => $nome
+    		'codigo' => $codigo,
+    		'nome' => $nome
     	];
     } 
 }

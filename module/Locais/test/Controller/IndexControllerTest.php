@@ -10,6 +10,8 @@ namespace LocaisTest\Controller;
 use Locais\Controller\IndexController;
 use Zend\Stdlib\ArrayUtils;
 use Zend\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
+use Locais\Model\LocalTable;
+use Mock\Db\TableGateway\Mock;
 
 class IndexControllerTest extends AbstractHttpControllerTestCase
 {
@@ -19,12 +21,20 @@ class IndexControllerTest extends AbstractHttpControllerTestCase
         // You can override configuration here with test case specific values,
         // such as sample view templates, path stacks, module_listener_options,
         // etc.
-        $configOverrides = [];
+        $configOverrides = [
+        ];
 
-        $this->setApplicationConfig(ArrayUtils::merge(
-         	include __DIR__ . '/../../../../config/application.config.php',
-            $configOverrides
-        ));
+        $mergedConfig = ArrayUtils::merge(
+            include __DIR__ . '/../../../../config/mock.config.php',
+        $configOverrides);
+
+        $mergedConfig['service_manager']['factories']['CategoriaTable'] = function($container){
+        	$adapter = $container->get('Zend\Db\Adapter');
+        	$tableGateway = new MockTableGateway($table, $adapter);
+        	return new CategoriaTable($tableGateway);
+        };
+        
+        $this->setApplicationConfig($mergedConfig);
 
         parent::setUp();
     }
