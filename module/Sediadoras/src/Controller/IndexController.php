@@ -1,65 +1,32 @@
 <?php
 /**
- * @link      http://github.com/zendframework/ZendSkeletonApplication for the canonical source repository
- * @copyright Copyright (c) 2005-2016 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @link      http://github.com/fgsl/econference for the canonical source repository
+ * @copyright Copyleft 2017 FTSL. (http://www.ftsl.org.br)
+ * @license   https://www.gnu.org/licenses/agpl-3.0.en.html GNU Affero General Public License
  */
 namespace Sediadoras\Controller;
 
-use Zend\Mvc\Controller\AbstractActionController;
-use Zend\View\Model\ViewModel;
-use Sediadoras\Model\Sede;
+use Application\Controller\AbstractCrudController;
 
-class IndexController extends AbstractActionController
+class IndexController extends AbstractCrudController
 {
-
-    private $sm;
-
-    public function __construct($sm)
-    {
-        $this->sm = $sm;
-    }
-
-    public function indexAction()
-    {
-        $sediadoras = $this->sm->get('SedeTable')->getAll();
-        return new ViewModel([
-            'sediadoras' => $sediadoras
-        ]);
-    }
-
-    public function editAction()
-    {
-        $codigo = $this->params('codigo');
-        if (is_null($codigo)) {
-            $sede = new Sede();
-        } else {
-            $sede = $this->sm->get('SedeTable')->getOne($codigo);
-        }
-        return new ViewModel([
-            'sede' => $sede
-        ]);
-    }
-
-    public function saveAction()
+	protected $mainTableFactory = 'SedeTable';
+	
+	protected $rowsObjectName = 'sediadoras';
+	
+	protected $primaryKeyName = 'codigo';
+	
+	protected $modelName = 'Sediadoras\Model\Sede';
+	
+	protected $routeName = 'sediadoras';
+	
+	public function getDataFromRequest()
     {
         $codigo = $this->getRequest()->getPost('codigo');
         $nome = $this->getRequest()->getPost('nome');
-        $sede = new Sede();
-        $sede->exchangeArray([
+        return [
             'codigo' => $codigo,
             'nome' => $nome
-        ]);
-        $this->sm->get('SedeTable')->save($sede);
-        return $this->redirect()->toRoute('sediadoras');
-    }
-
-    public function deleteAction()
-    {
-        $codigo = $this->params('codigo');
-        $this->sm->get('SedeTable')->delete($codigo);
-        return $this->redirect()->toRoute('sediadoras');
+        ];
     }
 }
-
-
