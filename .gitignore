@@ -7,6 +7,6 @@ data/cache/*
 phpunit.xml
 .settings
 config/autoload/local.php
-data/logs/*
+data/logs/*.log
 .phpunit.xml.swo
 .phpunit.xml.swp

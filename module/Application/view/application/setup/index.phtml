@@ -1,0 +1,58 @@
+<h1>Instalação do eConference</h1>
+<form action="<?=$this->url('setup',['action' => 'config'])?>" method="post">
+<table>
+<tr>
+<td>Usuário administrador:</td>
+<td><input type="text" name="admin_user" autofocus="autofocus"></td>
+</tr>
+<tr>
+<td>Senha do administrador:</td>
+<td><input type="password" name="admin_password"></td>
+</tr>
+<?php
+$drivers = [
+    'IbmDb2' => 'IBM DB2',
+    'Mysqli' => 'MySQL',
+    'Oci8' => 'Oracle',
+    'Pgsql' => 'PostgreSQL',
+    'Pdo_Mysql' => 'MysQL via PDO',
+    'Pdo_Sqlite' => 'SQLite via PDO',
+    'Pdo_Pgsql' => 'PostgreSQL via PDO'
+] 
+?>
+<tr>
+<td>Driver do banco de dados:</td>
+<td><select name="database_driver">
+<?php
+foreach ($drivers as $value => $label):
+?>
+<option value="<?=$value?>" <?=($this->setupConfig['database_driver'] == $value ? 'selected="selected"' : '')?>><?=$label?></option>
+<?php    
+endforeach;
+?>
+</select></td>
+<tr>
+<td>Servidor do banco de dados:</td>
+<td><input type="text" name="database_host" value="<?=$this->setupConfig['database_host']?>"></td>
+</tr>
+<tr>
+<td>Nome do banco de dados:</td>
+<td><input type="text" name="database_name" value="<?=$this->setupConfig['database_name']?>"></td>
+<tr>
+<tr>
+<td>O banco de dados não é criado pela aplicação, apenas as tabelas. <br/>
+Crie o banco antes de instalar a aplicação.</td>
+</tr>
+<tr>
+<td>Usuário do banco de dados:</td>
+<td><input type="text" name="database_user" value="<?=$this->setupConfig['database_user']?>"></td>
+</tr>
+<tr>
+<td>Senha do usuário do banco de dados:</td>
+<td><input type="password" name="database_password" value="<?=$this->setupConfig['database_password']?>"></td>
+</tr>
+<tr>
+<td><input type="submit" value="gravar"></td>
+</tr>
+</table>
+</form>

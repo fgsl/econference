@@ -20,7 +20,7 @@ return [
                 'options' => [
                     'route'    => '/',
                     'defaults' => [
-                        'controller' => Controller\IndexController::class,
+                        'controller' => Controller\SetupController::class,
                         'action'     => 'index',
                     ],
                 ],
@@ -35,11 +35,22 @@ return [
                     ],
                 ],
             ],
+            'setup' => [
+                'type' => Segment::class,
+                'options' => [
+                    'route'    => '/setup[/:action]',
+                    'defaults' => [
+                        'controller' => Controller\SetupController::class,
+                        'action'     => 'index',
+                    ],
+                ],
+            ],
         ],
     ],
     'controllers' => [
         'factories' => [
             Controller\IndexController::class => InvokableFactory::class,
+            Controller\SetupController::class => Controller\SetupControllerFactory::class
         ],
     ],
     'view_manager' => [

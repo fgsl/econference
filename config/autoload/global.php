@@ -12,7 +12,8 @@
  */
 return [
     'db' => [
-        'driver' => 'Mysqli',
+        'driver' => 'Pdo_Mysql',
+        'host' => 'localhost',
         'database' => 'econference'
     ],
     'log' => [
