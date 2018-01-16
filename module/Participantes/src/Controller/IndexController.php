@@ -28,7 +28,7 @@ class IndexController extends AbstractCrudController
     	$nome = $this->getRequest()->getPost('nome');
     	$cidade = $this->getRequest()->getPost('cidade');
     	$telefone = $this->getRequest()->getPost('telefone');
-    	$instituição = $this->getRequest()->getPost('instituicao');
+    	$instituicao = $this->getRequest()->getPost('instituicao');
     	$cpf = $this->getRequest()->getPost('cpf');
     	$passaporte = $this->getRequest()->getPost('passaporte');
     	return [

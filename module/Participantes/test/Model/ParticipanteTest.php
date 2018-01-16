@@ -43,7 +43,14 @@ class ParticipanteTest extends TestCase
 		$model->exchangeArray($array);
 		$attributes = $model->toArray();
 		$this->assertArrayHasKey('codigo', $attributes);
+		$this->assertArrayHasKey('usuario', $attributes);
+		$this->assertArrayHasKey('email', $attributes);
 		$this->assertArrayHasKey('nome', $attributes);
+		$this->assertArrayHasKey('cidade', $attributes);
+		$this->assertArrayHasKey('telefone', $attributes);
+		$this->assertArrayHasKey('instituicao', $attributes);
+		$this->assertArrayHasKey('cpf', $attributes);
+		$this->assertArrayHasKey('passaporte', $attributes);
 		$this->assertEquals('Zaphod Beeblebrox',$attributes['nome']);
 	}
 }
