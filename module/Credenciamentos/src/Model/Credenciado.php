@@ -3,7 +3,7 @@ namespace Credenciamentos\Model;
 
 use Application\Model\AbstractModel;
 
-class Credenciamento extends AbstractModel
+class Credenciado extends AbstractModel
 {
 	public $codigo;
 	public $nome;

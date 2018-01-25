@@ -10,9 +10,9 @@ namespace CredenciamentosTest\Model;
 use Zend\Stdlib\ArrayUtils;
 use Zend\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
 use PHPUnit\Framework\TestCase;
-use Credenciamentos\Model\Credenciamento;
+use Credenciamentos\Model\Credenciado;
 
-class CredenciamentoTest extends TestCase
+class CredenciadoTest extends TestCase
 {
 	/**
 	 *
@@ -39,7 +39,7 @@ class CredenciamentoTest extends TestCase
 	public function testModel()
 	{
 		$array = ['codigo' => 42, 'nome' => 'Zaphod Beeblebrox'];
-		$model = new Credenciamento();
+		$model = new Credenciado();
 		$model->exchangeArray($array);
 		$attributes = $model->toArray();
 		$this->assertArrayHasKey('codigo', $attributes);

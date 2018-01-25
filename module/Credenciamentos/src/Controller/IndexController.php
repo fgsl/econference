@@ -10,13 +10,13 @@ use Application\Controller\AbstractCrudController;
 
 class IndexController extends AbstractCrudController
 {
-	protected $mainTableFactory = 'CredenciamentoTable';
+	protected $mainTableFactory = 'CredenciadoTable';
 	
 	protected $rowsObjectName = 'credenciamentos';
 	
 	protected $primaryKeyName = 'codigo';
 	
-	protected $modelName = 'Credenciamentos\Model\Credenciamento';
+	protected $modelName = 'Credenciamentos\Model\Credenciado';
 	
 	protected $routeName = 'credenciamentos';
 	
