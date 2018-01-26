@@ -1,7 +1,7 @@
 <?php
 namespace Mock\Db\Adapter\Driver;
 use Zend\Db\Adapter\Driver\DriverInterface;
-use Mock\Db\Connection\Mock as MockConnection;
+use Mock\Db\Adapter\Driver\Connection\Mock as MockConnection;
 use Mock\Db\Adapter\Driver\Statement\Mock as MockStatement;
 /**
  * @link      http://github.com/fgsl/econference for the canonical source repository

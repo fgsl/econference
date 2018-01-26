@@ -17,6 +17,7 @@ use Zend\Db\Adapter\AdapterInterface;
 use Zend\Db\Sql\Ddl\CreateTable;
 use Zend\Db\Sql\Sql;
 use Zend\Log\Logger;
+use Mock\Db\Adapter\Mock;
 
 class DatabaseSchema {
     /**
@@ -26,6 +27,10 @@ class DatabaseSchema {
      */
     public static function checkTables($adapter)
     {
+        if ($adapter instanceof Mock){ // test don't check tables
+            return true;
+        }
+
         $schema = self::getSchema();
 
         $metadata = new Metadata($adapter);

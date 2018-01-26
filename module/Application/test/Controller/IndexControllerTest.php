@@ -22,10 +22,11 @@ class IndexControllerTest extends AbstractHttpControllerTestCase
         // etc.
         $configOverrides = [];
 
-        $this->setApplicationConfig(ArrayUtils::merge(
-            include __DIR__ . '/../../../../config/application.config.php',
-            $configOverrides
-        ));
+        $mergedConfig = ArrayUtils::merge(
+            include __DIR__ . '/../../../../config/mock.config.php',
+            $configOverrides);
+
+        $this->setApplicationConfig($mergedConfig);
 
         parent::setUp();
     }

@@ -30,7 +30,6 @@ O sistema ainda não tem uma versão estável, por isso não há releases dispon
 * Clonando via git o repositório (git clone https://github.com/fgsl/econference.git ou git clone git@github.com:fgsl/econference.git)
 * Baixando o arquivo compactado (https://github.com/fgsl/econference/archive/master.zip)
 
-
 ### Instalação das dependências
 
 O eConference faz uso de bibliotecas de terceiros, que não são mantidas com o projeto. Para trazê-las e tornarmos o sistema funcional, usamos o gerenciador de dependências do PHP, o Composer.
@@ -77,44 +76,17 @@ return [
 
 ```
 
-### Criação do banco de dados
+### Instalação da aplicação
+
+A instalação basicamente trata da criação das tabelas no banco e do preenchimento de algumas delas.
 
 Há duas formas para criar as tabelas da aplicação, desde que o banco de dados tenha sido criado previamente.
 
-#### Especificamente para MySQL
+#### Criação via interface gráfica
 
-Após criar o banco de dados, você pode usar um cliente de MySQL para executar o conteúdo do arquivo data/erm/econference.sql.
+Inicie o servidor web da aplicação.
 
-* No terminal (supondo que você esteja no diretório econference):
-
-```bash
-mysql -u [usuário] -p [nome do banco de dados] < data/erm/econference.sql
-```
-
-* Pelo phpmyadmin:
-
-1) Clique sobre o nome do banco de dados na árvore de bancos à esquerda
-
-2) Clique sobre a aba SQL na parte superior do quadro da direita
-
-3) Cole o conteúdo do arquivo econference.sql
-
-4) Clique em Executar
-
-#### Para qualquer banco
-
-**IMPORTANTE**: O script a seguir NÃO FUNCIONARÁ se o driver PHP do seu banco de dados não estiver instalado. Veja a seção sobre configuração do banco de dados.
-
-Execute o script createdatabase.php a partir do diretório raiz:
-
-```bash
-php scripts/createdatabase.php
-```
-
-
-## Execução da aplicação
-
-Uma vez instalado, você pode iniciar a aplicação usando o servidor embutido do PHP:
+Em ambiente de desenvolvimento você pode iniciar a aplicação usando o servidor embutido do PHP:
 
 ```bash
 $ cd econference
@@ -125,6 +97,24 @@ $ composer run --timeout 0 serve
 
 Rodando diretamente pelo PHP é possível ver as mensagens de log pelo terminal.
 
+Acesse a aplicação pelo navegador.
+
+Ao verificar que a aplicação não está instalada, será apresentado um formulário para criar as tabelas.
+Basta preencher o formulário e clicar em gravar. Após a criação das tabelas, você será redirecionado para a página de login.
+
+#### Criação manual das tabelas
+
+É possível criar as tabelas pela interface de linha de comando, mas sem o usuário administrador inicial.
+
+**IMPORTANTE**: O script a seguir NÃO FUNCIONARÁ se o driver PHP do seu banco de dados não estiver instalado. Veja a seção sobre configuração do banco de dados.
+
+Execute o script createdatabase.php a partir do diretório raiz:
+
+```bash
+php scripts/createdatabase.php
+```
+
+Após criar as tabelas, é necessário criar um usuário administrador.
 
 ## Orientações para contribuição
 
@@ -141,6 +131,4 @@ Quando criar novas classes, adicionar ou modificar métodos existentes, crie um 
 Os testes automatizados no projeto eConference são feitos de acordo com os padrões xUnit implementados pelo PHPUnit. Para saber mais sobre o PHPUnit, leia a documentação [aqui](https://phpunit.de/manual/current/pt_br/phpunit-book.html)
 
 NUNCA submeta código enquanto um teste estiver falhando.
-
-
 
