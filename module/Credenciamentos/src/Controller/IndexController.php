@@ -1,65 +1,32 @@
 <?php
 /**
- * @link      http://github.com/zendframework/ZendSkeletonApplication for the canonical source repository
- * @copyright Copyright (c) 2005-2016 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @link      http://github.com/fgsl/econference for the canonical source repository
+ * @copyright Copyleft 2017 FTSL. (http://www.ftsl.org.br)
+ * @license   https://www.gnu.org/licenses/agpl-3.0.en.html GNU Affero General Public License
  */
 namespace Credenciamentos\Controller;
 
-use Zend\Mvc\Controller\AbstractActionController;
-use Zend\View\Model\ViewModel;
-use Credenciamentos\Model\Credenciados;
+use Application\Controller\AbstractCrudController;
 
-class IndexController extends AbstractActionController
+class IndexController extends AbstractCrudController
 {
-
-    private $sm;
-
-    public function __construct($sm)
-    {
-        $this->sm = $sm;
-    }
-
-    public function indexAction()
-    {
-        $credenciados = $this->sm->get('CredenciadoTable')->getAll();
-        return new ViewModel([
-            'credenciados' => $credenciados
-        ]);
-    }
-
-    public function editAction()
-    {
-        $codigo = $this->params('codigo');
-        if (is_null($codigo)) {
-            $credenciado = new Credenciado();
-        } else {
-            $credenciado = $this->sm->get('CredenciadoTable')->getOne($codigo);
-        }
-        return new ViewModel([
-            'credenciado' => $credenciado
-        ]);
-    }
-
-    public function saveAction()
-    {
+	protected $mainTableFactory = 'CredenciadoTable';
+	
+	protected $rowsObjectName = 'credenciamentos';
+	
+	protected $primaryKeyName = 'codigo';
+	
+	protected $modelName = 'Credenciamentos\Model\Credenciado';
+	
+	protected $routeName = 'credenciamentos';
+	
+	public function getDataFromRequest()
+	{
         $codigo = $this->getRequest()->getPost('codigo');
         $nome = $this->getRequest()->getPost('nome');
-        $credenciado = new Credenciado();
-        $credenciado->exchangeArray([
+        return [
             'codigo' => $codigo,
             'nome' => $nome
-        ]);
-        $this->sm->get('CredenciadoTable')->save($credenciado);
-        return $this->redirect()->toRoute('credenciamentos');
-    }
-
-    public function deleteAction()
-    {
-        $codigo = $this->params('codigo');
-        $this->sm->get('CredenciadoTable')->delete($codigo);
-        return $this->redirect()->toRoute('credenciamentos');
+        ];
     }
 }
-
-

@@ -1,6 +1,9 @@
 <?php
 namespace Participantes\Model;
-class Participante
+
+use Application\Model\AbstractModel;
+
+class Participante extends AbstractModel
 {
 	public $codigo;
 	public $usuario;
@@ -11,16 +14,4 @@ class Participante
 	public $instituicao;
 	public $cpf;
 	public $passaporte;
-	
-	public function exchangeArray($array)
-	{
-		foreach($array as $attribute => $value){
-			$this->$attribute = $value;
-		}
-	}
-	
-	public function toArray()
-	{
-		return get_object_vars($this);
-	}
 }

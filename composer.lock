@@ -989,16 +989,16 @@
         },
         {
             "name": "sebastian/comparator",
-            "version": "2.1.0",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "1174d9018191e93cb9d719edec01257fc05f8158"
+                "reference": "11c07feade1d65453e06df3b3b90171d6d982087"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/1174d9018191e93cb9d719edec01257fc05f8158",
-                "reference": "1174d9018191e93cb9d719edec01257fc05f8158",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/11c07feade1d65453e06df3b3b90171d6d982087",
+                "reference": "11c07feade1d65453e06df3b3b90171d6d982087",
                 "shasum": ""
             },
             "require": {
@@ -1049,7 +1049,7 @@
                 "compare",
                 "equality"
             ],
-            "time": "2017-11-03 07:16:52"
+            "time": "2018-01-12 06:34:42"
         },
         {
             "name": "sebastian/diff",
@@ -1655,16 +1655,16 @@
         },
         {
             "name": "zendframework/zend-component-installer",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-component-installer.git",
-                "reference": "ca728bb1fcff9b0e945ac472bf8d6031e25edf28"
+                "reference": "5e9beda3b81d29d4d080b110d67f8c8c44d93605"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-component-installer/zipball/ca728bb1fcff9b0e945ac472bf8d6031e25edf28",
-                "reference": "ca728bb1fcff9b0e945ac472bf8d6031e25edf28",
+                "url": "https://api.github.com/repos/zendframework/zend-component-installer/zipball/5e9beda3b81d29d4d080b110d67f8c8c44d93605",
+                "reference": "5e9beda3b81d29d4d080b110d67f8c8c44d93605",
                 "shasum": ""
             },
             "require": {
@@ -1703,7 +1703,7 @@
                 "plugin",
                 "zf"
             ],
-            "time": "2017-11-06 22:50:20"
+            "time": "2018-01-11 15:03:06"
         },
         {
             "name": "zendframework/zend-config",
@@ -2799,16 +2799,16 @@
         },
         {
             "name": "zendframework/zend-view",
-            "version": "2.9.0",
+            "version": "2.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-view.git",
-                "reference": "3b6342c381c4437a03fc81d0064c0bb8924914d3"
+                "reference": "4478cc5dd960e2339d88b363ef99fa278700e80e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-view/zipball/3b6342c381c4437a03fc81d0064c0bb8924914d3",
-                "reference": "3b6342c381c4437a03fc81d0064c0bb8924914d3",
+                "url": "https://api.github.com/repos/zendframework/zend-view/zipball/4478cc5dd960e2339d88b363ef99fa278700e80e",
+                "reference": "4478cc5dd960e2339d88b363ef99fa278700e80e",
                 "shasum": ""
             },
             "require": {
@@ -2839,7 +2839,7 @@
                 "zendframework/zend-router": "^3.0.1",
                 "zendframework/zend-serializer": "^2.6.1",
                 "zendframework/zend-servicemanager": "^2.7.5 || ^3.0.3",
-                "zendframework/zend-session": "^2.6.2",
+                "zendframework/zend-session": "^2.8.1",
                 "zendframework/zend-uri": "^2.5"
             },
             "suggest": {
@@ -2863,8 +2863,8 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.9-dev",
-                    "dev-develop": "3.0-dev"
+                    "dev-master": "2.10.x-dev",
+                    "dev-develop": "2.11.x-dev"
                 }
             },
             "autoload": {
@@ -2882,7 +2882,7 @@
                 "view",
                 "zf2"
             ],
-            "time": "2017-03-21 15:05:56"
+            "time": "2018-01-17 22:21:50"
         },
         {
             "name": "zfcampus/zf-development-mode",
