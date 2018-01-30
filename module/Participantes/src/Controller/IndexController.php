@@ -20,8 +20,9 @@ class IndexController extends AbstractCrudController
 	
 	protected $routeName = 'participantes';
     
-    public function saveAction()
-    {
+  
+     public function getDataFromRequest()
+     {
     	$codigo = $this->getRequest()->getPost('codigo');
     	$usuario = $this->getRequest()->getPost('usuario');
     	$email = $this->getRequest()->getPost('email');
@@ -42,5 +43,5 @@ class IndexController extends AbstractCrudController
     		'cpf' => $cpf,
     		'passaporte' => $passaporte
     	];
-    }
+     }
 }
