@@ -12,7 +12,7 @@ class IndexController extends AbstractCrudController
 {
 	protected $mainTableFactory = 'GradeTable';
 	
-	protected $rowsObjectName = 'gardes';
+	protected $rowsObjectName = 'grades';
 	
 	protected $primaryKeyName = 'codigo';
 	
