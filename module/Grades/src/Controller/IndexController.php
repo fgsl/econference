@@ -10,15 +10,15 @@ use Application\Controller\AbstractCrudController;
 
 class IndexController extends AbstractCrudController
 {
-	protected $mainTableFactory = 'CategoriaTable';
+	protected $mainTableFactory = 'GradeTable';
 	
-	protected $rowsObjectName = 'categorias';
+	protected $rowsObjectName = 'gardes';
 	
 	protected $primaryKeyName = 'codigo';
 	
-	protected $modelName = 'Categorias\Model\Categoria';
+	protected $modelName = 'Grades\Model\Grade';
 	
-	protected $routeName = 'categorias';
+	protected $routeName = 'grades';
 	
 	public function getDataFromRequest()
     {
