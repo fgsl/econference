@@ -49,7 +49,7 @@ return [
     ],
     'controllers' => [
         'factories' => [
-            Controller\IndexController::class => InvokableFactory::class,
+            Controller\IndexController::class => Controller\IndexControllerFactory::class,
             Controller\SetupController::class => Controller\SetupControllerFactory::class
         ],
     ],
@@ -69,12 +69,12 @@ return [
             __DIR__ . '/../view',
         ],
     ],
-	'controller_plugins' => [
-			'factories' => [
+    'controller_plugins' => [
+            'factories' => [
                 FlashMessenger::class => InvokableFactory::class
-			],
-			'aliases' => [
-			    'flashMessenger' => FlashMessenger::class
-			]				
-	]	
+            ],
+            'aliases' => [
+                'flashMessenger' => FlashMessenger::class
+            ]
+    ]
 ];

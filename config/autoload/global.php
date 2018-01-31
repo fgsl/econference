@@ -4,8 +4,6 @@ return array(
         'host' => 'localhost',
         'driver' => 'Pdo_Mysql',
         'database' => 'econference',
-        'user' => 'root',
-        'password' => 'serpro',
     ),
     'log' => array(
         'Log\\App' => array(

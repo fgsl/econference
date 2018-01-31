@@ -10,11 +10,27 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Zend\Session\SessionManager;
 use Zend\Authentication\AuthenticationService;
-use Zend\Authentication\Adapter\Callback;
 use Zend\Authentication\Result;
+use Zend\Db\Adapter\AdapterInterface;
+use Zend\Authentication\Adapter\DbTable\CredentialTreatmentAdapter;
 
 class IndexController extends AbstractActionController
 {
+    /**
+     * @var AdapterInterface
+     */
+    private $dbAdapter = null;
+    /**
+     * @var string
+     */
+    private $encodingFunction = 'md5';
+    
+    public function __construct(AdapterInterface $dbAdapter, $encodingFunction = 'md5')
+    {
+        $this->dbAdapter = $dbAdapter;
+        $this->encodingFunction = $encodingFunction;
+    }
+
     public function indexAction()
     {
         $sessionManager = new SessionManager();
@@ -45,14 +61,14 @@ class IndexController extends AbstractActionController
     
     public function authenticateAction()
     {
-    	$identity = $this->getRequest()->getPost('identity');
-    	$credential = $this->getRequest()->getPost('credential');
-    	
+        $encodingFunction = $this->encodingFunction;
+        
+        $identity = $this->getRequest()->getPost('identity');
+        $credential = $encodingFunction($this->getRequest()->getPost('credential'));
+
         $authenticationService = new AuthenticationService();
         
-        $adapter = new Callback(function($identity,$credential){
-        	return $identity;
-        });
+        $adapter = new CredentialTreatmentAdapter($this->dbAdapter,'usuarios','nome','senha');
         $adapter->setIdentity($identity)
                 ->setCredential($credential);
         
@@ -71,10 +87,10 @@ class IndexController extends AbstractActionController
     
     public function logoutAction()
     {
-    	$authenticationService = new AuthenticationService();
-    	$authenticationService->clearIdentity();    	
-    	$sessionManager = new SessionManager();
-    	$sessionManager->destroy();
-    	return $this->redirect()->toRoute('home',['action'=>'login']);    	 
+        $authenticationService = new AuthenticationService();
+        $authenticationService->clearIdentity();    	
+        $sessionManager = new SessionManager();
+        $sessionManager->destroy();
+        return $this->redirect()->toRoute('home',['action'=>'login']);
     }
 }
