@@ -1,59 +1,32 @@
 <?php
 /**
- * @link      http://github.com/zendframework/ZendSkeletonApplication for the canonical source repository
- * @copyright Copyright (c) 2005-2016 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @link      http://github.com/fgsl/econference for the canonical source repository
+ * @copyright Copyleft 2017 FTSL. (http://www.ftsl.org.br)
+ * @license   https://www.gnu.org/licenses/agpl-3.0.en.html GNU Affero General Public License
  */
-
 namespace Permissoes\Controller;
 
-use Zend\Mvc\Controller\AbstractActionController;
-use Zend\View\Model\ViewModel;
-use Permissoes\Model\Permissao;
+use Application\Controller\AbstractCrudController;
 
-class IndexController extends AbstractActionController
+class IndexController extends AbstractCrudController
 {
-	private $sm;
-	
-	public function __construct($sm)
-	{
-		$this->sm = $sm;
-	}
-	
-    public function indexAction()
-    {
-    	$permissoes = $this->sm->get('PermissaoTable')->getAll();
-        return new ViewModel(['permissoes'=>$permissoes]);
-    }
+    protected $mainTableFactory = 'PermissaoTable';
     
-    public function editAction()
-    {
-    	$codigo = $this->params('codigo');
-    	if (is_null($codigo)){
-    		$permissao = new Permissao();
-    	} else {    	
-    		$permissao = $this->sm->get('PermissaoTable')->getOne($codigo);
-    	}
-    	return new ViewModel(['permissao' => $permissao]);
-    }
+    protected $rowsObjectName = 'permissoes';
     
-    public function saveAction()
-    {
-    	$codigo = $this->getRequest()->getPost('codigo');
-    	$nome = $this->getRequest()->getPost('nome');
-    	$permissao = new Permissao();
-    	$permissao->exchangeArray(['codigo'=>$codigo,'nome'=>$nome]);
-    	$this->sm->get('PermissaoTable')->save($permissao);
-    	return $this->redirect()->toRoute('permissoes');
-    }
+    protected $primaryKeyName = 'codigo';
     
-    public function deleteAction()
-    {
-    	$codigo = $this->params('codigo');
-    	$this->sm->get('PermissaoTable')->delete($codigo);
-    	return $this->redirect()->toRoute('permissoes');
-    	
-    	
-    }
+    protected $modelName = 'Permissoes\Model\Permissao';
     
+    protected $routeName = 'permissoes';    
+  
+    public function getDataFromRequest()
+    {
+        $codigo = $this->getRequest()->getPost('codigo');
+        $nome = $this->getRequest()->getPost('nome');
+        return [
+            'codigo' => $codigo,
+            'nome' => $nome
+        ];
+    }    
 }
