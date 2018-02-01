@@ -1,62 +1,34 @@
 <?php
 /**
- * @link      http://github.com/zendframework/ZendSkeletonApplication for the canonical source repository
- * @copyright Copyright (c) 2005-2016 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @link      http://github.com/fgsl/econference for the canonical source repository
+ * @copyright Copyleft 2017 FTSL. (http://www.ftsl.org.br)
+ * @license   https://www.gnu.org/licenses/agpl-3.0.en.html GNU Affero General Public License
  */
-
 namespace Usuarios\Controller;
 
-use Zend\Mvc\Controller\AbstractActionController;
-use Zend\View\Model\ViewModel;
-use Usuarios\Model\Usuario;
+use Application\Controller\AbstractCrudController;
 
-class IndexController extends AbstractActionController
+class IndexController extends AbstractCrudController
 {
-	private $sm;
-	
-	public function __construct($sm)
-	{
-		$this->sm = $sm;
-	}
-	
-    public function indexAction()
-    {
-    	$usuarios = $this->sm->get('UsuarioTable')->getAll();
-        return new ViewModel(['usuarios'=>$usuarios]);
-    }
+    protected $mainTableFactory = 'UsuarioTable';
     
-    public function editAction()
-    {
-    	$codigo = $this->params('codigo');
-    	if (is_null($codigo)){
-    		$usuario = new Usuario();
-    	} else {    	
-    		$usuario = $this->sm->get('UsuarioTable')->getOne($codigo);
-    		
-    	}
-    	$perfis = $this->sm->get('PerfilTable')->getAll();
-    	return new ViewModel(['usuario' => $usuario,'perfis' => $perfis]);
-    }
+    protected $rowsObjectName = 'usuarios';
     
-    public function saveAction()
-    {
-    	$codigo = $this->getRequest()->getPost('codigo');
-    	$nome = $this->getRequest()->getPost('nome');
-    	$codigo_perfil = $this->getRequest()->getPost('codigo_perfil');
-    	$usuario = new Usuario();
-    	$usuario->exchangeArray(['codigo'=>$codigo,'nome'=>$nome,'codigo_perfil'=>$codigo_perfil]);
-    	$this->sm->get('UsuarioTable')->save($usuario);
-    	return $this->redirect()->toRoute('usuarios');
-    }
+    protected $primaryKeyName = 'codigo';
     
-    public function deleteAction()
-    {
-    	$codigo = $this->params('codigo');
-    	$this->sm->get('UsuarioTable')->delete($codigo);
-    	return $this->redirect()->toRoute('usuarios');
-    	
-    	
-    }
+    protected $modelName = 'Usuarios\Model\Usuario';
     
+    protected $routeName = 'usuarios';    
+  
+    public function getDataFromRequest()
+    {
+        $codigo = $this->getRequest()->getPost('codigo');
+        $nome = $this->getRequest()->getPost('nome');
+        $codigo_perfil = $this->getRequest()->getPost('codigo_perfil');
+        return [
+            'codigo' => $codigo,
+            'nome' => $nome,
+        	'codigo_perfil' => $codigo_perfil
+        ];
+    }    
 }
