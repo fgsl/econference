@@ -1,73 +1,36 @@
 <?php
 /**
- * @link      http://github.com/zendframework/ZendSkeletonApplication for the canonical source repository
- * @copyright Copyright (c) 2005-2016 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @link      http://github.com/fgsl/econference for the canonical source repository
+ * @copyright Copyleft 2017 FTSL. (http://www.ftsl.org.br)
+ * @license   https://www.gnu.org/licenses/agpl-3.0.en.html GNU Affero General Public License
  */
 namespace Trabalhos\Controller;
 
-use Zend\Mvc\Controller\AbstractActionController;
-use Zend\View\Model\ViewModel;
-use Trabalhos\Model\Trabalho;
+use Application\Controller\AbstractCrudController;
 
-class IndexController extends AbstractActionController
+class IndexController extends AbstractCrudController
 {
-
-    private $sm;
-
-    public function __construct($sm)
-    {
-        $this->sm = $sm;
-    }
-
-    public function indexAction()
-    {
-        $trabalhos = $this->sm->get('TrabalhoTable')->getAll();
-        return new ViewModel([
-            'trabalhos' => $trabalhos
-        ]);
-    }
-
-    public function editAction()
-    {
-        $codigo = $this->params('codigo');
-        if (is_null($codigo)) {
-            $trabalho = new Trabalho();
-        } else {
-            $trabalho = $this->sm->get('TrabalhoTable')->getOne($codigo);
-        }
-        
-        $categorias = $this->sm->get('CategoriaTable')->getAll();
-        return new ViewModel([
-            'trabalho' => $trabalho,
-            'categorias' => $categorias
-        ]);
-    }
-
-    public function saveAction()
+    protected $mainTableFactory = 'TrabalhoTable';
+    
+    protected $rowsObjectName = 'trabalhos';
+    
+    protected $primaryKeyName = 'codigo';
+    
+    protected $modelName = 'Trabalhos\Model\Trabalho';
+    
+    protected $routeName = 'trabalhos';    
+  
+    public function getDataFromRequest()
     {
         $codigo = $this->getRequest()->getPost('codigo');
         $resumo = $this->getRequest()->getPost('resumo');
         $tipo = $this->getRequest()->getPost('tipo');
         $codigo_categoria = $this->getRequest()->getPost('codigo_categoria');
-        $trabalho = new Trabalho();
-        $trabalho->exchangeArray([
+        return [
             'codigo' => $codigo,
             'resumo' => $resumo,
-            'tipo' => $tipo,
-            'codigo_categoria'=>$codigo_categoria
-       
-        ]);
-        $this->sm->get('TrabalhoTable')->save($trabalho);
-        return $this->redirect()->toRoute('trabalhos');
-    }
-
-    public function deleteAction()
-    {
-        $codigo = $this->params('codigo');
-        $this->sm->get('TrabalhoTable')->delete($codigo);
-        return $this->redirect()->toRoute('trabalhos');
-    }
+        	'tipo' => $tipo,
+        	'codigo_categoria' => $codigo_categoria
+        ];
+    }    
 }
-
-
