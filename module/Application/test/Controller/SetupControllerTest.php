@@ -7,11 +7,11 @@
 
 namespace ApplicationTest\Controller;
 
-use Application\Controller\IndexController;
+use Application\Controller\SetupController;
 use Zend\Stdlib\ArrayUtils;
 use Zend\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
 
-class IndexControllerTest extends AbstractHttpControllerTestCase
+class SetupControllerTest extends AbstractHttpControllerTestCase
 {
     public function setUp()
     {
@@ -32,27 +32,11 @@ class IndexControllerTest extends AbstractHttpControllerTestCase
 
     public function testIndexActionCanBeAccessed()
     {
-        $this->dispatch('/application', 'GET');
+        $this->dispatch('/setup', 'GET');
         $this->assertResponseStatusCode(302);
         $this->assertModuleName('application');
-        $this->assertControllerName(IndexController::class); // as specified in router's controller name alias
-        $this->assertControllerClass('IndexController');
-        $this->assertMatchedRouteName('application');
-    }
-
-    /**
-     * @expectedException Zend\Dom\Exception\RuntimeException
-     * @todo fix this test
-     */
-    public function testIndexActionViewModelTemplateRenderedWithinLayout()
-    {
-        $this->dispatch('/application', 'GET');
-        $this->assertQuery('.container');
-    }
-
-    public function testInvalidRouteDoesNotCrash()
-    {
-        $this->dispatch('/invalid/route', 'GET');
-        $this->assertResponseStatusCode(404);
+        $this->assertControllerName(SetupController::class); // as specified in router's controller name alias
+        $this->assertControllerClass('SetupController');
+        $this->assertMatchedRouteName('setup');
     }
 }

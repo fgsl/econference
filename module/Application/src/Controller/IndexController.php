@@ -82,15 +82,15 @@ class IndexController extends AbstractActionController
             }
             return $this->redirect()->toRoute('application',['action' => 'login']);
         }
-        return $this->redirect()->toRoute('home');
+        return $this->redirect()->toRoute('application');
     }
     
     public function logoutAction()
     {
         $authenticationService = new AuthenticationService();
-        $authenticationService->clearIdentity();    	
+        $authenticationService->clearIdentity();
         $sessionManager = new SessionManager();
         $sessionManager->destroy();
-        return $this->redirect()->toRoute('home',['action'=>'login']);
+        return $this->redirect()->toRoute('home');
     }
 }

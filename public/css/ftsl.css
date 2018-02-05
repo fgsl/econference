@@ -1,0 +1,264 @@
+/* Custom Stylesheet */
+
+
+/* jquery-ui modal personalization */
+nav .button-collapse {
+    color: #0D47A1
+}
+.footer-links{
+    color: #aaa;
+}
+.footer-links:hover{
+    color: #ff9933;
+}
+.footer-links-title{
+    color: #1976D2;
+}
+nav ul a {
+  color: #151c27;
+}
+
+.ui-widget-header {
+    border: none;
+    background: none;
+}
+.ui-widget.ui-widget-content {
+    border: none;
+}
+.ui-widget-overlay {
+    background: black;
+    opacity: .8;
+    filter: Alpha(Opacity=30);
+    /* support: IE8 */
+}
+
+/* jquery end */
+
+nav.top {
+    height: 64px;
+}
+.panel {
+    width: 100%;
+}
+.purple {
+    height: 1000px;
+    margin-bottom: 400px
+}
+article {
+    min-width: 960px;
+    width: 1140px;
+    /*height: 420px;*/
+    margin: auto auto;
+    background: rgba(255, 255, 255, 0.1);
+}
+.main {
+    height: 642px;
+    background-image: url("../images/ftsl2.png");
+    background-size: contain;
+}
+.darkblue-text {
+    color: #151c27;
+}
+.bold {
+    font-weight: 700;
+}
+.lg-font {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 7vmin;
+    font-weight: 700;
+}
+.md-font {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 5vmin;
+    1font-weight: 400;
+}
+.sm-font {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 3vmin;
+    1font-weight: 400;
+}
+.xs-font {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 2.5vmin;
+    1font-weight: 400;
+}
+.xxs-font {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 2vmin;
+    1font-weight: 400;
+}
+.xxxs-font {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.5vmin;
+    1font-weight: 400;
+}
+.font-shadow {
+    text-shadow: 3px 3px 5px #333333;
+}
+.font-shadow-light {
+    text-shadow: 1px 1px 2px #666666;
+}
+.shadow222 {
+    box-shadow: 2px 2px 2px #dddddd
+}
+.blog-title {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+}
+.card-image.fixed {
+    height: 200px;
+    overflow: hidden
+}
+.card-title.shaded {
+    text-shadow: 2px 2px 2px #333333;
+}
+.bg-blured {
+    background-image: url('images/background10.jpg');
+}
+.spacing {
+    padding: 10px
+}
+ul.blog {
+    list-style-type: circle
+}
+ul.blog li {
+    padding-left: 30px
+}
+.bold {
+    font-weight: 600;
+}
+.agenda-title {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #33578F;
+    line-height: 54px;
+    font-weight: 700 !important;
+}
+.agenda-text {
+    background-color: rgba(255, 255, 255, 0.3);
+    width: 100%;
+    color: #33578F;
+    height: 54px;
+    padding: 5px;
+}
+.vertical-text {
+    transform: rotate(90deg);
+    transform-origin: left top 0;
+}
+.lg-padding {
+    padding: 25px
+}
+
+.lg-padding-v {
+    padding: 25px 0
+}
+
+.md-padding {
+    padding: 15px
+}
+
+.md-padding-v {
+    padding: 15px 0
+}
+
+.lg-margin {
+    margin: 25px
+}
+.md-margin {
+    margin: 15px
+}
+.sm-margin {
+    margin: 10px
+}
+
+.countdown {
+    background-image: url('../images/bg-countdown.png');
+    border-right: 1px solid black;
+    border-left: 1px solid #888;
+    width: 100px;
+    text-align: center;
+    height: 90px;
+    line-height: 90px;
+}
+
+.flip-clock-wrapper{
+    width: 555px;
+    margin: 10px auto;
+    transform: scale(.8, .8);
+}
+
+.flip-clock-label {
+    color: #ccc !important;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 2vmin;
+    font-weight: bold
+ }
+ ul.topicos{
+    list-style-type: disc;
+    padding-left: 50px;
+ }
+ ul.topicos li{
+    list-style-type: disc;
+ }
+
+ .carousel{
+    height: 250px;
+ }
+
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+
+/*
+nav ul a,
+nav .brand-logo {
+  color: #fff;
+}
+p {
+  line-height: 2rem;
+}
+.button-collapse {
+  color: #26a69a;
+}
+.parallax-container {
+  min-height: 580px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255, 255, 255, .9);
+}
+.parallax-container .section {
+  width: 100%;
+}
+@media only screen and (max-width: 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  #index-banner .section {
+    top: 0;
+  }
+}
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+footer.page-footer {
+  margin: 0;
+}
+.degrade {
+*/
+
+.largura100porcento {
+  width: 100%;
+}

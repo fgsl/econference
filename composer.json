@@ -1,14 +1,13 @@
 {
-    "name": "zendframework/skeleton-application",
-    "description": "Skeleton Application for Zend Framework zend-mvc applications",
+    "name": "econference",
+    "description": "system for event management",
     "type": "project",
     "license": "BSD-3-Clause",
     "keywords": [
-        "framework",
-        "mvc",
-        "zf"
+        "event",
+        "management"
     ],
-    "homepage": "http://framework.zend.com/",
+    "homepage": "http://github.com/fgsl/econference",
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
@@ -26,23 +25,36 @@
     "autoload": {
         "psr-4": {
             "Application\\": "module/Application/src/",
+            "Categorias\\" : "module/Categorias/src/",
+            "Credenciamentos\\" : "module/Credenciamentos/src/",
+            "Grades\\" : "module/Grades/src/",
             "Locais\\" : "module/Locais/src/",
-            "Sediadoras\\" : "module/Sediadoras/src/",
+            "Mock\\" : "module/Mock/src/",
             "Participantes\\" : "module/Participantes/src/",
             "Perfis\\" : "module/Perfis/src/",
-            "Trabalhos\\" : "module/Trabalhos/src/",
-            "Categorias\\" : "module/Categorias/src/",
             "Permissoes\\" : "module/Permissoes/src/",
-            "Usuarios\\" : "module/Usuarios/src/",
-            "Grades\\" : "module/Grades/src/",
             "PermissoesPerfil\\" : "module/PermissoesPerfil/src/",
-            "Credenciamentos\\" : "module/Credenciamentos/src/",
-            "Mock\\" : "module/Mock/src/"
+            "Publico\\" : "module/Publico/src/",
+            "Sediadoras\\" : "module/Sediadoras/src/",
+            "Trabalhos\\" : "module/Trabalhos/src/",
+            "Usuarios\\" : "module/Usuarios/src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "ApplicationTest\\": "module/Application/test/"
+            "ApplicationTest\\": "module/Application/test/",
+            "CategoriasTes\\" : "module/Categorias/test/",
+            "CredenciamentosTes\\" : "module/Credenciamentos/test/",
+            "GradesTest\\" : "module/Grades/test/",
+            "LocaisTest\\" : "module/Locais/test/",
+            "ParticipantesTest\\" : "module/Participantes/test/",
+            "PerfisTest\\" : "module/Perfis/test/",
+            "PermissoesTest\\" : "module/Permissoes/test/",
+            "PermissoesPerfilTest\\" : "module/PermissoesPerfil/test/",
+            "PublicoTest\\" : "module/Publico/test/",
+            "SediadorasTest\\" : "module/Sediadoras/test/",
+            "TrabalhosTest\\" : "module/Trabalhos/test/",
+            "UsuariosTest\\" : "module/Usuarios/test/"
         }
     },
     "extra": [],

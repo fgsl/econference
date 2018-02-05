@@ -5,7 +5,7 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Application;
+namespace Publico;
 
 use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
@@ -15,22 +15,22 @@ use Zend\Mvc\Plugin\FlashMessenger\FlashMessenger;
 return [
     'router' => [
         'routes' => [
-            'application' => [
-                'type'    => Segment::class,
+            'home' => [
+                'type' => Literal::class,
                 'options' => [
-                    'route'    => '/application[/:action]',
+                    'route'    => '/',
                     'defaults' => [
                         'controller' => Controller\IndexController::class,
                         'action'     => 'index',
                     ],
                 ],
             ],
-            'setup' => [
+            'public' => [
                 'type' => Segment::class,
                 'options' => [
-                    'route'    => '/setup[/:action]',
+                    'route'    => '/public[/:action]',
                     'defaults' => [
-                        'controller' => Controller\SetupController::class,
+                        'controller' => Controller\IndexController::class,
                         'action'     => 'index',
                     ],
                 ],
@@ -39,8 +39,7 @@ return [
     ],
     'controllers' => [
         'factories' => [
-            Controller\IndexController::class => Controller\IndexControllerFactory::class,
-            Controller\SetupController::class => Controller\SetupControllerFactory::class
+            Controller\IndexController::class => InvokableFactory::class,
         ],
     ],
     'view_manager' => [
@@ -50,21 +49,13 @@ return [
         'not_found_template'       => 'error/404',
         'exception_template'       => 'error/index',
         'template_map' => [
-            'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
-            'application/index/index' => __DIR__ . '/../view/application/index/index.phtml',
-            'error/404'               => __DIR__ . '/../view/error/404.phtml',
-            'error/index'             => __DIR__ . '/../view/error/index.phtml',
+            'layout/layout'             => __DIR__ . '/../view/layout/layout.phtml',
+            'publico/index/index'       => __DIR__ . '/../view/publico/index/index.phtml',
+            'error/404'                 => __DIR__ . '/../view/error/404.phtml',
+            'error/index'               => __DIR__ . '/../view/error/index.phtml',
         ],
         'template_path_stack' => [
             __DIR__ . '/../view',
         ],
     ],
-    'controller_plugins' => [
-            'factories' => [
-                FlashMessenger::class => InvokableFactory::class
-            ],
-            'aliases' => [
-                'flashMessenger' => FlashMessenger::class
-            ]
-    ]
 ];
