@@ -123,7 +123,7 @@ Sempre que modificar algo no projeto, execute os testes automatizados, para veri
 No terminal, na pasta raiz do projeto, execute a instância interna do phpunit assim:
 
 ```bash
-vendor\bin\phpunit
+vendor/bin/phpunit
 ```
 
 Quando criar novas classes, adicionar ou modificar métodos existentes, crie um teste no respectivo módulo. Os testes automatizados devem ser criados na pasta test do módulo. Cada módulo novo deve ser incluído no arquivo phpunit.xml, para que seus testes sejam executados pelo comando acima.
