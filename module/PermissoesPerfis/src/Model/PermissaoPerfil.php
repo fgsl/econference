@@ -1,5 +1,5 @@
 <?php
-namespace PermissoesPerfil\Model;
+namespace PermissoesPerfis\Model;
 class PermissaoPerfil
 {
 	public $codigo_permissao;

@@ -5,17 +5,17 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace PermissoesPerfil;
+namespace PermissoesPerfis;
 
 use Zend\Router\Http\Segment;
 
 return [
     'router' => [
         'routes' => [
-            'permissoesperfil' => [
+            'permissoesperfis' => [
                 'type' => Segment::class,
                 'options' => [
-                    'route'    => '/permissoesperfil[/:action[/:codigo]]',
+                    'route'    => '/permissoesperfis[/:action[/:codigo]]',
                     'defaults' => [
                         'controller' => Controller\IndexController::class,
                         'action'     => 'index',
@@ -26,7 +26,7 @@ return [
     ],
     'controllers' => [
         'factories' => [
-            Controller\IndexController::class => 'PermissoesPerfil\Controller\IndexControllerFactory'
+            Controller\IndexController::class => 'PermissoesPerfis\Controller\IndexControllerFactory'
         ],
     ],
     'view_manager' => [
@@ -37,7 +37,7 @@ return [
         'exception_template'       => 'error/index',
         'template_map' => [
             'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
-            'permissoesperfil/index/index' => __DIR__ . '/../view/permissoesperfil/index/index.phtml',
+            'permissoesperfis/index/index' => __DIR__ . '/../view/permissoesperfis/index/index.phtml',
             'error/404'               => __DIR__ . '/../view/error/404.phtml',
             'error/index'             => __DIR__ . '/../view/error/index.phtml',
         ],
@@ -47,7 +47,7 @@ return [
     ],
 	'service_manager' => [
 			'factories' => [
-					'PermissaoPerfilTable' => 'PermissoesPerfil\Model\PermissaoPerfilTableFactory'
+					'PermissaoPerfilTable' => 'PermissoesPerfis\Model\PermissaoPerfilTableFactory'
 			]
 	]	
 ];
