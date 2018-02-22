@@ -33,7 +33,7 @@
             "Participantes\\" : "module/Participantes/src/",
             "Perfis\\" : "module/Perfis/src/",
             "Permissoes\\" : "module/Permissoes/src/",
-            "PermissoesPerfil\\" : "module/PermissoesPerfil/src/",
+            "PermissoesPerfis\\" : "module/PermissoesPerfis/src/",
             "Publico\\" : "module/Publico/src/",
             "Sediadoras\\" : "module/Sediadoras/src/",
             "Trabalhos\\" : "module/Trabalhos/src/",
