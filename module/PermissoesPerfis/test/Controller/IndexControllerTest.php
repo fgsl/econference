@@ -5,9 +5,9 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace PermissoesPerfilTest\Controller;
+namespace PermissoesPerfisTest\Controller;
 
-use PermissoesPerfil\Controller\IndexController;
+use PermissoesPerfis\Controller\IndexController;
 use Zend\Stdlib\ArrayUtils;
 use Zend\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
 
@@ -31,12 +31,12 @@ class IndexControllerTest extends AbstractHttpControllerTestCase
 
     public function testIndexActionCanBeAccessed()
     {
-        $this->dispatch('/permissoesperfil', 'GET');
+        $this->dispatch('/permissoesperfis', 'GET');
         $this->assertResponseStatusCode(200);
-        $this->assertModuleName('PermissoesPerfil');
+        $this->assertModuleName('PermissoesPerfis');
         $this->assertControllerName(IndexController::class); // as specified in router's controller name alias
         $this->assertControllerClass('IndexController');
-        $this->assertMatchedRouteName('permissoesperfil');
+        $this->assertMatchedRouteName('permissoesperfis');
     }
 
     
