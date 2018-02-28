@@ -33,8 +33,6 @@ class IndexController extends AbstractActionController
 
     public function indexAction()
     {
-        $sessionManager = new SessionManager();
-        $sessionManager->start();
         $authenticationService = new AuthenticationService();
         if (!$authenticationService->hasIdentity()){
             return $this->redirect()->toRoute('application',['action'=>'login']);

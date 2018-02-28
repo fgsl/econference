@@ -2,6 +2,7 @@
 
 use Zend\Mvc\Application;
 use Zend\Stdlib\ArrayUtils;
+use Zend\Mvc\MvcEvent;
 
 /**
  * This makes our life easier when dealing with paths. Everything is relative
@@ -37,4 +38,6 @@ if (file_exists(__DIR__ . '/../config/development.config.php')) {
 }
 
 // Run the application!
-Application::init($appConfig)->run();
+$app = Application::init($appConfig);
+$app->getEventManager()->attach(MvcEvent::EVENT_ROUTE, ['Application\Listener\AuthenticationListener','verifyAuthentication']);
+$app->run();
