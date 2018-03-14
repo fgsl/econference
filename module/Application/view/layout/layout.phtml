@@ -18,7 +18,11 @@ use Zend\Authentication\AuthenticationService;
             ->prependStylesheet($this->basePath('css/bootstrap-theme.min.css'))
             ->prependStylesheet($this->basePath('css/bootstrap.min.css'))
         ?>
-
+<style>
+table {
+    width: 100%;
+}        
+</style>
         <!-- Scripts -->
         <?= $this->headScript()
             ->prependFile($this->basePath('js/bootstrap.min.js'))
