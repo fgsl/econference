@@ -1,55 +1,16 @@
 <?php
+/**
+ * @link      http://github.com/fgsl/econference for the canonical source repository
+ * @copyright Copyleft 2018 FTSL. (http://www.ftsl.org.br)
+ * @license   https://www.gnu.org/licenses/agpl-3.0.en.html GNU Affero General Public License
+ */
 namespace PermissoesPerfis\Model;
 
-use Zend\Db\TableGateway\TableGatewayInterface;
-use Zend\Db\Sql\Where;
-use Zend\Db\Sql\Select;
-class PermissaoPerfilTable
-{
-	private $tableGateway;
-	
-	public function __construct(TableGatewayInterface $tableGateway)
-	{
-		$this->tableGateway = $tableGateway;
-	}
-	
-	public function save($model)
-	{	
-		$set = $model->toArray();		
+use Application\Model\AbstractTable;
 
-		if (empty($set['codigo'])){
-			unset($set['codigo']);
-			$this->tableGateway->insert($set);
-		} else {
-			$this->tableGateway->update($set,['codigo'=>$set['codigo']]);
-		}
-	}
-	
-	public function getAll($where = null)
-	{
-		$select = new Select('permissoes-perfis');
-		$select->order('codigo_perfil');
-		if (!is_null($where)){
-			$select->where($where);
-		}
-		return $this->tableGateway->selectWith($select);
-	}
-	
-	public function getOne($codigo)
-	{
-		$grades = $this->getAll(['codigo' => $codigo]);
-		return $grades->current();
-	}
-	
-	public function delete($codigo)
-	{
-		$this->tableGateway->delete(['codigo' => $codigo]);
-		return;
-	}
-	
-	
-	
-	
-	
-	
+class PermissaoPerfilTable extends AbstractTable
+{
+    protected $keyName = 'codigo';
+    protected $orderName = 'codigo_perfil';
+    protected $tableName = 'permissoes-perfis';
 }

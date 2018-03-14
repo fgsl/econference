@@ -30,5 +30,14 @@ class IndexController extends AbstractCrudController
             'nome' => $nome,
         	'codigo_perfil' => $codigo_perfil
         ];
-    }    
+    }
+
+    public function editAction()
+    {
+        $viewModel = parent::editAction();
+        $perfilTable = $this->sm->get('PerfilTable');
+        $perfis = $perfilTable->getAll();
+        $viewModel->perfis = $perfis;
+        return $viewModel;
+    }
 }
