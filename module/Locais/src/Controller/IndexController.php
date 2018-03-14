@@ -10,23 +10,38 @@ use Application\Controller\AbstractCrudController;
 
 class IndexController extends AbstractCrudController
 {
-	protected $mainTableFactory = 'LocalTable';
-	
-	protected $rowsObjectName = 'locais';
-	
-	protected $primaryKeyName = 'codigo';
-	
-	protected $modelName = 'Locais\Model\Local';
-	
-	protected $routeName = 'locais';
-	
-	public function getDataFromRequest()
+    protected $mainTableFactory = 'LocalTable';
+    
+    protected $rowsObjectName = 'locais';
+    
+    protected $primaryKeyName = 'codigo';
+    
+    protected $modelName = 'Locais\Model\Local';
+    
+    protected $routeName = 'locais';
+    
+    public function getDataFromRequest()
     {
-    	$codigo = $this->getRequest()->getPost('codigo');
-    	$nome = $this->getRequest()->getPost('nome');
-    	return [
-    		'codigo' => $codigo,
-    		'nome' => $nome
-    	];
-    } 
+        $codigo = $this->getRequest()->getPost('codigo');
+        $nome = $this->getRequest()->getPost('nome');
+        return [
+            'codigo' => $codigo,
+            'nome' => $nome
+        ];
+    }
+    
+    public function editAction()
+    {
+        $sediadoraTable = $this->sm->get('SediadoraTable');
+        $total = $sediadoraTable->count();
+        if ($total == 0){
+            return $this->redirect()->toRoute($this->routeName,['action' => 'void']);
+        }
+        return parent::editAction();
+    }
+    
+    public function voidAction()
+    {
+        return [];
+    }
 }

@@ -45,9 +45,10 @@ return [
             __DIR__ . '/../view',
         ],
     ],
-	'service_manager' => [
-			'factories' => [
-					'LocalTable' => 'Locais\Model\LocalTableFactory'
-			]
-	]	
+    'service_manager' => [
+            'factories' => [
+                    'LocalTable' => 'Locais\Model\LocalTableFactory',
+                    'SediadoraTable' => 'Sediadoras\Model\SedeTableFactory'
+            ]
+    ]    
 ];
