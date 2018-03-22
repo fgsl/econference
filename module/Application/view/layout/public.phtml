@@ -8,23 +8,11 @@
     <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
     <meta http-equiv="pragma" content="no-cache" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
-    <meta name="description" content="O maior evento gratuito de software livre do país!"/>
+    <meta name="description" content="your event description here"/>
 
-  <meta property="og:title" content="X Fórum de Tecnologia em Software Livre - FTSL" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="http://ftsl.org.br/" />  
-
-  <meta property="og:image" content="http://ftsl.org.br/images/thumbs/Web128x128.jpg"/>
-  <meta property="og:description" content="O maior evento gratuito de software livre do país!" />
-  <meta property="og:determiner" content="a" />
-  <meta property="og:locale" content="pt_BR" />
-  <meta property="og:site_name" content="X Fórum de Tecnologia em Software Livre" />
-  <meta property="og:image:type" content="image/jpg" />
-  <meta property="og:image:width" content="128" />
-  <meta property="og:image:height" content="128" /> 
-    <link rel="shortcut icon" href="//ftsl.org.br/favicon.ico" type="image/vnd.microsoft.icon" />
-<link rel="icon" type="image/x-icon" href="http://ftsl.org.br/favicon.ico">
-    <title>X Fórum de Tecnologia em Software Livre - X Fórum de Tecnologia em Software Livre</title>
+    <link rel="shortcut icon" href="<?=$this->basepath('img/econference.ico')?>" type="image/vnd.microsoft.icon" />
+<link rel="icon" type="image/x-icon" href="<?=$this->basepath('img/econference.ico')?>">
+    <title>Your Conference Title</title>
 
     <!-- CSS  -->
     <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -33,7 +21,7 @@
     <link href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css" rel="stylesheet">
     <link href="/css/materialize.css" rel="stylesheet" />
     <link href="/css/flipclock.css" rel="stylesheet" />
-    <link href="/css/ftsl.css" rel="stylesheet" />
+    <link href="/css/econference.css" rel="stylesheet" />
     <link href="/css/social-icons.css" rel="stylesheet" />
     <link href="/css/font-awesome.min.css" rel="stylesheet" />
 </head>
@@ -54,21 +42,21 @@
                 <div class="container">
                     <a id="logo-container" href="#" class="brand-logo"
                         style="margin-top: 3px"><img
-                        src="/img/logo-ftsl-2017-125px.png"></a>
+                        alt="logo of your event" style="color:black"></a>
 
                     <ul class="right hide-on-med-and-down">
                         <li><a href="<?=$this->url('home')?>">home</a></li>
-                        <li><a href="<?=$this->url('public',['action'=>'event'])?>">o evento</a></li>
+                        <li><a href="<?=$this->url('public',['action'=>'event'])?>">event</a></li>
                         <li class="hide"><a href="/index.html#noticias">notícias</a></li>
-                        <li><a href="https://ftsl.websiteseguro.com/ftsl9/grade/">programação</a></li>
-                        <li><a href="<?=$this->url('application')?>">administração</a></li>
+                        <li><a href="">scheduling</a></li>
+                        <li><a href="<?=$this->url('application')?>">management</a></li>
                     </ul>
                     <ul id="nav-mobile" class="side-nav">
                         <li><a href="<?=$this->url('home')?>">home</a></li>
-                        <li><a href="<?=$this->url('public',['action'=>'event'])?>">o evento</a></li>
-                        <li class="hide"><a href="/index.html#noticias">notícias</a></li>
-                        <li><a href="https://ftsl.websiteseguro.com/ftsl9/grade/">programação</a></li>
-                        <li><a href="<?=$this->url('application')?>">administração</a></li>
+                        <li><a href="<?=$this->url('public',['action'=>'event'])?>">event</a></li>
+                        <li class="hide"><a href="">news</a></li>
+                        <li><a href="">scheduling</a></li>
+                        <li><a href="<?=$this->url('application')?>">management</a></li>
                     </ul>
 
                     <a href="#" data-activates="nav-mobile" class="button-collapse"><i
@@ -87,45 +75,45 @@
         <div class="container">
             <div class="row">
                 <div class="col s12 m6 l3">
-                    <img src="/img/logo-ftsl-transp.png">
+                    <img alt="a transparent image here" style="color:white">
                     <ul>
-                        <li class="hide"><a href="http://ftsl.org.br/user"
-                            class="footer-links xxs-font">Inscrição</a></li>
+                        <li class="hide"><a href=""
+                            class="footer-links xxs-font">Subscription</a></li>
                     </ul>
                 </div>
 
                 <div class="col s12 m6 l3">
-                    <h6 class="footer-links-title xxs-font">MAPA DO SITE</h6>
+                    <h6 class="footer-links-title xxs-font">SITE MAP</h6>
                     <ul>
                         <li><a href="<?=$this->url('home')?>" class="footer-links xxs-font">home</a></li>
-                        <li><a href="<?=$this->url('public',['action'=>'event'])?>" class="footer-links xxs-font">o evento</a></li>
-                        <li class="hide"><a href="/index.html#convidados"
-                            class="footer-links xxs-font">convidados</a></li>
+                        <li><a href="<?=$this->url('public',['action'=>'event'])?>" class="footer-links xxs-font">event</a></li>
+                        <li class="hide"><a href=""
+                            class="footer-links xxs-font">guests</a></li>
                         <li><a href="http://sistema.ftsl.org.br/ftsl9/grade/#"
-                            class="footer-links xxs-font">programação</a></li>
-                        <li><a href="https://ftsl.websiteseguro.com/ftsl9/"
-                            class="footer-links xxs-font">inscreva-se</a></li>
+                            class="footer-links xxs-font">scheduling</a></li>
+                        <li><a href=""
+                            class="footer-links xxs-font">subscribe</a></li>
                         <li><a href="<?=$this->url('public',['action'=>'politics'])?>"
-                            class="footer-links xxs-font">política antiassédio</a></li>
+                            class="footer-links xxs-font">politics</a></li>
                     </ul>
                 </div>
 
                 <div class="col s12 m6 l3">
-                    <h6 class="footer-links-title xxs-font">CONTATO</h6>
+                    <h6 class="footer-links-title xxs-font">CONTACT</h6>
                     <ul>
-                        <li><a href="mailto:contato@ftsl.org.br"
-                            class="footer-links xxs-font">contato@ftsl.org.br</a></li>
+                        <li><a href="youremail@yourserver.yourdomain"
+                            class="footer-links xxs-font">your email here</a></li>
                     </ul>
                 </div>
 
                 <div class="col s12 m6 l3">
-                    <h6 class="footer-links-title xxs-font">Compartilhe</h6>
+                    <h6 class="footer-links-title xxs-font">Share</h6>
                     <ul>
                         <li><a
                             href="javascript:window.open('http://d-share.github.io/?url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(document.title),'das','location=no,links=no,scrollbars=no,toolbar=no,width=620,height=550');"
                             style="padding: 3px 4px 2px; background: #fafafa; border: 1px solid #ddd; font-size: 13px; color: #222; text-decoration: none; vertical-align: top;">
                                 <img src="http://i46.servimg.com/u/f46/17/46/54/29/diaspo10.png"
-                                alt="Compartilhar no Diáspora" style="border: 0px solid;" />
+                                alt="Share on Diáspora" style="border: 0px solid;" />
                                 Diaspora*
                         </a></li>
                         <li><a href="whatsapp://send?text=http://www.ftsl.org.br"
@@ -136,13 +124,13 @@
 
 
                 <div class="col s12 m6 l3">
-                    <h6 class="footer-links-title xxs-font">Siga-nos</h6>
+                    <h6 class="footer-links-title xxs-font">Follow us</h6>
                     <ul class="social-icons">
-                        <li><a href="http://www.facebook.com/forumslcuritiba"
+                        <li><a href=""
                             class="social-icon"> <i class="fa fa-facebook"></i></a></li>
-                        <li><a href="http://www.twitter.com/forumslcuritiba"
+                        <li><a href=""
                             class="social-icon"> <i class="fa fa-twitter"></i></a></li>
-                        <li><a href="http://www.ftsl.org.br/rss.xml" class="social-icon">
+                        <li><a href="" class="social-icon">
                                 <i class="fa fa-rss"></i>
                         </a></li>
                         <li><a
@@ -150,11 +138,10 @@
                             class="social-icon"> <i class="fa fa-youtube"></i></a></li>
                         <li><a href="https://www.linkedin.com/groups/12049380"
                             class="social-icon"> <i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="http://t.me/ftslnove" class="social-icon"> <i
+                        <li><a href="" class="social-icon"> <i
                                 class="fa fa-telegram" aria-hidden="true"></i></a></li>
-                        <li><a href="mailto: contato@ftsl.org.br" class="social-icon"> <i
+                        <li><a href="" class="social-icon"> <i
                                 class="fa fa-envelope"></i></a></li>
-                        <!--<li><a href="" class="social-icon"> <i class="fa fa-google-plus"></i></a></li>-->
                     </ul>
                 </div>
             </div>
