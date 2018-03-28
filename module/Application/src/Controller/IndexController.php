@@ -13,6 +13,7 @@ use Zend\Authentication\AuthenticationService;
 use Zend\Authentication\Result;
 use Zend\Db\Adapter\AdapterInterface;
 use Zend\Authentication\Adapter\DbTable\CredentialTreatmentAdapter;
+use Zend\Permissions\Rbac\Rbac;
 
 class IndexController extends AbstractActionController
 {
@@ -33,10 +34,6 @@ class IndexController extends AbstractActionController
 
     public function indexAction()
     {
-        $authenticationService = new AuthenticationService();
-        if (!$authenticationService->hasIdentity()){
-            return $this->redirect()->toRoute('application',['action'=>'login']);
-        }
         return new ViewModel();
     }
     
@@ -74,6 +71,8 @@ class IndexController extends AbstractActionController
         $result = $authenticationService->authenticate();
         if ($result->isValid()){
             $authenticationService->getStorage()->write($result->getIdentity());
+            $sessionManager = new SessionManager();
+            $rbac = new Rbac();
         } else {
             foreach ($result->getMessages() as $message){
                 $this->flashMessenger()->addMessage($message);

@@ -66,5 +66,10 @@ return [
             'aliases' => [
                 'flashMessenger' => FlashMessenger::class
             ]
+    ],
+    'service_manager' => [
+        'factories' => [
+            'UsuarioTable' => 'Usuarios\Model\UsuarioTableFactory'
+        ]
     ]
 ];

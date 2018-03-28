@@ -33,7 +33,7 @@ class IndexControllerTest extends AbstractHttpControllerTestCase
     public function testIndexActionCanBeAccessed()
     {
         $this->dispatch('/application', 'GET');
-        $this->assertResponseStatusCode(302);
+        $this->assertResponseStatusCode(200);
         $this->assertModuleName('application');
         $this->assertControllerName(IndexController::class); // as specified in router's controller name alias
         $this->assertControllerClass('IndexController');
@@ -41,8 +41,7 @@ class IndexControllerTest extends AbstractHttpControllerTestCase
     }
 
     /**
-     * @expectedException Zend\Dom\Exception\RuntimeException
-     * @todo fix this test
+     *  
      */
     public function testIndexActionViewModelTemplateRenderedWithinLayout()
     {

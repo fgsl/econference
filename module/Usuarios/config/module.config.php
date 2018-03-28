@@ -45,9 +45,9 @@ return [
             __DIR__ . '/../view',
         ],
     ],
-	'service_manager' => [
-			'factories' => [
-					'UsuarioTable' => 'Usuarios\Model\UsuarioTableFactory'
-			]
-	]	
+    'service_manager' => [
+            'factories' => [
+                'UsuarioTable' => 'Usuarios\Model\UsuarioTableFactory'
+            ]
+    ]
 ];
