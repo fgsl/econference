@@ -1,0 +1,12 @@
+<a href="<?=$this->url('permissoesperfis',['action'=>'edit'])?>">Adicionar permissão a um perfil</a>
+<table>
+<thead>
+<tr>
+<th>Código_perfil</th>
+<th>Código_permissao</th>
+</tr>
+</thead>
+<tbody>
+<?=$this->partialLoop('permissoes-perfis.phtml',$this->permissoesperfis)?>
+</tbody>
+</table>

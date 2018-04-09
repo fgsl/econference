@@ -69,7 +69,7 @@ return [
     ],
     'service_manager' => [
         'factories' => [
-            'UsuarioTable' => 'Usuarios\Model\UsuarioTableFactory'
+            'UsuarioTable' => 'Acesso\Model\UsuarioTableFactory'
         ]
     ]
 ];

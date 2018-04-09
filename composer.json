@@ -25,6 +25,7 @@
     },
     "autoload": {
         "psr-4": {
+            "Acesso\\": "module/Acesso/src/",
             "Application\\": "module/Application/src/",
             "Categorias\\" : "module/Categorias/src/",
             "Credenciamentos\\" : "module/Credenciamentos/src/",
@@ -33,16 +34,14 @@
             "Mock\\" : "module/Mock/src/",
             "Participantes\\" : "module/Participantes/src/",
             "Perfis\\" : "module/Perfis/src/",
-            "Permissoes\\" : "module/Permissoes/src/",
-            "PermissoesPerfis\\" : "module/PermissoesPerfis/src/",
             "Publico\\" : "module/Publico/src/",
             "Sediadoras\\" : "module/Sediadoras/src/",
-            "Trabalhos\\" : "module/Trabalhos/src/",
-            "Usuarios\\" : "module/Usuarios/src/"
+            "Trabalhos\\" : "module/Trabalhos/src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
+            "AcessoTest\\": "module/Acesso/test/",
             "ApplicationTest\\": "module/Application/test/",
             "CategoriasTes\\" : "module/Categorias/test/",
             "CredenciamentosTes\\" : "module/Credenciamentos/test/",
