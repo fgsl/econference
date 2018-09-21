@@ -90,7 +90,7 @@ Em ambiente de desenvolvimento você pode iniciar a aplicação usando o servido
 
 ```bash
 $ cd econference
-$ php -S 0.0.0.0:8080 -t public/ public/index.php
+$ php -S 0.0.0.0:8080 -t public/ 
 # OU use o composer:
 $ composer run --timeout 0 serve
 ```
