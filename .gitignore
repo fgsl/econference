@@ -1,3 +1,4 @@
+nbproject/
 .project
 .vagrant/
 vendor/
@@ -10,3 +11,4 @@ config/autoload/local.php
 data/logs/*.log
 .phpunit.xml.swo
 .phpunit.xml.swp
+/nbproject/private/
