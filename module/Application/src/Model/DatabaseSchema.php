@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @link      http://github.com/fgsl/econference for the canonical source repository
  * @copyright Copyleft 2017 FTSL. (http://www.ftsl.org.br)
  * @license   https://www.gnu.org/licenses/agpl-3.0.en.html GNU Affero General Public License
  */
+
 namespace Application\Model;
 
 use Zend\Db\Sql\Ddl\Column\Integer;
@@ -20,14 +22,14 @@ use Zend\Log\Logger;
 use Mock\Db\Adapter\Mock;
 
 class DatabaseSchema {
+
     /**
      * Returns false if some table doesn't exist
      * @param AdapterInterface $adapter
      * @return boolean
      */
-    public static function checkTables($adapter)
-    {
-        if ($adapter instanceof Mock){ // test don't check tables
+    public static function checkTables($adapter) {
+        if ($adapter instanceof Mock) { // test don't check tables
             return true;
         }
 
@@ -36,8 +38,8 @@ class DatabaseSchema {
         $metadata = new Metadata($adapter);
         $tableNames = $metadata->getTableNames();
 
-        foreach($schema as $tableName => $tableSchema){
-            if (!in_array($tableName,$tableNames)) {
+        foreach ($schema as $tableName => $tableSchema) {
+            if (!in_array($tableName, $tableNames)) {
                 return false;
             }
         }
@@ -49,16 +51,15 @@ class DatabaseSchema {
      * @param boolean $verbose
      * @param Logger | null $log
      */
-    public static function createTables(AdapterInterface $adapter, $verbose = false, $log = null)
-    {
+    public static function createTables(AdapterInterface $adapter, $verbose = false, $log = null) {
         $schema = self::getSchema();
 
         $metadata = new Metadata($adapter);
         $tableNames = $metadata->getTableNames();
         $sql = new Sql($adapter);
 
-        foreach($schema as $tableName => $tableSchema){
-            if (in_array($tableName,$tableNames)) {
+        foreach ($schema as $tableName => $tableSchema) {
+            if (in_array($tableName, $tableNames)) {
                 if ($verbose && $log != null) {
                     $log->info("Tabela $tableName já existe!");
                 }
@@ -66,18 +67,18 @@ class DatabaseSchema {
             }
 
             $table = new CreateTable($tableName);
-            foreach($tableSchema['fields'] as $fieldName => $field){
+            foreach ($tableSchema['fields'] as $fieldName => $field) {
                 $field[3] = (isset($field[3]) ? $field[3] : []);
                 $column = $field[0];
-                $table->addColumn(new $column($fieldName, $field[1],$field[2],$field[3]));
+                $table->addColumn(new $column($fieldName, $field[1], $field[2], $field[3]));
             }
-            foreach($tableSchema['constraints'] as $constraint => $value){
-                $table->addConstraint( new $constraint($value));
+            foreach ($tableSchema['constraints'] as $constraint => $value) {
+                $table->addConstraint(new $constraint($value));
             }
             if ($verbose && $log != null) {
                 $log->info($sql->getSqlStringForSqlObject($table));
             }
-        
+
             $adapter->query($sql->getSqlStringForSqlObject($table), $adapter::QUERY_MODE_EXECUTE);
         }
     }
@@ -85,13 +86,12 @@ class DatabaseSchema {
     /**
      * @return multitype:multitype:multitype:string  multitype:multitype:boolean NULL string multitype:string   multitype:number boolean NULL string    multitype:multitype:multitype:string   multitype:multitype:boolean NULL string    multitype:multitype:string  multitype:multitype:boolean NULL string multitype:string   multitype:boolean NULL string    multitype:multitype:string  multitype:multitype:boolean NULL string multitype:string   multitype:number boolean NULL string  multitype:boolean NULL string
      */
-    public static function getSchema()
-    {
+    public static function getSchema() {
         return [
             'categorias' => [
                 'fields' => [
-                    'codigo'    => [Integer::class,false,null,['AUTO_INCREMENT' => 'AUTO_INCREMENT']],
-                    'nome'      => [Varchar::class,30,false,''],
+                    'codigo' => [Integer::class, false, null, ['AUTO_INCREMENT' => 'AUTO_INCREMENT']],
+                    'nome' => [Varchar::class, 30, false, ''],
                 ],
                 'constraints' => [
                     PrimaryKey::class => 'codigo'
@@ -99,20 +99,20 @@ class DatabaseSchema {
             ],
             'credenciamentos' => [
                 'fields' => [
-                    'codigo_participante' => [Integer::class,false,null],
-                    'codigo_edicao'       => [Integer::class,false,null],
-                    'credenciado'         => [Integer::class,false,null],
+                    'codigo_participante' => [Integer::class, false, null],
+                    'codigo_edicao' => [Integer::class, false, null],
+                    'credenciado' => [Integer::class, false, null],
                 ],
                 'constraints' => [
-                    PrimaryKey::class => ['codigo_participante','codigo_edicao']
+                    PrimaryKey::class => ['codigo_participante', 'codigo_edicao']
                 ]
             ],
             'edicoes' => [
                 'fields' => [
-                    'codigo'                => [Integer::class,false,null,['AUTO_INCREMENT' => 'AUTO_INCREMENT']],
-                    'edicao'                => [Integer::class,false,null],
-                    'codigo_sediadora'      => [Integer::class,false,null],
-                    'encerrada'             => [Boolean::class,false,null],
+                    'codigo' => [Integer::class, false, null, ['AUTO_INCREMENT' => 'AUTO_INCREMENT']],
+                    'edicao' => [Integer::class, false, null],
+                    'codigo_sediadora' => [Integer::class, false, null],
+                    'encerrada' => [Boolean::class, false, null],
                 ],
                 'constraints' => [
                     PrimaryKey::class => 'codigo'
@@ -120,11 +120,11 @@ class DatabaseSchema {
             ],
             'grades' => [
                 'fields' => [
-                    'codigo'            => [Integer::class,false,null,['AUTO_INCREMENT' => 'AUTO_INCREMENT']],
-                    'codigo_trabalho'   => [Integer::class,false,null],
-                    'data'              => [Date::class,false,null],
-                    'horario'           => [Time::class,false,null],
-                    'codigo_local'      => [Integer::class,false,null]
+                    'codigo' => [Integer::class, false, null, ['AUTO_INCREMENT' => 'AUTO_INCREMENT']],
+                    'codigo_trabalho' => [Integer::class, false, null],
+                    'data' => [Date::class, false, null],
+                    'horario' => [Time::class, false, null],
+                    'codigo_local' => [Integer::class, false, null]
                 ],
                 'constraints' => [
                     PrimaryKey::class => 'codigo'
@@ -132,8 +132,8 @@ class DatabaseSchema {
             ],
             'locais' => [
                 'fields' => [
-                    'codigo'    => [Integer::class,false,null,['AUTO_INCREMENT' => 'AUTO_INCREMENT']],
-                    'nome'      => [Varchar::class,30,false,''],
+                    'codigo' => [Integer::class, false, null, ['AUTO_INCREMENT' => 'AUTO_INCREMENT']],
+                    'nome' => [Varchar::class, 30, false, ''],
                 ],
                 'constraints' => [
                     PrimaryKey::class => 'codigo'
@@ -141,16 +141,16 @@ class DatabaseSchema {
             ],
             'participantes' => [
                 'fields' => [
-                    'codigo'        => [Integer::class,false,null,['AUTO_INCREMENT' => 'AUTO_INCREMENT']],
-                    'usuario'       => [Varchar::class,20,false,''],
-                    'senha'         => [Varchar::class,255,false,''],
-                    'email'         => [Varchar::class,80,false,''],
-                    'nome'          => [Varchar::class,80,false,''],
-                    'cidade'        => [Varchar::class,8,false,''],
-                    'telefone'      => [Varchar::class,20,false,''],
-                    'instituicao'   => [Varchar::class,80,false,''],
-                    'cpf'           => [Varchar::class,13,false,''],
-                    'passaporte'    => [Varchar::class,10,false,'']
+                    'codigo' => [Integer::class, false, null, ['AUTO_INCREMENT' => 'AUTO_INCREMENT']],
+                    'usuario' => [Varchar::class, 20, false, ''],
+                    'senha' => [Varchar::class, 255, false, ''],
+                    'email' => [Varchar::class, 80, false, ''],
+                    'nome' => [Varchar::class, 80, false, ''],
+                    'cidade' => [Varchar::class, 8, false, ''],
+                    'telefone' => [Varchar::class, 20, false, ''],
+                    'instituicao' => [Varchar::class, 80, false, ''],
+                    'cpf' => [Varchar::class, 13, false, ''],
+                    'passaporte' => [Varchar::class, 10, false, '']
                 ],
                 'constraints' => [
                     PrimaryKey::class => 'codigo'
@@ -158,8 +158,8 @@ class DatabaseSchema {
             ],
             'perfis' => [
                 'fields' => [
-                    'codigo'    => [Integer::class,false,null,['AUTO_INCREMENT' => 'AUTO_INCREMENT']],
-                    'nome'      => [Varchar::class,30,false,''],
+                    'codigo' => [Integer::class, false, null, ['AUTO_INCREMENT' => 'AUTO_INCREMENT']],
+                    'nome' => [Varchar::class, 30, false, ''],
                 ],
                 'constraints' => [
                     PrimaryKey::class => 'codigo'
@@ -167,8 +167,8 @@ class DatabaseSchema {
             ],
             'permissoes' => [
                 'fields' => [
-                    'codigo'    => [Integer::class,false,null,['AUTO_INCREMENT' => 'AUTO_INCREMENT']],
-                    'nome'      => [Varchar::class,30,false,''],
+                    'codigo' => [Integer::class, false, null, ['AUTO_INCREMENT' => 'AUTO_INCREMENT']],
+                    'nome' => [Varchar::class, 30, false, ''],
                 ],
                 'constraints' => [
                     PrimaryKey::class => 'codigo'
@@ -176,17 +176,17 @@ class DatabaseSchema {
             ],
             'permissoes_perfil' => [
                 'fields' => [
-                    'codigo_permissao'   => [Integer::class,false,null],
-                    'codigo_perfil'      => [Integer::class,false,null],
+                    'codigo_permissao' => [Integer::class, false, null],
+                    'codigo_perfil' => [Integer::class, false, null],
                 ],
                 'constraints' => [
-                    PrimaryKey::class => ['codigo_permissao','codigo_perfil']
+                    PrimaryKey::class => ['codigo_permissao', 'codigo_perfil']
                 ]
             ],
             'sediadoras' => [
                 'fields' => [
-                    'codigo'    => [Integer::class,false,null,['AUTO_INCREMENT' => 'AUTO_INCREMENT']],
-                    'nome'      => [Varchar::class,30,false,''],
+                    'codigo' => [Integer::class, false, null, ['AUTO_INCREMENT' => 'AUTO_INCREMENT']],
+                    'nome' => [Varchar::class, 30, false, ''],
                 ],
                 'constraints' => [
                     PrimaryKey::class => 'codigo'
@@ -194,10 +194,10 @@ class DatabaseSchema {
             ],
             'trabalhos' => [
                 'fields' => [
-                    'codigo'        => [Integer::class,false,null,['AUTO_INCREMENT' => 'AUTO_INCREMENT']],
-                    'nome'          => [Varchar::class,30,false,''],
-                    'categoria'     => [Integer::class,false,null],
-                    'tipo'          => [Integer::class,false,null],
+                    'codigo' => [Integer::class, false, null, ['AUTO_INCREMENT' => 'AUTO_INCREMENT']],
+                    'nome' => [Varchar::class, 30, false, ''],
+                    'categoria' => [Integer::class, false, null],
+                    'tipo' => [Integer::class, false, null],
                 ],
                 'constraints' => [
                     PrimaryKey::class => 'codigo'
@@ -205,15 +205,35 @@ class DatabaseSchema {
             ],
             'usuarios' => [
                 'fields' => [
-                    'codigo'            => [Integer::class,false,null,['AUTO_INCREMENT' => 'AUTO_INCREMENT']],
-                    'nome'              => [Varchar::class,30,false,''],
-                    'senha'             => [Varchar::class,255,false,''],
-                    'codigo_perfil'     => [Integer::class,false,null],
+                    'codigo' => [Integer::class, false, null, ['AUTO_INCREMENT' => 'AUTO_INCREMENT']],
+                    'nome' => [Varchar::class, 30, false, ''],
+                    'senha' => [Varchar::class, 255, false, ''],
+                    'codigo_perfil' => [Integer::class, false, null],
                 ],
                 'constraints' => [
                     PrimaryKey::class => 'codigo'
                 ]
             ],
+            'decisoes' => [
+                 'fields' => [
+                     'codigo' => [Integer::class, false, null, ['AUTO_INCREMENT' => 'AUTO_INCREMENT']],
+                     'decisao' => [Vachar::class, 80, false,],
+                     'aberta' => [Boolearn::class, false, null],
+                ],
+                'constraints' => [
+                    PrimaryKey::class => 'codigo'
+                ]
+            ],        
+            'votacoes' => [
+               'fields' => [
+                   'codigo_decisao' => [Integer::class, false, null],
+                   'codigo_usuario' => [Integer::class, afavor, contra, false,],
+                   'favoravel' => [Boolearn::class, false, null],
+                ],
+                'constraints' => [
+                    PrimaryKey::class => ['codigo_decisao', 'codigo_usuario']
+                ]
+            ]
         ];
     }
 }
