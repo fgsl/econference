@@ -1,12 +1,12 @@
-<h1>Instalação do eConference</h1>
+<h1>eConference Installation</h1>
 <form action="<?=$this->url('setup',['action' => 'config'])?>" method="post">
 <table>
 <tr>
-<td>Usuário administrador:</td>
+<td>Admin user:</td>
 <td><input type="text" name="admin_user" autofocus="autofocus"></td>
 </tr>
 <tr>
-<td>Senha do administrador:</td>
+<td>Administrator password:</td>
 <td><input type="password" name="admin_password"></td>
 </tr>
 <?php
@@ -21,7 +21,7 @@ $drivers = [
 ] 
 ?>
 <tr>
-<td>Driver do banco de dados:</td>
+<td>Database driver:</td>
 <td><select name="database_driver">
 <?php
 foreach ($drivers as $value => $label):
@@ -32,23 +32,23 @@ endforeach;
 ?>
 </select></td>
 <tr>
-<td>Servidor do banco de dados:</td>
+<td>Database server:</td>
 <td><input type="text" name="database_host" value="<?=$this->setupConfig['database_host']?>"></td>
 </tr>
 <tr>
-<td>Nome do banco de dados:</td>
+<td>Name of database:</td>
 <td><input type="text" name="database_name" value="<?=$this->setupConfig['database_name']?>"></td>
 <tr>
 <tr>
-<td>O banco de dados não é criado pela aplicação, apenas as tabelas. <br/>
-Crie o banco antes de instalar a aplicação.</td>
+<td>The database is not created by the application just the tables.<br/>
+Created the database before installing the application.</td>
 </tr>
 <tr>
-<td>Usuário do banco de dados:</td>
+<td>Database user:</td>
 <td><input type="text" name="database_user" value="<?=$this->setupConfig['database_user']?>"></td>
 </tr>
 <tr>
-<td>Senha do usuário do banco de dados:</td>
+<td>Database user password:</td>
 <td><input type="password" name="database_password" value="<?=$this->setupConfig['database_password']?>"></td>
 </tr>
 <tr>

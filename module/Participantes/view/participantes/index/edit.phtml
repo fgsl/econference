@@ -1,30 +1,30 @@
-<h1>Cadastro de Participantes</h1>
+<h1>Registration of Participants</h1>
 <form action="<?=$this->url('participantes',['action'=>'save'])?>" method="post">
-Usuario :
+User :
 <input type="text" autofocus="autofocus" name="usuario" value="<?=$this->participante->usuario?>">
 <br>
 Email :
 <input type="text" name="email" value="<?=$this->participante->email?>">
 <br>
-Nome :
+Name :
 <input type="text" name="nome" value="<?=$this->participante->nome?>">
 <br>
-Cidade :
+City :
 <input type="text" name="cidade" value="<?=$this->participante->cidade?>">
 <br>
-Telefone :
+Telephone :
 <input type="text" name="telefone" value="<?=$this->participante->telefone?>">
 <br>
-Instituicao :
+Institution :
 <input type="text" name="instituicao" value="<?=$this->participante->instituicao?>">
 <br>
 Cpf :
 <input type="text" name="cpf" value="<?=$this->participante->cpf?>">
 <br>
-Passaporte :
+Passport :
 <input type="text" name="passaporte" value="<?=$this->participante->passaporte?>">
 <br/>
 <input type="hidden" value="<?=$this->participante->codigo?>" name="codigo">
 <input type="submit" value="gravar">
 </form>
-<a href="<?=$this->url('participantes')?>">Voltar</a>
+<a href="<?=$this->url('participantes')?>">Back</a>

@@ -1,4 +1,4 @@
-<h1>Cadastro de Perfis</h1>
+<h1>Profiles Registration</h1>
 <form action="<?=$this->url('perfis',['action'=>'save'])?>" method="post">
 Nome :
 <input type="text" autofocus="autofocus" name="nome" value="<?=$this->perfil->nome?>">
@@ -6,4 +6,4 @@ Nome :
 <input type="hidden" value="<?=$this->perfil->codigo?>" name="codigo">
 <input type="submit" value="gravar">
 </form>
-<a href="<?=$this->url('perfis')?>">Voltar</a>
+<a href="<?=$this->url('perfis')?>">Come Back</a>

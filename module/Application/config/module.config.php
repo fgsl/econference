@@ -71,5 +71,10 @@ return [
         'factories' => [
             'UsuarioTable' => 'Acesso\Model\UsuarioTableFactory'
         ]
+    ],
+    'view_helpers' => [
+        'invokables' => [
+            'translate' => \Zend\I18n\View\Helper\Translate::class
     ]
+]    
 ];

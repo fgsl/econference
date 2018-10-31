@@ -3,12 +3,12 @@
     <div class="col-md-4">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">Acesso ao Sistema</h3>
+                <h3 class="panel-title">System Access</h3>
             </div>
             <div class="panel-body">
             <form action="<?=$this->url('application',['action'=>'authenticate'])?>" method="post">
-            Usuário: <input type="text" name="identity" autofocus="autofocus" placeholder="Digite o nome do usuário"><br/> 
-            Senha: <input type="password" name="credential" placeholder="Digite a senha"><br/>
+            <?=$this->translate('User:')?> <input type="text" name="identity" autofocus="autofocus" placeholder="Digite o nome do usuário"><br/> 
+            <?=$this->translate('Password:')?> <input type="password" name="credential" placeholder="Digite a senha"><br/>
             <input type="submit" value="entrar">
             </form>
             </div>

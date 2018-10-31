@@ -1,9 +1,9 @@
-<h1>Cadastro de Locais</h1>
+<h1>Location Registration</h1>
 <form action="<?=$this->url('locais',['action'=>'save'])?>" method="post">
-Nome :
+Name :
 <input type="text" autofocus="autofocus" name="nome" value="<?=$this->local->nome?>">
 <br/>
 <input type="hidden" value="<?=$this->local->codigo?>" name="codigo">
 <input type="submit" value="gravar">
 </form>
-<a href="<?=$this->url('locais')?>">Voltar</a>
+<a href="<?=$this->url('locais')?>">Back</a>
