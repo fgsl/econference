@@ -1,5 +1,6 @@
 <?php
 namespace Mock\Db\Adapter\Driver\Statement;
+use Zend\Db\Adapter\Driver\ResultInterface;
 use Zend\Db\Adapter\Driver\StatementInterface;
 use Mock\Db\Result\Mock as MockResult;
 use Zend\Db\Adapter\ParameterContainer;

@@ -1,6 +1,8 @@
 <?php
 namespace Mock\Db\Adapter;
 use Zend\Db\Adapter\AdapterInterface;
+use Zend\Db\Adapter\Driver\DriverInterface;
+use Zend\Db\Adapter\Platform\PlatformInterface;
 use Mock\Db\Adapter\Driver\Mock as MockDriver;
 use Mock\Db\Platform\Mock as MockPlatform;
 /**
@@ -11,7 +13,7 @@ use Mock\Db\Platform\Mock as MockPlatform;
 class Mock implements AdapterInterface
 {
 	/**
-	 * @return Driver\DriverInterface
+	 * @return DriverInterface
 	 */
 	public function getDriver()
 	{
@@ -19,7 +21,7 @@ class Mock implements AdapterInterface
 	}
 	
 	/**
-	 * @return Platform\PlatformInterface
+	 * @return PlatformInterface
 	*/
 	public function getPlatform()
 	{

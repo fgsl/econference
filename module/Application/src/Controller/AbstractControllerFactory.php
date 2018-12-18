@@ -9,6 +9,7 @@ namespace Application\Controller;
 use Interop\Container\ContainerInterface;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
+use Zend\Db\Adapter\Adapter;
 use Zend\Mvc\Controller\AbstractController;
 
 abstract class AbstractControllerFactory implements FactoryInterface

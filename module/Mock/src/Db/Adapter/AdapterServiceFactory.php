@@ -1,8 +1,10 @@
 <?php
 namespace Mock\Db\Adapter;
-use Zend\ServiceManager\Factory\FactoryInterface;
 use Interop\Container\ContainerInterface;
-use Mock\Db\Adapter\Mock;
+use Interop\Container\Exception\ContainerException;
+use Zend\ServiceManager\Exception\ServiceNotCreatedException;
+use Zend\ServiceManager\Exception\ServiceNotFoundException;
+use Zend\ServiceManager\Factory\FactoryInterface;
 /**
  * @link      http://github.com/fgsl/econference for the canonical source repository
  * @copyright Copyleft 2017 FTSL. (http://www.ftsl.org.br)

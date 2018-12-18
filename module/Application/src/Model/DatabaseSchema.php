@@ -217,8 +217,8 @@ class DatabaseSchema {
             'decisoes' => [
                  'fields' => [
                      'codigo' => [Integer::class, false, null, ['AUTO_INCREMENT' => 'AUTO_INCREMENT']],
-                     'decisao' => [Vachar::class, 80, false,],
-                     'aberta' => [Boolearn::class, false, null],
+                     'decisao' => [Varchar::class, 80, false,],
+                     'aberta' => [Boolean::class, false, null],
                 ],
                 'constraints' => [
                     PrimaryKey::class => 'codigo'
@@ -228,7 +228,7 @@ class DatabaseSchema {
                'fields' => [
                    'codigo_decisao' => [Integer::class, false, null],
                    'codigo_usuario' => [Integer::class, afavor, contra, false,],
-                   'favoravel' => [Boolearn::class, false, null],
+                   'favoravel' => [Boolean::class, false, null],
                 ],
                 'constraints' => [
                     PrimaryKey::class => ['codigo_decisao', 'codigo_usuario']

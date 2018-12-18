@@ -7,11 +7,11 @@
 
 namespace LocaisTest\Controller;
 
+use Categorias\Model\CategoriaTable;
 use Locais\Controller\IndexController;
+use Mock\Db\TableGateway\Mock as MockTableGateway;
 use Zend\Stdlib\ArrayUtils;
 use Zend\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
-use Locais\Model\LocalTable;
-use Mock\Db\TableGateway\Mock;
 
 class IndexControllerTest extends AbstractHttpControllerTestCase
 {
@@ -29,9 +29,9 @@ class IndexControllerTest extends AbstractHttpControllerTestCase
         $configOverrides);
 
         $mergedConfig['service_manager']['factories']['CategoriaTable'] = function($container){
-        	$adapter = $container->get('Zend\Db\Adapter');
-        	$tableGateway = new MockTableGateway($table, $adapter);
-        	return new CategoriaTable($tableGateway);
+            $adapter = $container->get('Zend\Db\Adapter');
+            $tableGateway = new MockTableGateway('locais', $adapter);
+            return new CategoriaTable($tableGateway);
         };
         
         $this->setApplicationConfig($mergedConfig);

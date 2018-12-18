@@ -1,6 +1,9 @@
 <?php
 namespace Mock\Db\Adapter\Driver;
+use Zend\Db\Adapter\Driver\ConnectionInterface;
 use Zend\Db\Adapter\Driver\DriverInterface;
+use Zend\Db\Adapter\Driver\ResultInterface;
+use Zend\Db\Adapter\Driver\StatementInterface;
 use Mock\Db\Adapter\Driver\Connection\Mock as MockConnection;
 use Mock\Db\Adapter\Driver\Statement\Mock as MockStatement;
 /**

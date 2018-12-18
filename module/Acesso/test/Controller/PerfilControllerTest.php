@@ -34,7 +34,7 @@ class IndexControllerTest extends AbstractHttpControllerTestCase
         $this->dispatch('/perfis', 'GET');
         $this->assertResponseStatusCode(200);
         $this->assertModuleName('Acesso');
-        $this->assertControllerName(IndexController::class); // as specified in router's controller name alias
+        $this->assertControllerName(PerfilController::class); // as specified in router's controller name alias
         $this->assertControllerClass('PerfilController');
         $this->assertMatchedRouteName('perfis');
     }

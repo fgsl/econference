@@ -7,7 +7,7 @@
 
 namespace AcessoTest\Controller;
 
-use PermissoesPerfis\Controller\IndexController;
+use Acesso\Controller\PermissoesPerfilController;
 use Zend\Stdlib\ArrayUtils;
 use Zend\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
 
@@ -34,8 +34,8 @@ class PermissaoPerfilControllerTest extends AbstractHttpControllerTestCase
         $this->dispatch('/permissoesperfis', 'GET');
         $this->assertResponseStatusCode(200);
         $this->assertModuleName('Acesso');
-        $this->assertControllerName(IndexController::class); // as specified in router's controller name alias
-        $this->assertControllerClass('PermissaoPerfilController');
+        $this->assertControllerName(PermissoesPerfilController::class); // as specified in router's controller name alias
+        $this->assertControllerClass('PermissoesPerfilController');
         $this->assertMatchedRouteName('permissoesperfis');
     }
 

@@ -7,7 +7,7 @@
 
 namespace AcessoTest\Controller;
 
-use Acesso\Controller\PermissaoIndexController;
+use Acesso\Controller\PermissaoController;
 use Zend\Stdlib\ArrayUtils;
 use Zend\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
 

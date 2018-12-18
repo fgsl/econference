@@ -11,7 +11,7 @@ use Categorias\Controller\IndexController;
 use Zend\Stdlib\ArrayUtils;
 use Zend\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
 use Categorias\Model\CategoriaTable;
-use Mock\Db\TableGateway\Mock;
+use Mock\Db\TableGateway\Mock as MockTableGateway;
 
 class IndexControllerTest extends AbstractHttpControllerTestCase
 {

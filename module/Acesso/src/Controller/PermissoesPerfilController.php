@@ -7,7 +7,6 @@
 namespace Acesso\Controller;
 
 use Application\Controller\AbstractCrudController;
-use Zend\View\Model\ViewModel;
 
 class PermissoesPerfilController extends AbstractCrudController
 {

@@ -7,10 +7,10 @@
 
 namespace Application;
 
-use Zend\Router\Http\Literal;
+use Zend\I18n\View\Helper\Translate;
+use Zend\Mvc\Plugin\FlashMessenger\FlashMessenger;
 use Zend\Router\Http\Segment;
 use Zend\ServiceManager\Factory\InvokableFactory;
-use Zend\Mvc\Plugin\FlashMessenger\FlashMessenger;
 
 return [
     'router' => [
@@ -74,7 +74,7 @@ return [
     ],
     'view_helpers' => [
         'invokables' => [
-            'translate' => \Zend\I18n\View\Helper\Translate::class
+            'translate' => Translate::class
     ]
 ]    
 ];
