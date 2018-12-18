@@ -19,13 +19,12 @@ class SetupControllerTest extends AbstractHttpControllerTestCase
         // You can override configuration here with test case specific values,
         // such as sample view templates, path stacks, module_listener_options,
         // etc.
-        $configOverrides = [];
-
-        $mergedConfig = ArrayUtils::merge(
-            include __DIR__ . '/../../../../config/mock.config.php',
-            $configOverrides);
-
-        $this->setApplicationConfig($mergedConfig);
+        $configOverrides = include __DIR__ . '/../../../../config/mock.config.php';
+        
+        $this->setApplicationConfig(ArrayUtils::merge(
+            include __DIR__ . '/../../../../config/application.config.php',
+            $configOverrides
+        ));
 
         parent::setUp();
     }
@@ -33,7 +32,7 @@ class SetupControllerTest extends AbstractHttpControllerTestCase
     public function testIndexActionCanBeAccessed()
     {
         $this->dispatch('/setup', 'GET');
-        $this->assertResponseStatusCode(302);
+        $this->assertResponseStatusCode(200);
         $this->assertModuleName('application');
         $this->assertControllerName(SetupController::class); // as specified in router's controller name alias
         $this->assertControllerClass('SetupController');

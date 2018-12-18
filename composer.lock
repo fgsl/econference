@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "aff75f8c03d29d416a53580c3fe1ed1b",
+    "content-hash": "0a5109048d5839099d59cacfe1a7e109",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -90,6 +90,42 @@
                 "instantiate"
             ],
             "time": "2015-06-14T21:17:01+00:00"
+        },
+        {
+            "name": "fgsl/mock",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fgsl/mock.git",
+                "reference": "a3d741358d7fcf5186f5463b0056df30b4f6c118"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fgsl/mock/zipball/a3d741358d7fcf5186f5463b0056df30b4f6c118",
+                "reference": "a3d741358d7fcf5186f5463b0056df30b4f6c118",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Fgsl\\Mock\\": "Mock/src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "AGPL-3.0-or-later"
+            ],
+            "description": "Mock module for ZF3 apps",
+            "homepage": "https://github.com/fgsl/mock",
+            "keywords": [
+                "mock",
+                "module",
+                "zend"
+            ],
+            "time": "2018-12-18T18:25:44+00:00"
         },
         {
             "name": "myclabs/deep-copy",

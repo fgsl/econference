@@ -29,7 +29,7 @@ return [
             'Zend\Log' => 'Zend\Log\LoggerAbstractServiceFactory'
         ],
         'factories' => [
-            'Zend\Db\Adapter' => 'Mock\Db\Adapter\AdapterServiceFactory'
+            'Zend\Db\Adapter' => 'Fgsl\Mock\Db\Adapter\AdapterServiceFactory'
         ]
     ]
 ];

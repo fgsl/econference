@@ -1,76 +1,73 @@
 {
-    "name": "econference",
-    "description": "system for event management",
-    "type": "project",
-    "license": "BSD-3-Clause",
-    "keywords": [
-        "event",
-        "management"
-    ],
-    "homepage": "http://github.com/fgsl/econference",
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "require": {
-        "php": "^5.6 || ^7.0",
-        "zendframework/zend-component-installer": "^1.0 || ^0.7 || ^1.0.0-dev@dev",
-        "zendframework/zend-db": "^2.8.2",
-        "zendframework/zend-log": "^2.9.2",
-        "zendframework/zend-mvc": "^3.0.1",
-        "zendframework/zend-test": "^3.1.1",
-        "zfcampus/zf-development-mode": "^3.0",
-        "zendframework/zend-session": "^2.8",
-        "zendframework/zend-authentication": "^2.5",
-        "zendframework/zend-mvc-plugin-flashmessenger": "^1.0",
-        "zendframework/zend-permissions-rbac": "^2.6",
-        "zendframework/zend-i18n": "^2.9",
-        "zendframework/zend-mvc-i18n": "^1.1",
-        "zendframework/zend-mvc-plugins": "^1.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "Acesso\\": "module/Acesso/src/",
-            "Application\\": "module/Application/src/",
-            "Categorias\\" : "module/Categorias/src/",
-            "Credenciamentos\\" : "module/Credenciamentos/src/",
-            "Grades\\" : "module/Grades/src/",
-            "Locais\\" : "module/Locais/src/",
-            "Mock\\" : "module/Mock/src/",
-            "Participantes\\" : "module/Participantes/src/",
-            "Perfis\\" : "module/Perfis/src/",
-            "Publico\\" : "module/Publico/src/",
-            "Sediadoras\\" : "module/Sediadoras/src/",
-            "Trabalhos\\" : "module/Trabalhos/src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "AcessoTest\\": "module/Acesso/test/",
-            "ApplicationTest\\": "module/Application/test/",
-            "CategoriasTes\\" : "module/Categorias/test/",
-            "CredenciamentosTes\\" : "module/Credenciamentos/test/",
-            "GradesTest\\" : "module/Grades/test/",
-            "LocaisTest\\" : "module/Locais/test/",
-            "ParticipantesTest\\" : "module/Participantes/test/",
-            "PerfisTest\\" : "module/Perfis/test/",
-            "PermissoesTest\\" : "module/Permissoes/test/",
-            "PermissoesPerfilTest\\" : "module/PermissoesPerfil/test/",
-            "PublicoTest\\" : "module/Publico/test/",
-            "SediadorasTest\\" : "module/Sediadoras/test/",
-            "TrabalhosTest\\" : "module/Trabalhos/test/",
-            "UsuariosTest\\" : "module/Usuarios/test/"
-        }
-    },
-    "extra": [],
-    "scripts": {
-        "cs-check": "phpcs",
-        "cs-fix": "phpcbf",
-        "development-disable": "zf-development-mode disable",
-        "development-enable": "zf-development-mode enable",
-        "development-status": "zf-development-mode status",
-        "post-create-project-cmd": [
-            "@development-enable"
-        ],
-        "serve": "php -S 0.0.0.0:8080 -t public public/index.php",
-        "test": "phpunit"
-    }
+	"name" : "econference",
+	"description" : "system for event management",
+	"type" : "project",
+	"license" : "BSD-3-Clause",
+	"keywords" : [
+		"event",
+		"management"
+	],
+	"homepage" : "http://github.com/fgsl/econference",
+	"minimum-stability" : "dev",
+	"prefer-stable" : true,
+	"require" : {
+		"php" : "^5.6 || ^7.0",
+		"zendframework/zend-component-installer" : "^1.0 || ^0.7 || ^1.0.0-dev@dev",
+		"zendframework/zend-db" : "^2.8.2",
+		"zendframework/zend-log" : "^2.9.2",
+		"zendframework/zend-mvc" : "^3.0.1",
+		"zendframework/zend-test" : "^3.1.1",
+		"zfcampus/zf-development-mode" : "^3.0",
+		"zendframework/zend-session" : "^2.8",
+		"zendframework/zend-authentication" : "^2.5",
+		"zendframework/zend-mvc-plugin-flashmessenger" : "^1.0",
+		"zendframework/zend-permissions-rbac" : "^2.6",
+		"zendframework/zend-i18n" : "^2.9",
+		"zendframework/zend-mvc-i18n" : "^1.1",
+		"zendframework/zend-mvc-plugins" : "^1.0",
+		"fgsl/mock" : "^0.0.1"
+	},
+	"autoload" : {
+		"psr-4" : {
+			"Acesso\\" : "module/Acesso/src/",
+			"Application\\" : "module/Application/src/",
+			"Categorias\\" : "module/Categorias/src/",
+			"Credenciamentos\\" : "module/Credenciamentos/src/",
+			"Grades\\" : "module/Grades/src/",
+			"Locais\\" : "module/Locais/src/",
+			"Participantes\\" : "module/Participantes/src/",
+			"Perfis\\" : "module/Perfis/src/",
+			"Publico\\" : "module/Publico/src/",
+			"Sediadoras\\" : "module/Sediadoras/src/",
+			"Trabalhos\\" : "module/Trabalhos/src/"
+		}
+	},
+	"autoload-dev" : {
+		"psr-4" : {
+			"AcessoTest\\" : "module/Acesso/test/",
+			"ApplicationTest\\" : "module/Application/test/",
+			"CategoriasTes\\" : "module/Categorias/test/",
+			"CredenciamentosTes\\" : "module/Credenciamentos/test/",
+			"GradesTest\\" : "module/Grades/test/",
+			"LocaisTest\\" : "module/Locais/test/",
+			"ParticipantesTest\\" : "module/Participantes/test/",
+			"PerfisTest\\" : "module/Perfis/test/",
+			"PermissoesTest\\" : "module/Permissoes/test/",
+			"PermissoesPerfilTest\\" : "module/PermissoesPerfil/test/",
+			"PublicoTest\\" : "module/Publico/test/",
+			"SediadorasTest\\" : "module/Sediadoras/test/",
+			"TrabalhosTest\\" : "module/Trabalhos/test/",
+			"UsuariosTest\\" : "module/Usuarios/test/"
+		}
+	},
+	"scripts" : {
+		"cs-check" : "phpcs",
+		"cs-fix" : "phpcbf",
+		"development-disable" : "zf-development-mode disable",
+		"development-enable" : "zf-development-mode enable",
+		"development-status" : "zf-development-mode status",
+		"post-create-project-cmd" : "@development-enable",
+		"serve" : "php -S 0.0.0.0:8080 -t public public/index.php",
+		"test" : "phpunit"
+	}
 }
