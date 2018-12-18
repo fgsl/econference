@@ -27,14 +27,4 @@ return array(
             'MvcTranslator' => 'Zend\Mvc\I18n\TranslatorFactory'
         ),
     ),
-'translator' => [
-    'locale' => 'pt_BR',
-    'translation_file_patterns' => [
-        [
-            'type'     => 'phparray',
-            'base_dir' => getcwd() .  '/data/language',
-            'pattern'  => '%s.php',
-        ],
-    ],
-],    
 );

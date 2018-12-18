@@ -75,6 +75,16 @@ return [
     'view_helpers' => [
         'invokables' => [
             'translate' => Translate::class
+        ],
+    ],
+    'translator' => [
+        'locale' => 'pt_BR',
+        'translation_file_patterns' => [
+            [
+                'type'     => 'phparray',
+                'base_dir' => getcwd() .  '/data/language',
+                'pattern'  => '%s.php',
+            ],
+        ],
     ]
-]    
 ];

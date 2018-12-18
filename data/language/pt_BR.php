@@ -1,7 +1,7 @@
 <?php
 return [
     'Conference Control System' => 'Sistema de Controle de Conferência',
-    'System Access' => 'Acesso ao Sistema',
+    'System Acess' => 'Acesso ao Sistema',
     'User:' => 'Usuário',
     'Enter the user name' => 'Digite o nome do usuário',
     'Password:' => 'Senha:',
