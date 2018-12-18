@@ -12,7 +12,14 @@
             <input type="submit" value="entrar">
             </form>
             </div>
-            <p><?=$this->messages?></p>
+<?php
+foreach($this->messages as $message):
+?>
+    <p><?=$this->translate($message)?></p>
+<?php    
+endforeach;
+?>            
+            
         </div>
     </div>
 

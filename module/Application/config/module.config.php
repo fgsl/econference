@@ -82,7 +82,7 @@ return [
         'translation_file_patterns' => [
             [
                 'type'     => 'phparray',
-                'base_dir' => getcwd() .  '/data/language',
+                'base_dir' => getcwd() .  '/module/Application/data/language',
                 'pattern'  => '%s.php',
             ],
         ],

@@ -61,8 +61,8 @@ return [
     'Database driver:' => 'Driver de bancos de dados:',
     'Database server:' => 'Servidor de bancos de dados:',
     'Name of database:' => 'Nome do banco de dados:',
-    'The database is not created by the application just the tables.' => 'O banco de dados não pode ser criado pelo aplicativo, apenas as tabelas',
-    'Created the database before installing the application.' => 'Criado o banco de dados antes de instalar o aplicativo.',
+    'The database is not created by the application just the tables.' => 'O banco de dados não pode ser criado pelo aplicativo, apenas as tabelas.',
+    'Created the database before installing the application.' => 'Crie o banco de dados antes de instalar a aplicação.',
     'Database user:' => 'usuário do banco de dados:',
     'Database user password:' => 'Senha do usuário do banco de dados:',
     'Your Conference Title' => 'Título da sua Conferencia',
@@ -109,6 +109,11 @@ return [
     'Talk about activities:' => 'Fale sobre as atividades:',
     'Talks,' => 'Conversas,',
     'Workshop' => 'Oficina',
-    'Meentings' => 'Reuniões',
-    
+    'Meetings' => 'Reuniões',
+    'Application is not installed. Run setup.' => 'A aplicação não está instalada. Execute o setup.',
+    'Database driver:' => 'Driver do banco de dados:',
+    'Database server:' => 'Servidor do banco de dados',
+    'Name of database:' => 'Nome do banco de dados',
+    'save' => 'gravar',
+    'eConference Installation' => 'Instalação do eConference'
 ];

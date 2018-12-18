@@ -6,15 +6,14 @@
  */
 namespace Application\Controller;
 
-use Zend\Mvc\Controller\AbstractActionController;
-use Zend\View\Model\ViewModel;
-use Psr\Container\ContainerInterface;
-use Zend\Db\Adapter\Driver\ConnectionInterface;
 use Application\Model\DatabaseSchema;
+use Psr\Container\ContainerInterface;
 use Zend\Config\Writer\PhpArray;
 use Zend\Db\Adapter\Adapter;
-use Zend\Config\Config;
+use Zend\Db\Adapter\Driver\ConnectionInterface;
 use Zend\Db\Sql\Insert;
+use Zend\Mvc\Controller\AbstractActionController;
+use Zend\View\Model\ViewModel;
 
 class SetupController extends AbstractActionController
 {
@@ -74,8 +73,12 @@ class SetupController extends AbstractActionController
         $config['db'] = $db;
         $configWriter->toFile(__DIR__ . '/../../../../config/autoload/global.php', $config);
         $adapter = new Adapter($db);
-        DatabaseSchema::createTables($adapter, true, $this->container->get('Log\App'));
-        
+        try {
+            DatabaseSchema::createTables($adapter, true, $this->container->get('Log\App'));
+        } catch (\Exception $e) {
+            return $this->redirect()->toRoute('setup');
+        }
+
         $username = $this->getRequest()->getPost('admin_user');
         $password = $this->getRequest()->getPost('admin_password');
         $encodingFunction = 'md5';

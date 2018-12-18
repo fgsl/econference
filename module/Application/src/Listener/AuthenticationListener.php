@@ -12,8 +12,9 @@ use Zend\Authentication\AuthenticationService;
 class AuthenticationListener
 {
     const INDEXCONTROLLER = 'Application\Controller\IndexController';
+    const SETUPCONTROLLER = 'Application\Controller\SetupController';
     const LOGINACTION = 'login';
-    const AUTHENTICATEACTION = 'authenticate';
+    const AUTHENTICATEACTION = 'authenticate'; 
     
     public static function verifyAuthentication(MvcEvent $event)
     {
@@ -26,7 +27,9 @@ class AuthenticationListener
                 $params = $event->getRouteMatch()->getParams();
                 $controller = $params['controller']; 
                 $action = $params['action'];
-                if (!($controller == self::INDEXCONTROLLER && ($action == self::LOGINACTION || $action == self::AUTHENTICATEACTION ))){
+                if (!($controller == self::INDEXCONTROLLER && 
+                    ($action == self::LOGINACTION || $action == self::AUTHENTICATEACTION ))
+                    && ($controller !== self::SETUPCONTROLLER)){
                     $url = $event->getRouter()->assemble([
                         'controller' => 'index',
                         'action' => 'login'

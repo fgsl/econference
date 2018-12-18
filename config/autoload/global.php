@@ -4,6 +4,8 @@ return array(
         'host' => 'localhost',
         'driver' => 'Pdo_Mysql',
         'database' => 'econference',
+        'user' => 'root',
+        'password' => 'mysql',
     ),
     'log' => array(
         'Log\\App' => array(
@@ -24,7 +26,7 @@ return array(
         ),
         'factories' => array(
             'Zend\\Db\\Adapter' => 'Zend\\Db\\Adapter\\AdapterServiceFactory',
-            'MvcTranslator' => 'Zend\Mvc\I18n\TranslatorFactory'
+            'MvcTranslator' => 'Zend\\Mvc\\I18n\\TranslatorFactory',
         ),
     ),
 );

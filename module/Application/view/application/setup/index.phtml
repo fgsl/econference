@@ -1,12 +1,12 @@
-<h1>eConference Installation</h1>
+<h1><?=$this->translate('eConference Installation')?></h1>
 <form action="<?=$this->url('setup',['action' => 'config'])?>" method="post">
 <table>
 <tr>
-<td>Admin user:</td>
+<td><?=$this->translate('Admin user:')?></td>
 <td><input type="text" name="admin_user" autofocus="autofocus"></td>
 </tr>
 <tr>
-<td>Administrator password:</td>
+<td><?=$this->translate('Administrator password:')?></td>
 <td><input type="password" name="admin_password"></td>
 </tr>
 <?php
@@ -21,7 +21,7 @@ $drivers = [
 ] 
 ?>
 <tr>
-<td>Database driver:</td>
+<td><?=$this->translate('Database driver:')?></td>
 <td><select name="database_driver">
 <?php
 foreach ($drivers as $value => $label):
@@ -32,27 +32,27 @@ endforeach;
 ?>
 </select></td>
 <tr>
-<td>Database server:</td>
+<td><?=$this->translate('Database server:')?></td>
 <td><input type="text" name="database_host" value="<?=$this->setupConfig['database_host']?>"></td>
 </tr>
 <tr>
-<td>Name of database:</td>
+<td><?=$this->translate('Name of database:')?></td>
 <td><input type="text" name="database_name" value="<?=$this->setupConfig['database_name']?>"></td>
 <tr>
 <tr>
-<td>The database is not created by the application just the tables.<br/>
-Created the database before installing the application.</td>
+<td><?=$this->translate('The database is not created by the application just the tables.')?><br/>
+<?=$this->translate('Created the database before installing the application.')?></td>
 </tr>
 <tr>
-<td>Database user:</td>
+<td><?=$this->translate('Database user:')?></td>
 <td><input type="text" name="database_user" value="<?=$this->setupConfig['database_user']?>"></td>
 </tr>
 <tr>
-<td>Database user password:</td>
+<td><?=$this->translate('Database user password:')?></td>
 <td><input type="password" name="database_password" value="<?=$this->setupConfig['database_password']?>"></td>
 </tr>
 <tr>
-<td><input type="submit" value="gravar"></td>
+<td><input type="submit" value="<?=$this->translate('save')?>"></td>
 </tr>
 </table>
 </form>

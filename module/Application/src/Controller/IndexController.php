@@ -6,14 +6,14 @@
  */
 namespace Application\Controller;
 
-use Zend\Mvc\Controller\AbstractActionController;
-use Zend\View\Model\ViewModel;
-use Zend\Session\SessionManager;
 use Zend\Authentication\AuthenticationService;
-use Zend\Authentication\Result;
-use Zend\Db\Adapter\AdapterInterface;
 use Zend\Authentication\Adapter\DbTable\CredentialTreatmentAdapter;
+use Zend\Db\Adapter\AdapterInterface;
+use Zend\Mvc\Controller\AbstractActionController;
 use Zend\Permissions\Rbac\Rbac;
+use Zend\Session\SessionManager;
+use Zend\View\Model\ViewModel;
+use Zend\Authentication\Result;
 
 class IndexController extends AbstractActionController
 {
@@ -49,7 +49,7 @@ class IndexController extends AbstractActionController
     
     public function loginAction()
     {
-        $messages = implode(',',$this->flashMessenger()->getMessages());
+        $messages = $this->flashMessenger()->getMessages();
         $this->flashMessenger()->clearMessages();
         return new ViewModel(['messages' => $messages]);
     }
@@ -68,16 +68,23 @@ class IndexController extends AbstractActionController
                 ->setCredential($credential);
         
         $authenticationService->setAdapter($adapter);
-        $result = $authenticationService->authenticate();
-        if ($result->isValid()){
+        try {
+            $result = $authenticationService->authenticate();
+        } catch (\Exception $e) {
+            $result = new Result(Result::FAILURE, $identity);
+            $this->flashMessenger()->addMessage('Application is not installed. Run setup.');
+        }
+        if ($result->isValid()) {
             $authenticationService->getStorage()->write($result->getIdentity());
             $sessionManager = new SessionManager();
             $rbac = new Rbac();
         } else {
-            foreach ($result->getMessages() as $message){
+            foreach ($result->getMessages() as $message) {
                 $this->flashMessenger()->addMessage($message);
             }
-            return $this->redirect()->toRoute('application',['action' => 'login']);
+            return $this->redirect()->toRoute('application', [
+                'action' => 'login'
+            ]);
         }
         return $this->redirect()->toRoute('application');
     }
