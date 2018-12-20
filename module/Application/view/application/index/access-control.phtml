@@ -2,14 +2,14 @@
     <div class="col-md-4">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">Control of Access to the System</h3>
+                <h3 class="panel-title"><?=$this->translate('System Access Control')?></h3>
             </div>
             <div class="panel-body">
                 <ul>
-                    <li><a href="<?= $this->url('perfis') ?>">Profile</a></li>
-                    <li><a href="<?= $this->url('permissoes') ?>">Permissions</a></li>
-                    <li><a href="<?= $this->url('permissoesperfis') ?>">Permission of a Profile</a></li>
-                    <li><a href="<?= $this->url('usuarios') ?>">User</a></li>
+                    <li><a href="<?=$this->url('perfis') ?>"><?=$this->translate('Profile')?></a></li>
+                    <li><a href="<?=$this->url('permissoes') ?>"><?=$this->translate('Permissions')?></a></li>
+                    <li><a href="<?=$this->url('permissoesperfis') ?>"><?=$this->translate('Permission of a Profile')?></a></li>
+                    <li><a href="<?=$this->url('usuarios') ?>"><?=$this->translate('User')?></a></li>
                 </ul>
                 <p>
                     <a href="<?= $this->url('home') ?>">Home</a>

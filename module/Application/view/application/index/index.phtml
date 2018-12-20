@@ -1,13 +1,14 @@
 <div class="jumbotron">
-    <h1><span class="zf-green">Conference Management System</span></h1>
+    <h1><span class="zf-green"><?=$this->translate('Conference Management System')?></span></h1>
 
     <p>
-        The conference management system - <i> eConference </i> - aims to 
-        automate complex tasks in the organization and follow-up of events 
-        involving lectures and courses.
+    <?=$this->translate(
+'The conference management system - <i> eConference </i> - aims to 
+automate complex tasks in the organization and follow-up of events 
+involving lectures and courses.')?>
     </p>
 
-    <p><a class="btn btn-success btn-lg" href="https://github.com/fgsl/econference" target="_blank">Contribute to the project on GitHub &raquo;</a></p>
+    <p><a class="btn btn-success btn-lg" href="https://github.com/fgsl/econference" target="_blank"><?=$this->translate('Contribute to the project on GitHub')?>&raquo;</a></p>
 </div>
 
 <div class="row">
@@ -15,17 +16,17 @@
     <div class="col-md-4">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">Content Grid Management</h3>
+                <h3 class="panel-title"><?=$this->translate('Content Grid Management')?></h3>
             </div>
             <div class="panel-body">
                 <ul>
-                    <li>Submission of works</li> 
-                    <li>Punctuation and classification of works</li>
-                    <li>Creating tracks according to categories</li>
-                    <li>Time conflict resolution</li>
-                    <li>Connection between work and sponsors</li>
+                    <li><?=$this->translate('Submission of works')?></li> 
+                    <li><?=$this->translate('Punctuation and classification of works')?></li>
+                    <li><?=$this->translate('Creating tracks according to categories')?></li>
+                    <li><?=$this->translate('Time conflict resolution')?></li>
+                    <li><?=$this->translate('Connection between work and sponsors')?></li>
                 </ul>    
-                <p><a class="btn btn-success pull-right" href="#">know more</a></p>
+                <p><a class="btn btn-success pull-right" href="#"><?=$this->translate('know more')?></a></p>
             </div>
         </div>
     </div>
@@ -33,16 +34,16 @@
     <div class="col-md-4">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">Management of Activities</h3>
+                <h3 class="panel-title"><?=$this->translate('Management of Activities')?></h3>
             </div>
             <div class="panel-body">
                 <ul>
-                    <li>Task control</li>
-                    <li>Decision making</li>
-                    <li>Revenue and expense control</li>
-                    <li>Audit</li>                    
+                    <li><?=$this->translate('Task control')?></li>
+                    <li><?=$this->translate('Decision making')?></li>
+                    <li><?=$this->translate('Revenue and expense control')?></li>
+                    <li><?=$this->translate('Audit')?></li>
                 </ul>
-                <p><a class="btn btn-success pull-right" href="#">know more</a></p>
+                <p><a class="btn btn-success pull-right" href="#"><?=$this->translate('know more')?></a></p>
             </div>
         </div>
     </div>
@@ -50,7 +51,7 @@
     <div class="col-md-4">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">Environment</h3>
+                <h3 class="panel-title"><?=$this->translate('Environment')?></h3>
             </div>
             <div class="panel-body">
                 <ul>                
@@ -58,7 +59,7 @@
                     <li>MySQL</li> 
                     <li>PHP</li>                   
                 </ul>            
-                <p><a class="btn btn-success pull-right" href="#" target="_blank">know more</a></p>
+                <p><a class="btn btn-success pull-right" href="#" target="_blank"><?=$this->translate('know more')?></a></p>
             </div>
         </div>
     </div>

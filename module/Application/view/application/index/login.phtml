@@ -7,7 +7,7 @@
             </div>
             <div class="panel-body">
             <form action="<?=$this->url('application',['action'=>'authenticate'])?>" method="post">
-            <?=$this->translate('User:')?> <input type="text" name="identity" autofocus="autofocus" placeholder="Digite o nome do usuário"><br/> 
+            <?=$this->translate('User')?>: <input type="text" name="identity" autofocus="autofocus" placeholder="Digite o nome do usuário"><br/>
             <?=$this->translate('Password:')?> <input type="password" name="credential" placeholder="Digite a senha"><br/>
             <input type="submit" value="entrar">
             </form>

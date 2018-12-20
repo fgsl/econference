@@ -1,4 +1,4 @@
-<h1>Permission Registration for a Profile</h1>
+<h1><?=$this->translate('Permission for a Profile Registration')?></h1>
 <form action="<?=$this->url('permissoesperfis',['action'=>'save'])?>" method="post">
 <select name="codigo_perfil">
 <?=$this->partialLoop('perfis-permissoes-perfis.phtml',$this->perfis)?>
@@ -7,6 +7,6 @@
 <?=$this->partialLoop('permissoes-permissoes-perfis.phtml',$this->permissoes)?>
 </select>
 <input type="hidden" value="<?=$this->grade->codigo?>" name="codigo">
-<input type="submit" value="gravar">
+<input type="submit" value="<?=$this->translate('save')?>">
 </form>
-<a href="<?=$this->url('permissoesperfis')?>">Back</a>
+<a href="<?=$this->url('permissoesperfis')?>"><?=$this->translate('Go back')?></a>

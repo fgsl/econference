@@ -45,11 +45,11 @@ table {
 $authenticationService = new AuthenticationService();
 if ($authenticationService->hasIdentity()):
 ?>
-                        <li class="active">Usuário: <?=$authenticationService->getIdentity()?>"></li>
+                        <li class="active"><?=$this->translate('User:') . $authenticationService->getIdentity()?>"></li>
                         <li class="active"><a href="<?= $this->url('home') ?>">Home</a></li>
-                        <li class="active"><a href="<?= $this->url('application',['action' => 'access-control']) ?>">Controle de Acesso ao Sistema</a></li>
-                        <li class="active"><a href="<?= $this->url('application',['action' => 'event-control']) ?>">Administração do Evento</a></li>
-                        <li class="active"><a href="<?= $this->url('application',['action' => 'logout']) ?>">Sair</a></li>                        
+                        <li class="active"><a href="<?= $this->url('application',['action' => 'access-control']) ?>"><?=$this->translate('System Access Control')?></a></li>
+                        <li class="active"><a href="<?= $this->url('application',['action' => 'event-control']) ?>"><?=$this->translate('Event Management')?></a></li>
+                        <li class="active"><a href="<?= $this->url('application',['action' => 'logout']) ?>"><?=$this->translate('Exit')?></a></li>
 <?php
 else:
 ?>

@@ -2,7 +2,6 @@
 return [
     'Conference Control System' => 'Sistema de Controle de Conferência',
     'System Access' => 'Acesso ao Sistema',
-    'User:' => 'Usuário',
     'Enter the user name' => 'Digite o nome do usuário',
     'Password:' => 'Senha:',
     'Enter' => 'Entrar',
@@ -27,9 +26,9 @@ return [
     'Stack trace:' => 'Rastreamento de pilha:',
     'Previous exceptions:' => 'Exceções anteriores:',
     'No exception available' => 'Nenhuma exceção disponível',
-    'Permission for a Profile' => 'Permissão de um Perfil',
+    'Permission of a Profile' => 'Permissão de um Perfil',
     'Home' => 'Início',
-    'Control of Access to the System' => 'Controle de Acesso ao Sistema',
+    'System Access Control' => 'Controle de Acesso ao Sistema',
     'Event Management' => 'Administração de Evento',
     'Sediadoras' => 'Sediadoras',
     'Places' => 'Locais',
@@ -115,5 +114,12 @@ return [
     'Database server:' => 'Servidor do banco de dados',
     'Name of database:' => 'Nome do banco de dados',
     'save' => 'gravar',
-    'eConference Installation' => 'Instalação do eConference'
+    'eConference Installation' => 'Instalação do eConference',
+    'The conference management system - <i> eConference </i> - aims to 
+automate complex tasks in the organization and follow-up of events 
+involving lectures and courses.' => 'O sistema de gerenciamento de conferências - <i> eConference </i> - pretende  
+automatizar tarefas complexas na organização e conntrole de eventos 
+envolvendo palestras e cursos.',
+    'Exit' => 'Sair',
+    'User' => 'Usuário'
 ];
