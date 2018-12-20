@@ -40,6 +40,7 @@ class SetupController extends AbstractActionController
                 $installed = DatabaseSchema::checkTables($adapter);
             }
         } catch (\Exception $e) {
+            $this->flashMessenger()->addMessage($e->getMessage());
         }
 
         if ($installed){
@@ -55,7 +56,12 @@ class SetupController extends AbstractActionController
             'database_password' => $config['db']['password']
         ];
         $this->layout('layout/setuplayout');
-        return new ViewModel(['setupConfig' => $setupConfig]);
+        $messages = $this->flashMessenger()->getMessages();
+        $this->flashMessenger()->clearMessages();
+        return new ViewModel([
+            'messages' => $messages,
+            'setupConfig' => $setupConfig
+        ]);
     }
 
     public function configAction()
@@ -75,7 +81,11 @@ class SetupController extends AbstractActionController
         $adapter = new Adapter($db);
         try {
             DatabaseSchema::createTables($adapter, true, $this->container->get('Log\App'));
-        } catch (\Exception $e) {
+        } catch (\Zend\Db\Adapter\Exception\RuntimeException $zdaer) {
+            $this->flashMessenger()->addMessage($zdaer->getMessage());
+            return $this->redirect()->toRoute('setup');
+        } catch (\PDOException $pe){
+            $this->flashMessenger()->addMessage($pe->getMessage());
             return $this->redirect()->toRoute('setup');
         }
 

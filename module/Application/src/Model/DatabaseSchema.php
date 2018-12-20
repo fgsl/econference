@@ -19,6 +19,7 @@ use Zend\Db\Sql\Ddl\Column\Integer;
 use Zend\Db\Sql\Ddl\Column\Time;
 use Zend\Db\Sql\Ddl\Column\Varchar;
 use Zend\Db\Sql\Ddl\Constraint\PrimaryKey;
+use Zend\Db\Metadata\Source\Factory;
 
 class DatabaseSchema {
 
@@ -34,7 +35,7 @@ class DatabaseSchema {
 
         $schema = self::getSchema();
 
-        $metadata = new Metadata($adapter);
+        $metadata = Factory::createSourceFromAdapter($adapter);
         $tableNames = $metadata->getTableNames();
 
         foreach ($schema as $tableName => $tableSchema) {
@@ -53,7 +54,7 @@ class DatabaseSchema {
     public static function createTables(AdapterInterface $adapter, $verbose = false, $log = null) {
         $schema = self::getSchema();
 
-        $metadata = new Metadata($adapter);
+        $metadata = Factory::createSourceFromAdapter($adapter);
         $tableNames = $metadata->getTableNames();
         $sql = new Sql($adapter);
 
@@ -216,7 +217,7 @@ class DatabaseSchema {
             'decisoes' => [
                  'fields' => [
                      'codigo' => [Integer::class, false, null, ['AUTO_INCREMENT' => 'AUTO_INCREMENT']],
-                     'decisao' => [Varchar::class, 80, false,],
+                     'decisao' => [Varchar::class, 80, false,''],
                      'aberta' => [Boolean::class, false, null],
                 ],
                 'constraints' => [
@@ -226,7 +227,7 @@ class DatabaseSchema {
             'votacoes' => [
                'fields' => [
                    'codigo_decisao' => [Integer::class, false, null],
-                   'codigo_usuario' => [Integer::class, afavor, contra, false,],
+                   'codigo_usuario' => [Integer::class, false, null],
                    'favoravel' => [Boolean::class, false, null],
                 ],
                 'constraints' => [

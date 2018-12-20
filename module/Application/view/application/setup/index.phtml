@@ -31,6 +31,14 @@ foreach ($drivers as $value => $label):
 endforeach;
 ?>
 </select></td>
+<?php
+foreach($this->messages as $message):
+?>
+<p>Error: <?=$message?></p>
+<?php
+endforeach;
+?>
+
 <tr>
 <td><?=$this->translate('Database server:')?></td>
 <td><input type="text" name="database_host" value="<?=$this->setupConfig['database_host']?>"></td>
