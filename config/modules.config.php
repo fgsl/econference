@@ -15,7 +15,6 @@ return [
     'Zend\Session',
     'Zend\Router',
     'Zend\Validator',
-    'Fgsl\Mock',
     'Trabalhos',
     'Sediadoras',
     'Publico',
