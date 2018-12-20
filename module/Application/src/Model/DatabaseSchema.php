@@ -8,18 +8,17 @@
 
 namespace Application\Model;
 
-use Zend\Db\Sql\Ddl\Column\Integer;
-use Zend\Db\Sql\Ddl\Column\Varchar;
-use Zend\Db\Sql\Ddl\Column\Boolean;
-use Zend\Db\Sql\Ddl\Constraint\PrimaryKey;
-use Zend\Db\Sql\Ddl\Column\Date;
-use Zend\Db\Sql\Ddl\Column\Time;
-use Zend\Db\Metadata\Metadata;
+use Fgsl\Mock\Db\Adapter\Mock;
 use Zend\Db\Adapter\AdapterInterface;
-use Zend\Db\Sql\Ddl\CreateTable;
+use Zend\Db\Metadata\Metadata;
 use Zend\Db\Sql\Sql;
-use Zend\Log\Logger;
-use Mock\Db\Adapter\Mock;
+use Zend\Db\Sql\Ddl\CreateTable;
+use Zend\Db\Sql\Ddl\Column\Boolean;
+use Zend\Db\Sql\Ddl\Column\Date;
+use Zend\Db\Sql\Ddl\Column\Integer;
+use Zend\Db\Sql\Ddl\Column\Time;
+use Zend\Db\Sql\Ddl\Column\Varchar;
+use Zend\Db\Sql\Ddl\Constraint\PrimaryKey;
 
 class DatabaseSchema {
 

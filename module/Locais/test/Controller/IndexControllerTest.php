@@ -9,7 +9,7 @@ namespace LocaisTest\Controller;
 
 use Categorias\Model\CategoriaTable;
 use Locais\Controller\IndexController;
-use Mock\Db\TableGateway\Mock as MockTableGateway;
+use Fgsl\Mock\Db\TableGateway\Mock as MockTableGateway;
 use Zend\Stdlib\ArrayUtils;
 use Zend\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
 

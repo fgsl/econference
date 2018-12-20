@@ -8,10 +8,10 @@
 namespace CategoriasTest\Controller;
 
 use Categorias\Controller\IndexController;
+use Categorias\Model\CategoriaTable;
 use Zend\Stdlib\ArrayUtils;
 use Zend\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
-use Categorias\Model\CategoriaTable;
-use Mock\Db\TableGateway\Mock as MockTableGateway;
+use Fgsl\Mock\Db\TableGateway as MockTableGateway;
 
 class IndexControllerTest extends AbstractHttpControllerTestCase
 {
