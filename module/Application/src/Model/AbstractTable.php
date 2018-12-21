@@ -90,7 +90,7 @@ abstract class AbstractTable
      */
     public function count()
     {
-        $select = new Select('sediadoras');
+        $select = new Select('anfitrias');
         $select->columns([new Expression("count({$this->keyName}) as total")]);
         $rows = $this->tableGateway->selectWith($select);
         return $rows->current()->total;

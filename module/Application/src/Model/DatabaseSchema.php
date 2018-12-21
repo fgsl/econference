@@ -10,7 +10,7 @@ namespace Application\Model;
 
 use Fgsl\Mock\Db\Adapter\Mock;
 use Zend\Db\Adapter\AdapterInterface;
-use Zend\Db\Metadata\Metadata;
+use Zend\Db\Metadata\Source\Factory;
 use Zend\Db\Sql\Sql;
 use Zend\Db\Sql\Ddl\CreateTable;
 use Zend\Db\Sql\Ddl\Column\Boolean;
@@ -19,7 +19,6 @@ use Zend\Db\Sql\Ddl\Column\Integer;
 use Zend\Db\Sql\Ddl\Column\Time;
 use Zend\Db\Sql\Ddl\Column\Varchar;
 use Zend\Db\Sql\Ddl\Constraint\PrimaryKey;
-use Zend\Db\Metadata\Source\Factory;
 
 class DatabaseSchema {
 
@@ -76,10 +75,10 @@ class DatabaseSchema {
                 $table->addConstraint(new $constraint($value));
             }
             if ($verbose && $log != null) {
-                $log->info($sql->getSqlStringForSqlObject($table));
+                $log->info($sql->buildSqlString($table));
             }
 
-            $adapter->query($sql->getSqlStringForSqlObject($table), $adapter::QUERY_MODE_EXECUTE);
+            $adapter->query($sql->buildSqlString($table), $adapter::QUERY_MODE_EXECUTE);
         }
     }
 
@@ -88,6 +87,15 @@ class DatabaseSchema {
      */
     public static function getSchema() {
         return [
+            'anfitrias' => [
+                'fields' => [
+                    'codigo' => [Integer::class, false, null, ['AUTO_INCREMENT' => 'AUTO_INCREMENT']],
+                    'nome' => [Varchar::class, 30, false, ''],
+                ],
+                'constraints' => [
+                    PrimaryKey::class => 'codigo'
+                ]
+            ],
             'categorias' => [
                 'fields' => [
                     'codigo' => [Integer::class, false, null, ['AUTO_INCREMENT' => 'AUTO_INCREMENT']],
@@ -181,15 +189,6 @@ class DatabaseSchema {
                 ],
                 'constraints' => [
                     PrimaryKey::class => ['codigo_permissao', 'codigo_perfil']
-                ]
-            ],
-            'sediadoras' => [
-                'fields' => [
-                    'codigo' => [Integer::class, false, null, ['AUTO_INCREMENT' => 'AUTO_INCREMENT']],
-                    'nome' => [Varchar::class, 30, false, ''],
-                ],
-                'constraints' => [
-                    PrimaryKey::class => 'codigo'
                 ]
             ],
             'trabalhos' => [

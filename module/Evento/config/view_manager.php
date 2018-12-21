@@ -12,12 +12,12 @@ return [
     'exception_template'       => 'error/index',
     'template_map' => [
         'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
+        'evento/anfitrias'        => __DIR__ . '/../view/evento/anfitrias/index.phtml',
         'evento/categorias'       => __DIR__ . '/../view/evento/categorias/index.phtml',
         'evento/credenciamentos'  => __DIR__ . '/../view/evento/credenciamentos/index.phtml',
         'evento/grades'           => __DIR__ . '/../view/evento/grades/index.phtml',
         'evento/locais'           => __DIR__ . '/../view/evento/locais/index.phtml',
         'evento/participantes'    => __DIR__ . '/../view/evento/participantes/index.phtml',
-        'evento/sediadoras'       => __DIR__ . '/../view/evento/sediadoras/index.phtml',
         'evento/trabalhos'        => __DIR__ . '/../view/evento/trabalhos/index.phtml',
         'error/404'               => __DIR__ . '/../view/error/404.phtml',
         'error/index'             => __DIR__ . '/../view/error/index.phtml',

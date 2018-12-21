@@ -3,7 +3,7 @@ namespace Evento\Model;
 
 use Application\Model\AbstractModel;
 
-class Sede extends AbstractModel
+class Anfitria extends AbstractModel
 {
 	public $codigo;
 	public $nome;

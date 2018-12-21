@@ -4,7 +4,7 @@ use Evento\Controller\CredenciamentosController;
 use Evento\Controller\LocaisController;
 use Evento\Controller\GradesController;
 use Evento\Controller\ParticipantesController;
-use Evento\Controller\SediadorasController;
+use Evento\Controller\AnfitriasController;
 use Evento\Controller\TrabalhosController;
 
 /**
@@ -15,12 +15,12 @@ use Evento\Controller\TrabalhosController;
 
 return [
     'factories' => [
+        AnfitriasController::class => 'Evento\Controller\AnfitriasControllerFactory',
         CategoriasController::class => 'Evento\Controller\CategoriasControllerFactory',
         CredenciamentosController::class => 'Evento\Controller\CredenciamentosControllerFactory',
         GradesController::class => 'Evento\Controller\GradesControllerFactory',
         LocaisController::class => 'Evento\Controller\LocaisControllerFactory',
         ParticipantesController::class => 'Evento\Controller\ParticipantesControllerFactory',
-        SediadorasController::class => 'Evento\Controller\SediadorasControllerFactory',
         TrabalhosController::class => 'Evento\Controller\TrabalhosControllerFactory'
     ],
 ];

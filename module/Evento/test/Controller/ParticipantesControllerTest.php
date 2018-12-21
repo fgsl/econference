@@ -5,7 +5,7 @@
  * @license   https://www.gnu.org/licenses/agpl-3.0.en.html GNU Affero General Public License
  */
 
-namespace ParticipantesTest\Controller;
+namespace EventoTest\Controller;
 
 use Evento\Controller\ParticipantesController;
 use Zend\Stdlib\ArrayUtils;

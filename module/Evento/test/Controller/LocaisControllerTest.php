@@ -5,7 +5,7 @@
  * @license   https://www.gnu.org/licenses/agpl-3.0.en.html GNU Affero General Public License
  */
 
-namespace LocaisTest\Controller;
+namespace EventoTest\Controller;
 
 use Evento\Controller\LocaisController;
 use Evento\Model\LocalTable;

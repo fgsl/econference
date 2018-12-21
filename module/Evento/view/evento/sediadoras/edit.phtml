@@ -1,9 +1,0 @@
-<h1>Adicionar sede</h1>
-<form action="<?=$this->url('sediadoras',['action'=>'save'])?>" method="post">
-sede :
-<input type="text" autofocus="autofocus" name="nome" value="<?=$this->sede->nome?>">
-<br>
-<input type="hidden" value="<?=$this->sede->codigo?>" name="codigo">
-<input type="submit" value="gravar">
-</form>
-<a href="<?=$this->url('sediadoras')?>">Voltar</a>

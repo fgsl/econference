@@ -5,13 +5,13 @@
  * @license   https://www.gnu.org/licenses/agpl-3.0.en.html GNU Affero General Public License
  */
 
-namespace SediadorasTest\Controller;
+namespace EventoTest\Controller;
 
-use Evento\Controller\SediadorasController;
+use Evento\Controller\AnfitriasController;
 use Zend\Stdlib\ArrayUtils;
 use Zend\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
 
-class SediadorasControllerTest extends AbstractHttpControllerTestCase
+class AnfitriasControllerTest extends AbstractHttpControllerTestCase
 {
     public function setUp()
     {
@@ -31,12 +31,12 @@ class SediadorasControllerTest extends AbstractHttpControllerTestCase
 
     public function testIndexActionCanBeAccessed()
     {
-        $this->dispatch('/sediadoras', 'GET');
+        $this->dispatch('/anfitrias', 'GET');
         $this->assertResponseStatusCode(200);
         $this->assertModuleName('Evento');
-        $this->assertControllerName(SediadorasController::class); // as specified in router's controller name alias
-        $this->assertControllerClass('SediadorasController');
-        $this->assertMatchedRouteName('sediadoras');
+        $this->assertControllerName(AnfitriasController::class); // as specified in router's controller name alias
+        $this->assertControllerClass('AnfitriasController');
+        $this->assertMatchedRouteName('anfitrias');
     }
 
     public function testIndexActionViewModelTemplateRenderedWithinLayout()

@@ -8,8 +8,8 @@ namespace Evento\Model;
 
 use Application\Model\AbstractTable;
 
-class SedeTable extends AbstractTable
+class AnfitriaTable extends AbstractTable
 {
     protected $keyName = 'codigo';
-    protected $tableName = 'sediadoras';
+    protected $tableName = 'anfitrias';
 }

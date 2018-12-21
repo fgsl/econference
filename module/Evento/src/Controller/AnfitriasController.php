@@ -8,17 +8,17 @@ namespace Evento\Controller;
 
 use Application\Controller\AbstractCrudController;
 
-class SediadorasController extends AbstractCrudController
+class AnfitriasController extends AbstractCrudController
 {
-	protected $mainTableFactory = 'SedeTable';
+	protected $mainTableFactory = 'AnfitriaTable';
 	
-	protected $rowsObjectName = 'sediadoras';
+	protected $rowsObjectName = 'anfitrias';
 	
 	protected $primaryKeyName = 'codigo';
 	
-	protected $modelName = 'Evento\Model\Sede';
+	protected $modelName = 'Evento\Model\Anfitria';
 	
-	protected $routeName = 'sediadoras';
+	protected $routeName = 'anfitrias';
 	
 	public function getDataFromRequest()
     {

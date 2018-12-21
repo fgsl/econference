@@ -1,0 +1,12 @@
+<a href="<?=$this->url('anfitrias',['action'=>'edit'])?>"><?=$this->translate('Add hostess')?></a>
+<table>
+<thead>
+<tr>
+<th><?=$this->translate('Code')?></th>
+<th>nome</th>
+</tr>
+</thead>
+<tbody>
+<?=$this->partialLoop('anfitrias.phtml',$this->anfitrias)?>
+</tbody>
+</table>

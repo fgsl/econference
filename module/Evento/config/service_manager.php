@@ -6,13 +6,12 @@
  */
 return [
     'factories' => [
+        'AnfitriaTable' => 'Evento\Model\AnfitriaTableFactory',
         'CategoriaTable' => 'Evento\Model\CategoriaTableFactory',
         'CredenciadoTable' => 'Evento\Model\CredenciadoTableFactory',
         'GradeTable' => 'Evento\Model\GradeTableFactory',
         'LocalTable' => 'Evento\Model\LocalTableFactory',
-        'SediadoraTable' => 'Evento\Model\SedeTableFactory',
         'ParticipanteTable' => 'Evento\Model\ParticipanteTableFactory',
-        'SedeTable' => 'Evento\Model\SedeTableFactory',
         'TrabalhoTable' => 'Evento\Model\TrabalhoTableFactory'
     ]
 ];

@@ -10,11 +10,21 @@ use Evento\Controller\CredenciamentosController;
 use Evento\Controller\GradesController;
 use Evento\Controller\LocaisController;
 use Evento\Controller\ParticipantesController;
-use Evento\Controller\SediadorasController;
+use Evento\Controller\AnfitriasController;
 use Evento\Controller\TrabalhosController;
 
 return [
     'routes' => [
+        'anfitrias' => [
+            'type' => Segment::class,
+            'options' => [
+                'route'    => '/anfitrias[/:action[/:codigo]]',
+                'defaults' => [
+                    'controller' => AnfitriasController::class,
+                    'action'     => 'index',
+                ],
+            ],
+        ],
         'categorias' => [
             'type' => Segment::class,
             'options' => [
@@ -61,16 +71,6 @@ return [
                 'route'    => '/participantes[/:action[/:codigo]]',
                 'defaults' => [
                     'controller' => ParticipantesController::class,
-                    'action'     => 'index',
-                ],
-            ],
-        ],
-        'sediadoras' => [
-            'type' => Segment::class,
-            'options' => [
-                'route'    => '/sediadoras[/:action[/:codigo]]',
-                'defaults' => [
-                    'controller' => SediadorasController::class,
                     'action'     => 'index',
                 ],
             ],

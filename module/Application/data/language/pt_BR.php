@@ -30,7 +30,7 @@ return [
     'Home' => 'Início',
     'System Access Control' => 'Controle de Acesso ao Sistema',
     'Event Management' => 'Administração de Evento',
-    'Sediadoras' => 'Sediadoras',
+    'Hostesses' => 'Anfitriãs',
     'Places' => 'Locais',
     'Participants' => 'Participantes',
     'Works' => 'Trabalhos',

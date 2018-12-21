@@ -1,0 +1,9 @@
+<h1><?=$this->translate('Add hostess')?></h1>
+<form action="<?=$this->url('anfitrias',['action'=>'save'])?>" method="post">
+<?$this->translate('Hostess')?>:
+<input type="text" autofocus="autofocus" name="nome" value="<?=$this->sede->nome?>">
+<br>
+<input type="hidden" value="<?=$this->sede->codigo?>" name="codigo">
+<input type="submit" value="<?=$this->translate('save')?>">
+</form>
+<a href="<?=$this->url('anfitrias')?>"><?=$this->translate('Go back')?></a>

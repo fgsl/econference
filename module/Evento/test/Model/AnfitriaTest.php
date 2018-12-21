@@ -5,13 +5,13 @@
  * @license   https://www.gnu.org/licenses/agpl-3.0.en.html GNU Affero General Public License
  */
 
-namespace SediadorasTest\Model;
+namespace EventoTest\Model;
 
-use Evento\Model\Sede;
+use Evento\Model\Anfitria;
 use PHPUnit\Framework\TestCase;
 use Zend\Stdlib\ArrayUtils;
 
-class SedeTest extends TestCase
+class AnfitriaTest extends TestCase
 {
 	/**
 	 *
@@ -38,7 +38,7 @@ class SedeTest extends TestCase
 	public function testModel()
 	{
 		$array = ['codigo' => 42, 'nome' => 'Zaphod Beeblebrox'];
-		$model = new Sede();
+		$model = new Anfitria();
 		$model->exchangeArray($array);
 		$attributes = $model->toArray();
 		$this->assertArrayHasKey('codigo', $attributes);
