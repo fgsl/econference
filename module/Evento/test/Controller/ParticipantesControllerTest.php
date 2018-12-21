@@ -5,13 +5,13 @@
  * @license   https://www.gnu.org/licenses/agpl-3.0.en.html GNU Affero General Public License
  */
 
-namespace AcessoTest\Controller;
+namespace ParticipantesTest\Controller;
 
-use Acesso\Controller\PerfilController;
+use Evento\Controller\ParticipantesController;
 use Zend\Stdlib\ArrayUtils;
 use Zend\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
 
-class PerfilControllerTest extends AbstractHttpControllerTestCase
+class ParticipantesControllerTest extends AbstractHttpControllerTestCase
 {
     public function setUp()
     {
@@ -19,27 +19,28 @@ class PerfilControllerTest extends AbstractHttpControllerTestCase
         // You can override configuration here with test case specific values,
         // such as sample view templates, path stacks, module_listener_options,
         // etc.
-        $configOverrides = [];
-
+        $configOverrides = include __DIR__ . '/../../../../config/mock.config.php';
+        
         $this->setApplicationConfig(ArrayUtils::merge(
             include __DIR__ . '/../../../../config/application.config.php',
             $configOverrides
         ));
-
+        
         parent::setUp();
     }
 
     public function testIndexActionCanBeAccessed()
     {
-        $this->dispatch('/perfis', 'GET');
+        $this->dispatch('/participantes', 'GET');
         $this->assertResponseStatusCode(200);
-        $this->assertModuleName('Acesso');
-        $this->assertControllerName(PerfilController::class); // as specified in router's controller name alias
-        $this->assertControllerClass('PerfilController');
-        $this->assertMatchedRouteName('perfis');
+        $this->assertModuleName('Evento');
+        $this->assertControllerName(ParticipantesController::class); // as specified in router's controller name alias
+        $this->assertControllerClass('ParticipantesController');
+        $this->assertMatchedRouteName('participantes');
     }
 
-   
+    
+
     public function testInvalidRouteDoesNotCrash()
     {
         $this->dispatch('/invalid/route', 'GET');

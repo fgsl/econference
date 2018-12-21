@@ -33,7 +33,7 @@ class PermissaoControllerTest extends AbstractHttpControllerTestCase
     {
         $this->dispatch('/permissoes', 'GET');
         $this->assertResponseStatusCode(200);
-        $this->assertModuleName('Permissoes');
+        $this->assertModuleName('Acesso');
         $this->assertControllerName(PermissaoController::class); // as specified in router's controller name alias
         $this->assertControllerClass('PermissaoController');
         $this->assertMatchedRouteName('permissoes');

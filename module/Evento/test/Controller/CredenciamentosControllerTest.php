@@ -5,13 +5,13 @@
  * @license   https://www.gnu.org/licenses/agpl-3.0.en.html GNU Affero General Public License
  */
 
-namespace AcessoTest\Controller;
+namespace EventoTest\Controller;
 
-use Acesso\Controller\PerfilController;
+use Evento\Controller\CredenciamentosController;
 use Zend\Stdlib\ArrayUtils;
 use Zend\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
 
-class PerfilControllerTest extends AbstractHttpControllerTestCase
+class CredenciamentosControllerTest extends AbstractHttpControllerTestCase
 {
     public function setUp()
     {
@@ -19,7 +19,7 @@ class PerfilControllerTest extends AbstractHttpControllerTestCase
         // You can override configuration here with test case specific values,
         // such as sample view templates, path stacks, module_listener_options,
         // etc.
-        $configOverrides = [];
+        $configOverrides = include __DIR__ . '/../../../../config/mock.config.php';
 
         $this->setApplicationConfig(ArrayUtils::merge(
             include __DIR__ . '/../../../../config/application.config.php',
@@ -31,15 +31,16 @@ class PerfilControllerTest extends AbstractHttpControllerTestCase
 
     public function testIndexActionCanBeAccessed()
     {
-        $this->dispatch('/perfis', 'GET');
+        $this->dispatch('/credenciamentos', 'GET');
         $this->assertResponseStatusCode(200);
-        $this->assertModuleName('Acesso');
-        $this->assertControllerName(PerfilController::class); // as specified in router's controller name alias
-        $this->assertControllerClass('PerfilController');
-        $this->assertMatchedRouteName('perfis');
+        $this->assertModuleName('Evento');
+        $this->assertControllerName(CredenciamentosController::class); // as specified in router's controller name alias
+        $this->assertControllerClass('CredenciamentosController');
+        $this->assertMatchedRouteName('credenciamentos');
     }
 
-   
+    
+
     public function testInvalidRouteDoesNotCrash()
     {
         $this->dispatch('/invalid/route', 'GET');

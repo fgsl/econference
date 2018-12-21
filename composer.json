@@ -31,33 +31,16 @@
 		"psr-4" : {
 			"Acesso\\" : "module/Acesso/src/",
 			"Application\\" : "module/Application/src/",
-			"Categorias\\" : "module/Categorias/src/",
-			"Credenciamentos\\" : "module/Credenciamentos/src/",
-			"Grades\\" : "module/Grades/src/",
-			"Locais\\" : "module/Locais/src/",
-			"Participantes\\" : "module/Participantes/src/",
-			"Perfis\\" : "module/Perfis/src/",
-			"Publico\\" : "module/Publico/src/",
-			"Sediadoras\\" : "module/Sediadoras/src/",
-			"Trabalhos\\" : "module/Trabalhos/src/"
+			"Evento\\" : "module/Evento/src/",
+			"Publico\\" : "module/Publico/src/"
 		}
 	},
 	"autoload-dev" : {
 		"psr-4" : {
 			"AcessoTest\\" : "module/Acesso/test/",
 			"ApplicationTest\\" : "module/Application/test/",
-			"CategoriasTes\\" : "module/Categorias/test/",
-			"CredenciamentosTes\\" : "module/Credenciamentos/test/",
-			"GradesTest\\" : "module/Grades/test/",
-			"LocaisTest\\" : "module/Locais/test/",
-			"ParticipantesTest\\" : "module/Participantes/test/",
-			"PerfisTest\\" : "module/Perfis/test/",
-			"PermissoesTest\\" : "module/Permissoes/test/",
-			"PermissoesPerfilTest\\" : "module/PermissoesPerfil/test/",
-			"PublicoTest\\" : "module/Publico/test/",
-			"SediadorasTest\\" : "module/Sediadoras/test/",
-			"TrabalhosTest\\" : "module/Trabalhos/test/",
-			"UsuariosTest\\" : "module/Usuarios/test/"
+			"EventoTest\\" : "module/Evento/test/",
+			"PublicoTest\\" : "module/Publico/test/"
 		}
 	},
 	"scripts" : {

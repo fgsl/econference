@@ -5,13 +5,13 @@
  * @license   https://www.gnu.org/licenses/agpl-3.0.en.html GNU Affero General Public License
  */
 
-namespace AcessoTest\Controller;
+namespace SediadorasTest\Controller;
 
-use Acesso\Controller\PerfilController;
+use Evento\Controller\SediadorasController;
 use Zend\Stdlib\ArrayUtils;
 use Zend\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
 
-class PerfilControllerTest extends AbstractHttpControllerTestCase
+class SediadorasControllerTest extends AbstractHttpControllerTestCase
 {
     public function setUp()
     {
@@ -31,16 +31,15 @@ class PerfilControllerTest extends AbstractHttpControllerTestCase
 
     public function testIndexActionCanBeAccessed()
     {
-        $this->dispatch('/perfis', 'GET');
+        $this->dispatch('/sediadoras', 'GET');
         $this->assertResponseStatusCode(200);
-        $this->assertModuleName('Acesso');
-        $this->assertControllerName(PerfilController::class); // as specified in router's controller name alias
-        $this->assertControllerClass('PerfilController');
-        $this->assertMatchedRouteName('perfis');
+        $this->assertModuleName('Evento');
+        $this->assertControllerName(SediadorasController::class); // as specified in router's controller name alias
+        $this->assertControllerClass('SediadorasController');
+        $this->assertMatchedRouteName('sediadoras');
     }
 
-   
-    public function testInvalidRouteDoesNotCrash()
+    public function testIndexActionViewModelTemplateRenderedWithinLayout()
     {
         $this->dispatch('/invalid/route', 'GET');
         $this->assertResponseStatusCode(404);

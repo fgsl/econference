@@ -1,0 +1,12 @@
+<a href="<?=$this->url('categorias',['action'=>'edit'])?>">Add Category</a>
+<table>
+<thead>
+<tr>
+<th>Código </th>
+<th>nome</th>
+</tr>
+</thead>
+<tbody>
+<?=$this->partialLoop('categorias.phtml',$this->categorias)?>
+</tbody>
+</table>
