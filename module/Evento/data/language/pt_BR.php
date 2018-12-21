@@ -25,5 +25,7 @@ return [
     'Can not add locations without registered hostess' => 'Não pode adicionar locais sem anfitriãs cadastradas',
     'Talk' => 'Palestra',
     'Workshop' => 'Minicurso',
-    'Category' => 'Categoria'
+    'Category' => 'Categoria',
+    'Add hostess' => 'Adicionar anfitriã',
+    'Hostess' => 'Anfitriã'
 ];
