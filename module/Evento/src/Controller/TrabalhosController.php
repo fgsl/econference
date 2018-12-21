@@ -19,6 +19,14 @@ class TrabalhosController extends AbstractCrudController
     protected $modelName = 'Evento\Model\Trabalho';
     
     protected $routeName = 'trabalhos';
+    
+    public function editAction()
+    {
+        $viewModel = parent::editAction();
+        $categorias = $this->sm->get('CategoriaTable')->getAll();
+        $viewModel->categorias = $categorias;
+        return $viewModel;
+    }
   
     public function getDataFromRequest()
     {

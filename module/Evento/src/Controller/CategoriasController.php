@@ -16,9 +16,9 @@ class CategoriasController extends AbstractCrudController
     
     protected $primaryKeyName = 'codigo';
     
-    protected $modelName = 'Categorias\Model\Categoria';
+    protected $modelName = 'Evento\Model\Categoria';
     
-    protected $routeName = 'categorias';    
+    protected $routeName = 'categorias';
   
     public function getDataFromRequest()
     {
@@ -28,5 +28,5 @@ class CategoriasController extends AbstractCrudController
             'codigo' => $codigo,
             'nome' => $nome
         ];
-    }    
+    }
 }

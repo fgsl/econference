@@ -1,9 +1,9 @@
-<h1>Registration of Grids</h1>
+<h1><?=$this->translate('Registration of Grids')?></h1>
 <form action="<?=$this->url('grades',['action'=>'save'])?>" method="post">
-Date :
+<?=$this->translate('Date')?>:
 <input type="text" autofocus="autofocus" name="data" value="<?=$this->grade->data?>">
 <br/>
-Schedule :
+<?=$this->translate('Schedule')?>:
 <input type="text" autofocus="autofocus" name="horario" value="<?=$this->grade->horario?>">
 <br/>
 <select name="codigo_trabalho">
@@ -13,6 +13,6 @@ Schedule :
 <?=$this->partialLoop('locais_grade.phtml',$this->locais)?>
 </select>
 <input type="hidden" value="<?=$this->grade->codigo?>" name="codigo">
-<input type="submit" value="gravar">
+<input type="submit" value="<?=$this->translate('save')?>">
 </form>
-<a href="<?=$this->url('grades')?>">Back</a>
+<a href="<?=$this->url('grades')?>"><?=$this->translate('Go back')?></a>

@@ -21,12 +21,11 @@ class CategoriasControllerTest extends AbstractHttpControllerTestCase
         // You can override configuration here with test case specific values,
         // such as sample view templates, path stacks, module_listener_options,
         // etc.
-        $configOverrides = [
-        ];
+        $configOverrides = include __DIR__ . '/../../../../config/mock.config.php';
         
         $mergedConfig = ArrayUtils::merge(
-            include __DIR__ . '/../../../../config/mock.config.php',
-        $configOverrides);
+            include __DIR__ . '/../../../../config/application.config.php',
+            $configOverrides);
 
         $mergedConfig['service_manager']['factories']['CategoriaTable'] = function($container){
                         $adapter = $container->get('Zend\Db\Adapter');

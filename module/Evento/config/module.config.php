@@ -11,5 +11,15 @@ return [
     'router' => include 'router.php',
     'controllers' => include 'controllers.php',
     'view_manager' => include 'view_manager.php',
-    'service_manager' => include 'service_manager.php'
+    'service_manager' => include 'service_manager.php',
+    'translator' => [
+        'locale' => 'pt_BR',
+        'translation_file_patterns' => [
+            [
+                'type'     => 'phparray',
+                'base_dir' => getcwd() .  '/module/Evento/data/language',
+                'pattern'  => '%s.php',
+            ],
+        ],
+    ]
 ];

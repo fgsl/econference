@@ -1,9 +1,9 @@
-<h1>Name or E-mail</h1>
+<h1><?=$this->translate('Name or E-mail')?></h1>
 <form action="<?=$this->url('credenciamentos',['action'=>'save'])?>" method="post">
 <input type="text" autofocus="autofocus" name="nome" >
 <br>
 <input type="hidden" name="codigo">
-<input type="submit" value="buscar">
+<input type="submit" value="<?=$this->translate('search')?>">
 </form>
 <tbody>
 <?=$this->partialLoop('credenciamentos.phtml',$this->credenciamentos)?>
