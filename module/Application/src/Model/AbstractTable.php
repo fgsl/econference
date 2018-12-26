@@ -6,10 +6,9 @@
  */
 namespace Application\Model;
 
-use Zend\Db\TableGateway\TableGatewayInterface;
-use Zend\Db\Sql\Where;
-use Zend\Db\Sql\Select;
 use Zend\Db\Sql\Expression;
+use Zend\Db\Sql\Select;
+use Zend\Db\TableGateway\TableGatewayInterface;
 
 abstract class AbstractTable
 {
@@ -90,7 +89,7 @@ abstract class AbstractTable
      */
     public function count()
     {
-        $select = new Select('anfitrias');
+        $select = new Select($this->tableName);
         $select->columns([new Expression("count({$this->keyName}) as total")]);
         $rows = $this->tableGateway->selectWith($select);
         return $rows->current()->total;

@@ -16,7 +16,7 @@ class LocaisController extends AbstractCrudController
     
     protected $primaryKeyName = 'codigo';
     
-    protected $modelName = 'Locais\Model\Local';
+    protected $modelName = 'Evento\Model\Local';
     
     protected $routeName = 'locais';
     
@@ -32,8 +32,8 @@ class LocaisController extends AbstractCrudController
     
     public function editAction()
     {
-        $sediadoraTable = $this->sm->get('SediadoraTable');
-        $total = $sediadoraTable->count();
+        $anfitriaTable = $this->sm->get('AnfitriaTable');
+        $total = $anfitriaTable->count();
         if ($total == 0){
             return $this->redirect()->toRoute($this->routeName,['action' => 'void']);
         }

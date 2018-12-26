@@ -7,14 +7,22 @@
 
 namespace EventoTest\Controller;
 
-use Evento\Controller\CategoriasController;
-use Zend\Stdlib\ArrayUtils;
-use Zend\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
-use Fgsl\Mock\Db\TableGateway\Mock as MockTableGateway;
 use Evento\Model\CategoriaTable;
+use Fgsl\Mock\Db\TableGateway\Mock as MockTableGateway;
+use Zend\Stdlib\ArrayUtils;
 
-class CategoriasControllerTest extends AbstractHttpControllerTestCase
+class CategoriasControllerTest extends AbstractCrudControllerTest
 {
+    public function __construct($name = null, array $data = [], $dataName = '')
+    {
+        parent::__construct($name, $data, $dataName);
+        $this->route = 'categorias';
+        $this->module = 'Evento';
+        $this->controller = 'Evento\Controller\CategoriasController';
+        $this->postData = ['codigo'=>1,'nome'=>'Espetacular'];
+        $this->getData = ['codigo'=>1];
+    }
+    
     public function setUp()
     {
         // The module configuration should still be applicable for tests.
@@ -36,22 +44,5 @@ class CategoriasControllerTest extends AbstractHttpControllerTestCase
         $this->setApplicationConfig($mergedConfig);
 
         parent::setUp();
-    }
-
-    public function testIndexActionCanBeAccessed()
-    {
-        $this->dispatch('/categorias', 'GET');
-        $this->assertResponseStatusCode(200);
-        $this->assertModuleName('Evento');
-        $this->assertControllerName(CategoriasController::class); // as specified in router's controller name alias
-        $this->assertControllerClass('CategoriasController');
-        $this->assertMatchedRouteName('categorias');
-    }
-
-    
-    public function testInvalidRouteDoesNotCrash()
-    {
-        $this->dispatch('/invalid/route', 'GET');
-        $this->assertResponseStatusCode(404);
     }
 }

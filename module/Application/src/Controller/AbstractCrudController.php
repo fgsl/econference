@@ -83,7 +83,9 @@ abstract class AbstractCrudController extends AbstractActionController
         } else {
             $model = $this->sm->get($this->mainTableFactory)->getOne($primaryKey);
         }
-        $keyViewModel = lcfirst(end(explode('\\',$modelName))); 
+        $tokens = explode('\\',$modelName);
+        $keyViewModel = end($tokens);
+        $keyViewModel = lcfirst($keyViewModel);
         return new ViewModel([
              $keyViewModel => $model
         ]);

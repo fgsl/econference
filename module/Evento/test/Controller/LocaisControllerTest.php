@@ -7,14 +7,22 @@
 
 namespace EventoTest\Controller;
 
-use Evento\Controller\LocaisController;
 use Evento\Model\LocalTable;
 use Fgsl\Mock\Db\TableGateway\Mock as MockTableGateway;
 use Zend\Stdlib\ArrayUtils;
-use Zend\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
 
-class LocaisControllerTest extends AbstractHttpControllerTestCase
+class LocaisControllerTest extends AbstractCrudControllerTest
 {
+    public function __construct($name = null, array $data = [], $dataName = '')
+    {
+        parent::__construct($name, $data, $dataName);
+        $this->route = 'locais';
+        $this->module = 'Evento';
+        $this->controller = 'Evento\Controller\LocaisController';
+        $this->getData = ['codigo'=>1];
+        $this->expectedEditStatusCode = 500;
+    }
+
     public function setUp()
     {
         // The module configuration should still be applicable for tests.
@@ -36,22 +44,5 @@ class LocaisControllerTest extends AbstractHttpControllerTestCase
         $this->setApplicationConfig($mergedConfig);
 
         parent::setUp();
-    }
-
-    public function testIndexActionCanBeAccessed()
-    {
-        $this->dispatch('/locais', 'GET');
-        $this->assertResponseStatusCode(200);
-        $this->assertModuleName('Evento');
-        $this->assertControllerName(LocaisController::class); // as specified in router's controller name alias
-        $this->assertControllerClass('LocaisController');
-        $this->assertMatchedRouteName('locais');
-    }
-
-    
-    public function testInvalidRouteDoesNotCrash()
-    {
-        $this->dispatch('/invalid/route', 'GET');
-        $this->assertResponseStatusCode(404);
     }
 }
