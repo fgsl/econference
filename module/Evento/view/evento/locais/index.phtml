@@ -4,9 +4,11 @@
 <tr>
 <th><?=$this->translate('Code')?></th>
 <th><?=$this->translate('Name')?></th>
+<th><?=$this->translate('Hostess')?></th>
 </tr>
 </thead>
 <tbody>
 <?=$this->partialLoop('locais.phtml',$this->locais)?>
 </tbody>
 </table>
+<a href="<?=$this->url('application',['action' => 'event-control'])?>"><?=$this->translate('Event Management')?></a>

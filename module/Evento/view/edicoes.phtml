@@ -1,0 +1,7 @@
+<tr>
+<td><a href="<?=$this->url('edicoes',['action'=>'edit','codigo'=>$this->codigo])?>"><?=$this->codigo?></a></td>
+<td><?=$this->edicao?></td>
+<td><?=$this->anfitria?></td>
+<td><?=$this->translate($this->encerrada ? 'Yes' : 'No')?></td>
+<td><a href="<?=$this->url('edicoes',['action'=>'delete','codigo'=>$this->codigo])?>">X</a></td>
+</tr>

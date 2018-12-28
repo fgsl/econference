@@ -8,5 +8,6 @@
 <td><?=$this->instituicao?></td>
 <td><?=$this->cpf?></td>
 <td><?=$this->passaporte?></td>
+<td><?=$this->translate($this->conferencista ? 'Yes' : 'No')?></td>
 <td><a href="<?=$this->url('participantes',['action'=>'delete','codigo'=>$this->codigo])?>">X</a></td>
 </tr>

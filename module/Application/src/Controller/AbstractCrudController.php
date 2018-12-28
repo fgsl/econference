@@ -10,6 +10,9 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\Db\ResultSet\ResultSetInterface;
+use Zend\Form\Form;
+use Application\Model\AbstractModel;
+use Zend\Session\SessionManager;
 
 abstract class AbstractCrudController extends AbstractActionController
 {
@@ -77,17 +80,19 @@ abstract class AbstractCrudController extends AbstractActionController
     public function editAction()
     {
         $primaryKey = $this->params($this->primaryKeyName);
-        $modelName = $this->modelName;
-        if (is_null($primaryKey)) {
-            $model = new $modelName();
-        } else {
-            $model = $this->sm->get($this->mainTableFactory)->getOne($primaryKey);
+        $form = $this->getForm();
+        $model = $this->getModel(); 
+        if (!is_null($primaryKey)) {
+            $data = $this->sm->get($this->mainTableFactory)->getOne($primaryKey);
+            $model->exchangeObject($data);
         }
-        $tokens = explode('\\',$modelName);
+        $form->setData($model->toArray());
+        $tokens = explode('\\',$this->modelName);
         $keyViewModel = end($tokens);
         $keyViewModel = lcfirst($keyViewModel);
         return new ViewModel([
-             $keyViewModel => $model
+            'form' => $form,
+            $keyViewModel => $model,
         ]);
     }
 
@@ -97,6 +102,18 @@ abstract class AbstractCrudController extends AbstractActionController
      */
     public function saveAction()
     {
+        $form = $this->getForm();
+        $form->setData($_POST);
+        try {
+            $valid = $form->isValid();
+        } catch (\Exception $e) {
+            $valid = false;
+        }
+        if (!$valid)
+        {
+            $this->getSessionStorage()->fromArray(['form' => $form]);
+            return $this->redirect()->toRoute($this->routeName, ['action' => 'edit']);
+        }
         $modelName = $this->modelName;
         $model = new $modelName();
         $model->exchangeArray($this->getDataFromRequest());
@@ -118,6 +135,45 @@ abstract class AbstractCrudController extends AbstractActionController
         $primaryKey = $this->params($this->primaryKeyName);
         $this->sm->get($this->mainTableFactory)->delete($primaryKey);
         return $this->redirect()->toRoute($this->routeName);
+    }
+    
+    /**
+     * @return AbstractModel
+     */
+    protected function getModel()
+    {
+        $modelName = $this->modelName;
+        return new $modelName();
+    }
+    
+    /**
+     * @return Form
+     */
+    protected function getForm()
+    {
+        $formName = str_replace('Model','Form', $this->modelName) . 'Form';
+        if ($this->getSessionStorage()->offsetExists('form'))
+        {
+            $form = $this->getSessionStorage()->offsetGet('form');
+            $this->getSessionStorage()->clear('form');
+        } else {
+            $form = new $formName();
+        }
+        $form->setAttribute('method','post');
+        $form->setAttribute('action', $this->url()->fromRoute($this->routeName,['action' => 'save']));
+        $form->setInputFilter(call_user_func([$this->modelName,'getInputFilter']));
+        $form->setServiceManager($this->sm);
+        $form->prepareElements();
+        return $form;
+    }
+    
+    /**
+     * @return \Zend\Session\Storage\StorageInterface
+     */
+    protected function getSessionStorage()
+    {
+        $sessionManager = new SessionManager();
+        return $sessionManager->getStorage();
     }
 }
 

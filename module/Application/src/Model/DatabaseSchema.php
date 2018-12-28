@@ -19,6 +19,7 @@ use Zend\Db\Sql\Ddl\Column\Integer;
 use Zend\Db\Sql\Ddl\Column\Time;
 use Zend\Db\Sql\Ddl\Column\Varchar;
 use Zend\Db\Sql\Ddl\Constraint\PrimaryKey;
+use Zend\Db\Sql\Ddl\Column\Blob;
 
 class DatabaseSchema {
 
@@ -60,14 +61,14 @@ class DatabaseSchema {
         foreach ($schema as $tableName => $tableSchema) {
             if (in_array($tableName, $tableNames)) {
                 if ($verbose && $log != null) {
-                    $log->info("Tabela $tableName já existe!");
+                    $log->info("Table $tableName already exists!");
                 }
                 continue;
             }
 
             $table = new CreateTable($tableName);
             foreach ($tableSchema['fields'] as $fieldName => $field) {
-                $field[3] = (isset($field[3]) ? $field[3] : []);
+                $field[3] = (array_key_exists(3,$field) ?  $field[3] : []);
                 $column = $field[0];
                 $table->addColumn(new $column($fieldName, $field[1], $field[2], $field[3]));
             }
@@ -119,7 +120,7 @@ class DatabaseSchema {
                 'fields' => [
                     'codigo' => [Integer::class, false, null, ['AUTO_INCREMENT' => 'AUTO_INCREMENT']],
                     'edicao' => [Integer::class, false, null],
-                    'codigo_sediadora' => [Integer::class, false, null],
+                    'codigo_anfitria' => [Integer::class, false, null],
                     'encerrada' => [Boolean::class, false, null],
                 ],
                 'constraints' => [
@@ -132,7 +133,8 @@ class DatabaseSchema {
                     'codigo_trabalho' => [Integer::class, false, null],
                     'data' => [Date::class, false, null],
                     'horario' => [Time::class, false, null],
-                    'codigo_local' => [Integer::class, false, null]
+                    'codigo_local' => [Integer::class, false, null],
+                    'codigo_edicao' =>[Integer::class, false, null]
                 ],
                 'constraints' => [
                     PrimaryKey::class => 'codigo'
@@ -142,6 +144,7 @@ class DatabaseSchema {
                 'fields' => [
                     'codigo' => [Integer::class, false, null, ['AUTO_INCREMENT' => 'AUTO_INCREMENT']],
                     'nome' => [Varchar::class, 30, false, ''],
+                    'codigo_anfitria' => [Integer::class, false, null]
                 ],
                 'constraints' => [
                     PrimaryKey::class => 'codigo'
@@ -158,7 +161,8 @@ class DatabaseSchema {
                     'telefone' => [Varchar::class, 20, false, ''],
                     'instituicao' => [Varchar::class, 80, false, ''],
                     'cpf' => [Varchar::class, 13, false, ''],
-                    'passaporte' => [Varchar::class, 10, false, '']
+                    'passaporte' => [Varchar::class, 10, false, ''],
+                    'conferencista' => [Boolean::class, false, null] 
                 ],
                 'constraints' => [
                     PrimaryKey::class => 'codigo'
@@ -194,9 +198,11 @@ class DatabaseSchema {
             'trabalhos' => [
                 'fields' => [
                     'codigo' => [Integer::class, false, null, ['AUTO_INCREMENT' => 'AUTO_INCREMENT']],
-                    'nome' => [Varchar::class, 30, false, ''],
-                    'categoria' => [Integer::class, false, null],
+                    'resumo' => [Blob::class, false, false, null],
+                    'codigo_categoria' => [Integer::class, false, null],
                     'tipo' => [Integer::class, false, null],
+                    'codigo_participante' => [Integer::class, false, null],
+                    'codigo_edicao' => [Integer::class, false, null]
                 ],
                 'constraints' => [
                     PrimaryKey::class => 'codigo'

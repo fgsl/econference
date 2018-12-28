@@ -1,9 +1,13 @@
-<h1><?=$this->translate('Add Category')?></h1>
-<form action="<?=$this->url('categorias',['action'=>'save'])?>" method="post">
-<?=$this->translate('Nome')?>:
-<input type="text" autofocus="autofocus" name="nome" value="<?=$this->categoria->nome?>">
-<br>
-<input type="hidden" value="<?=$this->categoria->codigo?>" name="codigo">
-<input type="submit" value="<?=$this->translate('save')?>">
-</form>
+<h1>
+<?php
+echo (empty($this->categoria->codigo) ? 
+$this->translate('Add category') :
+$this->translate('Update category'));
+?>
+</h1>
+<?php
+$form = $this->form;
+$form->prepare();
+echo $this->form($form);
+?>
 <a href="<?=$this->url('categorias')?>"><?=$this->translate('Go back')?></a>

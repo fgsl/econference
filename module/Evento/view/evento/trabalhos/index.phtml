@@ -5,10 +5,11 @@
 <th><?=$this->translate('Code')?></th>
 <th><?=$this->translate('Abstract')?></th>
 <th><?=$this->translate('Type')?></th>
-<th><?=$this->translate('Category Code')?></th>
+<th><?=$this->translate('Category')?></th>
 </tr>
 </thead>
 <tbody>
 <?=$this->partialLoop('trabalhos.phtml',$this->trabalhos)?>
 </tbody>
 </table>
+<a href="<?=$this->url('application',['action' => 'event-control'])?>"><?=$this->translate('Event Management')?></a>

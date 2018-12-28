@@ -32,7 +32,7 @@ return [
     'Event Management' => 'Administração de Evento',
     'Hostesses' => 'Anfitriãs',
     'Places' => 'Locais',
-    'Participants' => 'Participantes',
+    'Attendees' => 'Participantes',
     'Works' => 'Trabalhos',
     'Categories' => 'Categorias',
     'Grids' => 'Grades',
@@ -121,5 +121,6 @@ involving lectures and courses.' => 'O sistema de gerenciamento de conferências
 automatizar tarefas complexas na organização e conntrole de eventos 
 envolvendo palestras e cursos.',
     'Exit' => 'Sair',
-    'User' => 'Usuário'
+    'User' => 'Usuário',
+    'Editions' => 'Edições'
 ];

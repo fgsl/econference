@@ -60,7 +60,8 @@ abstract class AbstractCrudControllerTest extends AbstractHttpControllerTestCase
 
     public function testSaveActionCanBeAccessed()
     {
-        $this->dispatch('/' . $this->route .'/save', 'POST',$this->postData);
+        $_POST = $this->postData;
+        $this->dispatch('/' . $this->route . '/save', 'POST');
         $this->assertResponseStatusCode($this->expectedSaveStatusCode);
         $this->assertModuleName($this->module);
         $this->assertControllerName($this->controller); // as specified in router's controller name alias

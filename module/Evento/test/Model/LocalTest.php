@@ -37,12 +37,13 @@ class LocalTest extends TestCase
 
     public function testModel()
     {
-        $array = ['codigo' => 42, 'nome' => 'Zaphod Beeblebrox'];
+        $array = ['codigo' => 42, 'nome' => 'Zaphod Beeblebrox', 'codigo_anfitria' => 1];
         $model = new Local();
         $model->exchangeArray($array);
         $attributes = $model->toArray();
         $this->assertArrayHasKey('codigo', $attributes);
         $this->assertArrayHasKey('nome', $attributes);
+        $this->assertArrayHasKey('codigo_anfitria', $attributes);
         $this->assertEquals('Zaphod Beeblebrox',$attributes['nome']);
     }
 }

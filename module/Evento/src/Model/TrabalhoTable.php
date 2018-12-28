@@ -12,4 +12,12 @@ class TrabalhoTable extends AbstractTable
 {
     protected $keyName = 'codigo';
     protected $tableName = 'trabalhos';
+
+    protected function getSelect()
+    {
+        $select = parent::getSelect();
+        $select->columns(['codigo','resumo','codigo_categoria']);
+        $select->join('categorias', 'trabalhos.codigo_categoria=categorias.codigo',['categoria' => 'nome']);
+        return $select;
+    }
 }

@@ -10,23 +10,34 @@ use Application\Controller\AbstractCrudController;
 
 class CredenciamentosController extends AbstractCrudController
 {
-	protected $mainTableFactory = 'CredenciadoTable';
-	
-	protected $rowsObjectName = 'credenciamentos';
-	
-	protected $primaryKeyName = 'codigo';
-	
-	protected $modelName = 'Evento\Model\Credenciado';
-	
-	protected $routeName = 'credenciamentos';
-	
-	public function getDataFromRequest()
-	{
+    protected $mainTableFactory = 'CredenciadoTable';
+    
+    protected $rowsObjectName = 'credenciamentos';
+    
+    protected $primaryKeyName = 'codigo';
+    
+    protected $modelName = 'Evento\Model\Credenciado';
+    
+    protected $routeName = 'credenciamentos';
+    
+    public function getDataFromRequest()
+    {
         $codigo = $this->getRequest()->getPost('codigo');
         $nome = $this->getRequest()->getPost('nome');
         return [
             'codigo' => $codigo,
             'nome' => $nome
         ];
+    }
+
+    /**
+     * {@inheritDoc}
+     * @see \Application\Controller\AbstractCrudController::indexAction()
+     */
+    public function indexAction()
+    {
+        $viewModel = parent::indexAction();
+        $viewModel->form = $this->getForm();
+        return $viewModel;
     }
 }

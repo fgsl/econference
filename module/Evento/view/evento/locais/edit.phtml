@@ -1,9 +1,12 @@
-<h1><?=$this->translate('Location Registration')?></h1>
-<form action="<?=$this->url('locais',['action'=>'save'])?>" method="post">
-<?=$this->translate('Name')?>:
-<input type="text" autofocus="autofocus" name="nome" value="<?=$this->local->nome?>">
-<br/>
-<input type="hidden" value="<?=$this->local->codigo?>" name="codigo">
-<input type="submit" value="<?=$this->translate('save')?>">
-</form>
+<h1><?php
+echo is_null($this->local->codigo) ? 
+$this->translate('Add location') :
+$this->translate('Update location')
+?>
+</h1>
+<?php
+$form = $this->form;
+$form->prepare();
+echo $this->form($form);
+?>
 <a href="<?=$this->url('locais')?>"><?=$this->translate('Go back')?></a>

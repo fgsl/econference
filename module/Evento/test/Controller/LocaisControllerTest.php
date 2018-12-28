@@ -7,9 +7,8 @@
 
 namespace EventoTest\Controller;
 
-use Evento\Model\LocalTable;
+use Evento\Model\AnfitriaTable;
 use Fgsl\Mock\Db\TableGateway\Mock as MockTableGateway;
-use Zend\Stdlib\ArrayUtils;
 
 class LocaisControllerTest extends AbstractCrudControllerTest
 {
@@ -21,28 +20,33 @@ class LocaisControllerTest extends AbstractCrudControllerTest
         $this->controller = 'Evento\Controller\LocaisController';
         $this->getData = ['codigo'=>1];
         $this->expectedEditStatusCode = 500;
+        $this->postData = [
+            'codigo' => null,
+            'nome' => 'Auditório',
+            'codigo_anfitria' => 2
+        ];
     }
 
     public function setUp()
     {
-        // The module configuration should still be applicable for tests.
-        // You can override configuration here with test case specific values,
-        // such as sample view templates, path stacks, module_listener_options,
-        // etc.
-        $configOverrides = include __DIR__ . '/../../../../config/mock.config.php';
-        
-        $mergedConfig = ArrayUtils::merge(
-            include __DIR__ . '/../../../../config/application.config.php',
-            $configOverrides);
+        parent::setUp();
 
-        $mergedConfig['service_manager']['factories']['CategoriaTable'] = function($container){
+        $mergedConfig = $this->getApplicationConfig();
+
+        $mergedConfig['service_manager']['factories']['AnfitriaTable'] = function($container){
             $adapter = $container->get('Zend\Db\Adapter');
-            $tableGateway = new MockTableGateway('locais', $adapter);
-            return new LocalTable($tableGateway);
+            $tableGateway = new MockTableGateway('anfitrias', $adapter);
+            $row = (object)[
+                'codigo' => 1,
+                'nome' => 'Opera House'
+            ];
+            $tableGateway->setMockResultRows([
+                $row
+            ]);
+            return new AnfitriaTable($tableGateway);
         };
-        
+
         $this->setApplicationConfig($mergedConfig);
 
-        parent::setUp();
     }
 }

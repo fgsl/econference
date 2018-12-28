@@ -1,30 +1,12 @@
-<h1><?=$this->translate('Registration of Participants')?></h1>
-<form action="<?=$this->url('participantes',['action'=>'save'])?>" method="post">
-<?=$this->translate('User')?>:
-<input type="text" autofocus="autofocus" name="usuario" value="<?=$this->participante->usuario?>">
-<br>
-<?=$this->translate('Email')?>:
-<input type="text" name="email" value="<?=$this->participante->email?>">
-<br>
-<?=$this->translate('Name')?>:
-<input type="text" name="nome" value="<?=$this->participante->nome?>">
-<br>
-<?=$this->translate('City')?>:
-<input type="text" name="cidade" value="<?=$this->participante->cidade?>">
-<br>
-<?=$this->translate('Telephone')?>:
-<input type="text" name="telefone" value="<?=$this->participante->telefone?>">
-<br>
-<?=$this->translate('Institution')?>:
-<input type="text" name="instituicao" value="<?=$this->participante->instituicao?>">
-<br>
-<?=$this->translate('Cpf')?>:
-<input type="text" name="cpf" value="<?=$this->participante->cpf?>">
-<br>
-<?=$this->translate('Passport')?>:
-<input type="text" name="passaporte" value="<?=$this->participante->passaporte?>">
-<br/>
-<input type="hidden" value="<?=$this->participante->codigo?>" name="codigo">
-<input type="submit" value="<?=$this->translate('save')?>">
-</form>
+<h1><?php
+echo is_null($this->participante->codigo) ? 
+$this->translate('Add attendee') :
+$this->translate('Update attendee')
+?>
+</h1>
+<?php
+$form = $this->form;
+$form->prepare();
+echo $this->form($form);
+?>
 <a href="<?=$this->url('participantes')?>"><?=$this->translate('Go back')?></a>

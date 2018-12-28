@@ -1,21 +1,12 @@
-<h1><?=$this->translate('Works')?></h1>
-<form action="<?=$this->url('trabalhos',['action'=>'save'])?>" method="post">
-Resumo :<br/>
-<textarea name="resumo" cols="60" rows="10" autofocus="autofocus">
-<?=$this->trabalho->resumo?>
-</textarea>
-<br>
-<?=$this->translate('Type')?>:
-<select name="tipo">
-<option value="1" <?=($this->trabalho->tipo == 1 ? 'selected' : '')?>><?=$this->translate('Talk')?></option>
-<option value="2" <?=($this->trabalho->tipo == 2 ? 'selected' : '')?>><?=$this->translate('Workshop')?></option>
-</select>
-<br/>
-<?=$this->translate('Category')?>:
-<select name="codigo_categoria">
-<?=$this->partialLoop('categorias_trabalho.phtml',$this->categorias)?>
-</select>
-<input type="hidden" value="<?=$this->trabalho->codigo?>" name="codigo"><br/>
-<input type="submit" value="gravar">
-</form>
-<a href="<?=$this->url('trabalhos')?>"><?=$this->translate('Go back')?></a>
+<h1><?php
+echo is_null($this->trabalho->codigo) ? 
+$this->translate('Add work') :
+$this->translate('Update work')
+?>
+</h1>
+<?php
+$form = $this->form;
+$form->prepare();
+echo $this->form($form);
+?>
+<a href="<?=$this->url('locais')?>"><?=$this->translate('Go back')?></a>

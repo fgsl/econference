@@ -12,6 +12,7 @@ use Evento\Controller\LocaisController;
 use Evento\Controller\ParticipantesController;
 use Evento\Controller\AnfitriasController;
 use Evento\Controller\TrabalhosController;
+use Evento\Controller\EdicoesController;
 
 return [
     'routes' => [
@@ -44,6 +45,16 @@ return [
                     'action' => 'index'
                 ]
             ]
+        ],
+        'edicoes' => [
+            'type' => Segment::class,
+            'options' => [
+                'route'    => '/edicoes[/:action[/:codigo]]',
+                'defaults' => [
+                    'controller' => EdicoesController::class,
+                    'action'     => 'index',
+                ],
+            ],
         ],
         'grades' => [
             'type' => Segment::class,

@@ -9,6 +9,7 @@ return [
         'AnfitriaTable' => 'Evento\Model\AnfitriaTableFactory',
         'CategoriaTable' => 'Evento\Model\CategoriaTableFactory',
         'CredenciadoTable' => 'Evento\Model\CredenciadoTableFactory',
+        'EdicaoTable' => 'Evento\Model\EdicaoTableFactory',
         'GradeTable' => 'Evento\Model\GradeTableFactory',
         'LocalTable' => 'Evento\Model\LocalTableFactory',
         'ParticipanteTable' => 'Evento\Model\ParticipanteTableFactory',

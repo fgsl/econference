@@ -11,6 +11,7 @@ use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\Db\Adapter\Adapter;
 use Zend\Db\TableGateway\TableGateway;
+use Fgsl\Mock\Db\Adapter\Mock;
 
 abstract class AbstractTableFactory implements FactoryInterface
 {
@@ -33,7 +34,12 @@ abstract class AbstractTableFactory implements FactoryInterface
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
         $adapter = $container->get('Zend\Db\Adapter');
-        $tableGateway = new TableGateway($this->tableName, $adapter);
+        if ($adapter instanceof Mock)
+        {
+            $tableGateway = new \Fgsl\Mock\Db\TableGateway\Mock($this->tableName, $adapter);
+        } else {
+            $tableGateway = new TableGateway($this->tableName, $adapter);
+        }
         $tableClass = $this->tableClass;
         $dbTable = new $tableClass($tableGateway);
         return $dbTable;

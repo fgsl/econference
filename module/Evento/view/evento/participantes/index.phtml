@@ -8,12 +8,14 @@
 <th><?=$this->translate('Name')?></th>
 <th><?=$this->translate('City')?></th>
 <th><?=$this->translate('Telephone')?></th>
-<th><?=$this->translate('Institution')?></th>
+<th><?=$this->translate('Organization')?></th>
 <th><?=$this->translate('Cpf')?></th>
 <th><?=$this->translate('Passport')?></th>
+<th><?=$this->translate('Speaker')?></th>
 </tr>
 </thead>
 <tbody>
 <?=$this->partialLoop('participantes.phtml',$this->participantes)?>
 </tbody>
 </table>
+<a href="<?=$this->url('application',['action' => 'event-control'])?>"><?=$this->translate('Event Management')?></a>

@@ -1,11 +1,29 @@
 <h1><?=$this->translate('Name or E-mail')?></h1>
-<form action="<?=$this->url('credenciamentos',['action'=>'save'])?>" method="post">
-<input type="text" autofocus="autofocus" name="nome" >
-<br>
-<input type="hidden" name="codigo">
-<input type="submit" value="<?=$this->translate('search')?>">
-</form>
+<h1>
+<?php
+echo (empty($this->anfitria->codigo) ? 
+$this->translate('Add hostess') :
+$this->translate('Update hostess'));
+?>
+</h1>
+<?php
+$form = $this->form;
+$form->prepare();
+echo $this->form($form);
+?>
+<table>
+<thead>
+<tr>
+<th><?=$this->translate('Name')?></th>
+<th><?=$this->translate('Email')?></th>
+</tr>
+</thead>
 <tbody>
 <?=$this->partialLoop('credenciamentos.phtml',$this->credenciamentos)?>
 </tbody>
+</table>
+<a href="<?=$this->url('anfitrias')?>"><?=$this->translate('Go back')?></a>
+
+
+
 

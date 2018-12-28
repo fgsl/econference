@@ -2,6 +2,11 @@
 namespace Evento\Model;
 
 use Application\Model\AbstractModel;
+use Zend\I18n\Filter\Alnum;
+use Zend\Validator\EmailAddress;
+use Zend\Filter\Digits;
+use Zend\Filter\Boolean;
+use Zend\Validator\NotEmpty;
 
 class Participante extends AbstractModel
 {
@@ -14,6 +19,93 @@ class Participante extends AbstractModel
     public $instituicao;
     public $cpf;
     public $passaporte;
+    public $conferencista;
+    
+    public function __construct(array $array = null)
+    {
+        parent::__construct($array);
+        self::$inputs = [
+            [
+                'name' => 'codigo',
+                'filters' => [
+                ],
+                'validators' => [
+                ],
+                'required' => false
+            ],
+            [
+                'name' => 'usuario',
+                'filters' => [
+                    new Alnum()
+                ],
+                'validators' => [
+                    new \Zend\I18n\Validator\Alnum()
+                ]
+            ],
+            [
+                'name' => 'email',
+                'filters' => [
+                    new Alnum()
+                ],
+                'validators' => [
+                    new EmailAddress()
+                ]
+            ],
+            [
+                'name' => 'nome',
+                'filters' => [
+                    new Alnum()
+                ],
+                'validators' => [
+                    new \Zend\I18n\Validator\Alnum()
+                ]
+            ],
+            [
+                'name' => 'cidade',
+                'filters' => [
+                    new Alnum()
+                ],
+                'validators' => [
+                    new \Zend\I18n\Validator\Alnum()
+                ]
+            ],
+            [
+                'name' => 'telefone',
+                'filters' => [
+                    new Digits()
+                ],
+                'validators' => [
+                    new \Zend\Validator\Digits()
+                ]
+            ],
+            [
+                'name' => 'instituicao',
+                'filters' => [
+                    new Alnum()
+                ],
+                'validators' => [
+                    new \Zend\I18n\Validator\Alnum()
+                ]
+            ],
+            [
+                'name' => 'cpf',
+                'required' => false
+            ],
+            [
+                'name' => 'passaporte',
+                'required' => false
+            ],
+            [
+                'name' => 'conferencista',
+                'filters' => [
+                    new Boolean()
+                ],
+                'validators' => [
+                    new NotEmpty()
+                ]
+            ]
+        ];
+    }
 
     public function toArray()
     {

@@ -9,6 +9,7 @@ namespace Application\Model;
 use Zend\Db\Sql\Expression;
 use Zend\Db\Sql\Select;
 use Zend\Db\TableGateway\TableGatewayInterface;
+use Zend\Db\Sql\Where;
 
 abstract class AbstractTable
 {
@@ -57,7 +58,7 @@ abstract class AbstractTable
      */
     public function getAll($where = null)
     {
-        $select = new Select($this->tableName);
+        $select = $this->getSelect();
         $select->order(is_null($this->orderName) ? $this->keyName : $this->orderName);
         if (!is_null($where)){
             $select->where($where);
@@ -71,7 +72,7 @@ abstract class AbstractTable
      */
     public function getOne($key)
     {
-        $categorias = $this->getAll([$this->keyName => $key]);
+        $categorias = $this->getAll([$this->tableName . '.' . $this->keyName => $key]);
         return $categorias->current();
     }
 
@@ -85,13 +86,26 @@ abstract class AbstractTable
     }
 
     /**
-     * @return integer 
+     * @param Where $where
+     * @return integer
      */
-    public function count()
+    public function count(Where $where = null)
     {
         $select = new Select($this->tableName);
         $select->columns([new Expression("count({$this->keyName}) as total")]);
+        if ($where !== null)
+        {
+            $select->where($where); 
+        }
         $rows = $this->tableGateway->selectWith($select);
         return $rows->current()->total;
+    }
+    
+    /**
+     * @return \Zend\Db\Sql\Select
+     */
+    protected function getSelect()
+    {
+        return new Select($this->tableName);
     }
 }

@@ -15,8 +15,8 @@
 <?php
 foreach($this->messages as $message):
 ?>
-    <p><?=$this->translate($message)?></p>
-<?php    
+    <p><?=str_replace('setup','<a href="' . $this->url('setup') . '">setup</a>',$this->translate($message))?></p>
+<?php
 endforeach;
 ?>            
             

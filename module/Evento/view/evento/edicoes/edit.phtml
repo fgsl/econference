@@ -1,0 +1,12 @@
+<h1><?php
+echo is_null($this->edicao->codigo) ? 
+$this->translate('Add edition') :
+$this->translate('Update edition')
+?>
+</h1>
+<?php
+$form = $this->form;
+$form->prepare();
+echo $this->form($form);
+?>
+<a href="<?=$this->url('edicoes')?>"><?=$this->translate('Go back')?></a>

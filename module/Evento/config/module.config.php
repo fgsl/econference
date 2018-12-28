@@ -7,6 +7,19 @@
 
 namespace Evento;
 
+use Zend\Form\View\Helper\Form;
+use Zend\ServiceManager\Factory\InvokableFactory;
+use Zend\Form\View\Helper\FormRow;
+use Zend\Form\View\Helper\FormLabel;
+use Zend\Form\View\Helper\FormElement;
+use Zend\Form\View\Helper\FormElementErrors;
+use Zend\Form\View\Helper\FormText;
+use Zend\Form\View\Helper\FormSubmit;
+use Zend\Form\View\Helper\FormHidden;
+use Zend\Form\View\Helper\FormSelect;
+use Zend\Form\View\Helper\FormTextarea;
+use Zend\Form\View\Helper\FormCheckbox;
+
 return [
     'router' => include 'router.php',
     'controllers' => include 'controllers.php',
@@ -21,5 +34,33 @@ return [
                 'pattern'  => '%s.php',
             ],
         ],
+    ],
+    'view_helpers' => [
+        'aliases' => [
+            'form' => Form::class,
+            'formcheckbox' => FormCheckbox::class,
+            'form_element' => FormElement::class,
+            'form_element_errors' => FormElementErrors::class,
+            'formhidden' => FormHidden::class,
+            'form_label' => FormLabel::class,
+            'formRow' => FormRow::class,
+            'formselect' => FormSelect::class,
+            'formsubmit' => FormSubmit::class,
+            'formtext' => FormText::class,
+            'formtextarea' => FormTextarea::class
+        ],
+        'factories' => [
+            Form::class => InvokableFactory::class,
+            FormCheckbox::class => InvokableFactory::class,
+            FormElement::class => InvokableFactory::class,
+            FormElementErrors::class => InvokableFactory::class,
+            FormHidden::class => InvokableFactory::class,
+            FormLabel::class => InvokableFactory::class,
+            FormRow::class => InvokableFactory::class,
+            FormSelect::class => InvokableFactory::class,
+            FormSubmit::class => InvokableFactory::class,
+            FormText::class => InvokableFactory::class,
+            FormTextarea::class => InvokableFactory::class
+        ]
     ]
 ];

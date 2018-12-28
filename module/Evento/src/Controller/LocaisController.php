@@ -7,8 +7,9 @@
 namespace Evento\Controller;
 
 use Application\Controller\AbstractCrudController;
+use Evento\Model\Anfitria;
 
-class LocaisController extends AbstractCrudController
+class LocaisController extends AbstractCrudController implements ExceptionInterface
 {
     protected $mainTableFactory = 'LocalTable';
     
@@ -24,20 +25,22 @@ class LocaisController extends AbstractCrudController
     {
         $codigo = $this->getRequest()->getPost('codigo');
         $nome = $this->getRequest()->getPost('nome');
+        $codigo_anfitria = $this->getRequest()->getPost('codigo_anfitria');
         return [
             'codigo' => $codigo,
-            'nome' => $nome
+            'nome' => $nome,
+            'anfitria' => Anfitria::getModel(['codigo' => $codigo_anfitria])
         ];
     }
     
     public function editAction()
     {
-        $anfitriaTable = $this->sm->get('AnfitriaTable');
-        $total = $anfitriaTable->count();
+        $total = $this->sm->get('AnfitriaTable')->count();
         if ($total == 0){
             return $this->redirect()->toRoute($this->routeName,['action' => 'void']);
         }
-        return parent::editAction();
+        $viewModel = parent::editAction();
+        return $viewModel;
     }
     
     public function voidAction()

@@ -1,9 +1,13 @@
-<h1><?=$this->translate('Add hostess')?></h1>
-<form action="<?=$this->url('anfitrias',['action'=>'save'])?>" method="post">
-<?=$this->translate('Hostess')?>:
-<input type="text" autofocus="autofocus" name="nome" value="<?=$this->anfitria->nome?>">
-<br>
-<input type="hidden" value="<?=$this->anfitria->codigo?>" name="codigo">
-<input type="submit" value="<?=$this->translate('save')?>">
-</form>
+<h1>
+<?php
+echo (empty($this->anfitria->codigo) ? 
+$this->translate('Add hostess') :
+$this->translate('Update hostess'));
+?>
+</h1>
+<?php
+$form = $this->form;
+$form->prepare();
+echo $this->form($form);
+?>
 <a href="<?=$this->url('anfitrias')?>"><?=$this->translate('Go back')?></a>

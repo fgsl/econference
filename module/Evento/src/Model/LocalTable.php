@@ -12,4 +12,12 @@ class LocalTable extends AbstractTable
 {
     protected $keyName = 'codigo';
     protected $tableName = 'locais';
+
+    protected function getSelect()
+    {
+        $select = parent::getSelect();
+        $select->columns(['codigo','nome','codigo_anfitria']);
+        $select->join('anfitrias', 'locais.codigo_anfitria=anfitrias.codigo',['anfitria' => 'nome']);
+        return $select;
+    }
 }

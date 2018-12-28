@@ -7,8 +7,9 @@
 namespace Evento\Controller;
 
 use Application\Controller\AbstractCrudController;
+use Zend\Db\Sql\Where;
 
-class TrabalhosController extends AbstractCrudController
+class TrabalhosController extends AbstractCrudController implements ExceptionInterface
 {
     protected $mainTableFactory = 'TrabalhoTable';
     
@@ -22,9 +23,17 @@ class TrabalhosController extends AbstractCrudController
     
     public function editAction()
     {
+        $total = $this->sm->get('CategoriaTable')->count();
+        if ($total == 0){
+            return $this->redirect()->toRoute($this->routeName,['action' => 'void']);
+        }
+        $where = new Where();
+        $where->equalTo('conferencista', true); 
+        $total = $this->sm->get('ParticipanteTable')->count($where);
+        if ($total == 0){
+            return $this->redirect()->toRoute($this->routeName,['action' => 'void']);
+        }
         $viewModel = parent::editAction();
-        $categorias = $this->sm->get('CategoriaTable')->getAll();
-        $viewModel->categorias = $categorias;
         return $viewModel;
     }
   
@@ -40,5 +49,10 @@ class TrabalhosController extends AbstractCrudController
         	'tipo' => $tipo,
         	'codigo_categoria' => $codigo_categoria
         ];
-    }    
+    }
+    
+    public function voidAction()
+    {
+        return [];
+    }
 }

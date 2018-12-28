@@ -7,6 +7,11 @@
 
 namespace EventoTest\Controller;
 
+use Evento\Model\CategoriaTable;
+use Evento\Model\EdicaoTable;
+use Evento\Model\ParticipanteTable;
+use Fgsl\Mock\Db\TableGateway\Mock as MockTableGateway;
+
 class TrabalhosControllerTest extends AbstractCrudControllerTest
 {
     public function __construct($name = null, array $data = [], $dataName = '')
@@ -17,5 +22,53 @@ class TrabalhosControllerTest extends AbstractCrudControllerTest
         $this->controller = 'Evento\Controller\TrabalhosController';
         $this->getData = ['codigo'=>1];
         $this->expectedEditStatusCode = 200;
+    }
+
+    public function setUp()
+    {
+        parent::setUp();
+
+        $mergedConfig = $this->getApplicationConfig();
+
+        $mergedConfig['service_manager']['factories']['CategoriaTable'] = function($container){
+            $adapter = $container->get('Zend\Db\Adapter');
+            $tableGateway = new MockTableGateway('categorias', $adapter);
+            $row = (object)[
+                'codigo' => 1,
+                'nome' => 'desenvolvimento'
+            ];
+            $tableGateway->setMockResultRows([
+                $row
+            ]);
+            return new CategoriaTable($tableGateway);
+        };
+
+        $mergedConfig['service_manager']['factories']['ParticipanteTable'] = function($container){
+            $adapter = $container->get('Zend\Db\Adapter');
+            $tableGateway = new MockTableGateway('participantes', $adapter);
+            $row = (object)[
+                'codigo' => 1,
+                'nome' => 'Bugu'
+            ];
+            $tableGateway->setMockResultRows([
+                $row
+            ]);
+            return new ParticipanteTable($tableGateway);
+        };
+
+        $mergedConfig['service_manager']['factories']['EdicaoTable'] = function($container){
+            $adapter = $container->get('Zend\Db\Adapter');
+            $tableGateway = new MockTableGateway('edicoes', $adapter);
+            $row = (object)[
+                'codigo' => 1,
+                'edicao' => 1
+            ];
+            $tableGateway->setMockResultRows([
+                $row
+            ]);
+            return new EdicaoTable($tableGateway);
+        };
+
+        $this->setApplicationConfig($mergedConfig);
     }
 }
