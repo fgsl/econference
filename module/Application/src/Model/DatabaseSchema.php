@@ -131,6 +131,17 @@ class DatabaseSchema extends AbstractDatabaseSchema{
                     PrimaryKey::class => ['codigo_permissao', 'codigo_perfil']
                 ]
             ],
+            'propriedades' => [
+                'fields' => [
+                    'codigo' => [Integer::class, false, null, ['AUTO_INCREMENT' => 'AUTO_INCREMENT']],
+                    'nome' => [Varchar::class, 30, false, ''],
+                    'valor' => [Varchar::class, 80, false, ''],
+                    'codigo_edicao' => [Integer::class, false, null],
+                ],
+                'constraints' => [
+                    PrimaryKey::class => 'codigo'
+                ]
+            ],
             'trabalhos' => [
                 'fields' => [
                     'codigo' => [Integer::class, false, null, ['AUTO_INCREMENT' => 'AUTO_INCREMENT']],

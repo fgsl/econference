@@ -98,11 +98,15 @@ class SetupController extends AbstractActionController
 
         //create admin role and admin user
         $insert = new Insert('perfis');
-        $insert->columns(['nome'])
-        ->values(['administrador']);
-        $sql = $insert->getSqlString($adapter->getPlatform());
-        $adapter->query($sql, $adapter::QUERY_MODE_EXECUTE);
+        $perfis = ['administrador','palestrante','participante'];
+        foreach($perfis as $perfil)
+        {
+            $insert->columns(['nome'])->values([$perfil]);
+            $sql = $insert->getSqlString($adapter->getPlatform());
+            $adapter->query($sql, $adapter::QUERY_MODE_EXECUTE);
+        }
 
+        //create admin user
         $password = $encodingFunction($password);
         $insert = new Insert('usuarios');
         $insert->columns(['nome','senha','codigo_perfil'])

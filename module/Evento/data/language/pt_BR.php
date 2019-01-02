@@ -49,5 +49,9 @@ return [
     'Can not add editions' => 'Não pode adicionar edições',
     'Can not add editions without registered hostess' => 'Não pode adicionar edições sem anfitriãs cadastradas',
     'Finished' => 'Encerrada',
-    'Add edition' => 'Adicionar edição'
+    'Add edition' => 'Adicionar edição',
+    'Properties' => 'Propriedades',
+    'Add property' => 'Adicionar propriedade',
+    'Can not add properties' => 'Não pode adicionar propriedades',
+    'Can not add properties without registered editions' => 'Não pode adicionar propriedades sem edições cadastradas'
 ];

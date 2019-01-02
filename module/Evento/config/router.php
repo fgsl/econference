@@ -13,6 +13,7 @@ use Evento\Controller\ParticipantesController;
 use Evento\Controller\AnfitriasController;
 use Evento\Controller\TrabalhosController;
 use Evento\Controller\EdicoesController;
+use Evento\Controller\PropriedadesController;
 
 return [
     'routes' => [
@@ -82,6 +83,16 @@ return [
                 'route'    => '/participantes[/:action[/:codigo]]',
                 'defaults' => [
                     'controller' => ParticipantesController::class,
+                    'action'     => 'index',
+                ],
+            ],
+        ],
+        'propriedades' => [
+            'type' => Segment::class,
+            'options' => [
+                'route'    => '/propriedades[/:action[/:codigo]]',
+                'defaults' => [
+                    'controller' => PropriedadesController::class,
                     'action'     => 'index',
                 ],
             ],

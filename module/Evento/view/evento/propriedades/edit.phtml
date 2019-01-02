@@ -1,0 +1,12 @@
+<h1><?php
+echo is_null($this->propriedade->codigo) ? 
+$this->translate('Add property') :
+$this->translate('Update property')
+?>
+</h1>
+<?php
+$form = $this->form;
+$form->prepare();
+echo $this->form($form);
+?>
+<a href="<?=$this->url('propriedades')?>"><?=$this->translate('Go back')?></a>

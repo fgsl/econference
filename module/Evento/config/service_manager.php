@@ -13,6 +13,7 @@ return [
         'GradeTable' => 'Evento\Model\GradeTableFactory',
         'LocalTable' => 'Evento\Model\LocalTableFactory',
         'ParticipanteTable' => 'Evento\Model\ParticipanteTableFactory',
+        'PropriedadeTable' => 'Evento\Model\PropriedadeTableFactory',
         'TrabalhoTable' => 'Evento\Model\TrabalhoTableFactory'
     ]
 ];

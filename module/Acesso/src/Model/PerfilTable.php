@@ -12,4 +12,14 @@ class PerfilTable extends AbstractTable
 {
     protected $keyName = 'codigo';
     protected $tableName = 'perfis';
+
+    public function delete($key)
+    {
+        if ($key > 3) // don't remove admin, speaker and attendee
+        {
+            return parent::delete($key);
+        }
+        return 0;
+    }
+    
 }

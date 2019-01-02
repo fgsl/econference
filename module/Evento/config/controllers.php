@@ -7,6 +7,7 @@ use Evento\Controller\ParticipantesController;
 use Evento\Controller\AnfitriasController;
 use Evento\Controller\TrabalhosController;
 use Evento\Controller\EdicoesController;
+use Evento\Controller\PropriedadesController;
 
 /**
  * @link      http://github.com/fgsl/econference for the canonical source repository
@@ -23,6 +24,7 @@ return [
         GradesController::class => 'Evento\Controller\GradesControllerFactory',
         LocaisController::class => 'Evento\Controller\LocaisControllerFactory',
         ParticipantesController::class => 'Evento\Controller\ParticipantesControllerFactory',
+        PropriedadesController::class => 'Evento\Controller\PropriedadesControllerFactory',
         TrabalhosController::class => 'Evento\Controller\TrabalhosControllerFactory'
     ],
 ];
