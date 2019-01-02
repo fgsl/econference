@@ -6,8 +6,8 @@
  */
 namespace Evento\Controller;
 
-use Application\Controller\AbstractCrudController;
 use Evento\Model\Anfitria;
+use Ftsl\Controller\AbstractCrudController;
 
 class LocaisController extends AbstractCrudController implements ExceptionInterface
 {

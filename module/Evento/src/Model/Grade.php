@@ -1,7 +1,7 @@
 <?php
 namespace Evento\Model;
 
-use Application\Model\AbstractModel;
+use Ftsl\Model\AbstractModel;
 use Zend\Filter\Digits;
 
 class Grade extends AbstractModel
@@ -67,9 +67,10 @@ class Grade extends AbstractModel
         ];
     }
     
+
     /**
      * {@inheritDoc}
-     * @see \Application\Model\AbstractModel::exchangeArray()
+     * @see \Ftsl\Model\AbstractModel::exchangeArray()
      */
     public function exchangeArray(array $array)
     {
@@ -94,9 +95,10 @@ class Grade extends AbstractModel
         $this->edicao = new Edicao($edicao);
     }
     
+
     /**
      * {@inheritDoc}
-     * @see \Application\Model\AbstractModel::toArray()
+     * @see \Ftsl\Model\AbstractModel::toArray()
      */
     public function toArray()
     {
@@ -110,9 +112,10 @@ class Grade extends AbstractModel
         ];
     }
     
+
     /**
      * {@inheritDoc}
-     * @see \Application\Model\AbstractModel::exchangeObject()
+     * @see \Ftsl\Model\AbstractModel::exchangeObject()
      */
     public function exchangeObject($object)
     {

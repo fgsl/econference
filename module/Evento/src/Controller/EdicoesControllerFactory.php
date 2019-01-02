@@ -2,7 +2,7 @@
 
 namespace Evento\Controller;
 
-use Application\Controller\AbstractControllerFactory;
+use Ftsl\Controller\AbstractControllerFactory;
 
 class EdicoesControllerFactory extends AbstractControllerFactory
 {

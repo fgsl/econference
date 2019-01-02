@@ -1,11 +1,11 @@
 <?php
 namespace Evento\Model;
 
-use Application\Model\AbstractModel;
+use Ftsl\Model\AbstractModel;
+use Zend\Filter\Boolean;
+use Zend\Filter\Digits;
 use Zend\I18n\Filter\Alnum;
 use Zend\Validator\EmailAddress;
-use Zend\Filter\Digits;
-use Zend\Filter\Boolean;
 use Zend\Validator\NotEmpty;
 
 class Participante extends AbstractModel

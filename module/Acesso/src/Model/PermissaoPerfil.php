@@ -1,7 +1,7 @@
 <?php
 namespace Acesso\Model;
 
-use Application\Model\AbstractModel;
+use Ftsl\Model\AbstractModel;
 
 class PermissaoPerfil extends AbstractModel
 {

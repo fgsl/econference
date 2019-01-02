@@ -1,14 +1,10 @@
 <?php
 namespace Evento\Form;
 
-use Application\Form\AbstractForm;
+use Ftsl\Form\AbstractForm;
 
 class CredenciadoForm extends AbstractForm
 {
-    /**
-     * {@inheritDoc}
-     * @see \Application\Form\AbstractForm::prepareElements()
-     */
     public function prepareElements()
     {
         $this->addElement('codigo','Code',null,[

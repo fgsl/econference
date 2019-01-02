@@ -6,8 +6,8 @@
  */
 namespace Evento\Model;
 
-use Application\Model\AbstractTable;
-use Application\Model\AbstractModel;
+use Ftsl\Model\AbstractModel;
+use Ftsl\Model\AbstractTable;
 use Zend\Db\Sql\Select;
 use Zend\Db\Sql\Where;
 

@@ -1,10 +1,10 @@
 <?php
 namespace Evento\Model;
 
-use Application\Model\AbstractModel;
+use Ftsl\Model\AbstractModel;
 
 class Credenciado extends AbstractModel
 {
-	public $codigo;
-	public $nome;
+    public $codigo;
+    public $nome;
 }

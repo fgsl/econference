@@ -6,7 +6,7 @@
  */
 namespace Acesso\Model;
 
-use Application\Model\AbstractTable;
+use Ftsl\Model\AbstractTable;
 
 class PerfilTable extends AbstractTable
 {

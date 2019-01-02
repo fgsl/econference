@@ -6,7 +6,7 @@
  */
 namespace Acesso\Controller;
 
-use Application\Controller\AbstractCrudController;
+use Ftsl\Controller\AbstractCrudController;
 
 class PerfilController extends AbstractCrudController
 {

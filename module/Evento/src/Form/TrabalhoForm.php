@@ -6,16 +6,12 @@
  */
 namespace Evento\Form;
 
-use Application\Form\AbstractForm;
 use Evento\Model\Categoria;
+use Ftsl\Form\AbstractForm;
 use Zend\Db\Sql\Where;
 
 class TrabalhoForm extends AbstractForm
 {
-    /**
-     * {@inheritDoc}
-     * @see \Application\Form\AbstractForm::prepareElements()
-     */
     public function prepareElements()
     {
         $this->addElement('codigo','Code',null,[

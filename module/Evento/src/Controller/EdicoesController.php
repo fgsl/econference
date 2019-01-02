@@ -6,8 +6,8 @@
  */
 namespace Evento\Controller;
 
-use Application\Controller\AbstractCrudController;
 use Evento\Model\Anfitria;
+use Ftsl\Controller\AbstractCrudController;
 
 class EdicoesController extends AbstractCrudController implements ExceptionInterface
 {

@@ -2,7 +2,7 @@
 
 namespace Acesso\Controller;
 
-use Application\Controller\AbstractControllerFactory;
+use Ftsl\Controller\AbstractControllerFactory;
 
 class PerfilControllerFactory extends AbstractControllerFactory
 {

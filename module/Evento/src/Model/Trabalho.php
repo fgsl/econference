@@ -1,7 +1,7 @@
 <?php
 namespace Evento\Model;
 
-use Application\Model\AbstractModel;
+use Ftsl\Model\AbstractModel;
 use Zend\Filter\Digits;
 use Zend\Filter\HtmlEntities;
 use Zend\Validator\NotEmpty;
@@ -66,8 +66,7 @@ class Trabalho extends AbstractModel
     }
 
     /**
-     * {@inheritDoc}
-     * @see \Application\Model\AbstractModel::toArray()
+     * @return array
      */
     public function toArray()
     {
@@ -79,7 +78,10 @@ class Trabalho extends AbstractModel
             'codigo_participante' => $this->participante->codigo
         ];
     }
-    
+
+    /**
+     * @param array $array
+     */
     public function exchangeArray(array $array)
     {
         parent::exchangeArray($array);
@@ -98,8 +100,7 @@ class Trabalho extends AbstractModel
     }
     
     /**
-     * {@inheritDoc}
-     * @see \Application\Model\AbstractModel::exchangeObject()
+     * @param object $object
      */
     public function exchangeObject($object)
     {

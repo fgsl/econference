@@ -1,7 +1,7 @@
 <?php
 namespace Evento\Model;
 
-use Application\Model\AbstractTableFactory;
+use Ftsl\Model\AbstractTableFactory;
 
 class TrabalhoTableFactory extends AbstractTableFactory
 {

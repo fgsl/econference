@@ -1,7 +1,7 @@
 <?php
 namespace Evento\Model;
 
-use Application\Model\AbstractModel;
+use Ftsl\Model\AbstractModel;
 use Zend\Filter\Digits;
 
 class Edicao extends AbstractModel
@@ -36,7 +36,7 @@ class Edicao extends AbstractModel
 
     /**
      * {@inheritDoc}
-     * @see \Application\Model\AbstractModel::toArray()
+     * @see \Ftsl\Model\AbstractModel::toArray()
      */
     public function toArray()
     {
@@ -47,10 +47,10 @@ class Edicao extends AbstractModel
             'encerrada' => $this->encerrada
         ];
     }
-    
+
     /**
      * {@inheritDoc}
-     * @see \Application\Model\AbstractModel::exchangeObject()
+     * @see \Ftsl\Model\AbstractModel::exchangeObject()
      */
     public function exchangeObject($object)
     {

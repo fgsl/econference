@@ -6,7 +6,7 @@
  */
 namespace Evento\Controller;
 
-use Application\Controller\AbstractCrudController;
+use Ftsl\Controller\AbstractCrudController;
 
 class CredenciamentosController extends AbstractCrudController
 {
@@ -31,8 +31,8 @@ class CredenciamentosController extends AbstractCrudController
     }
 
     /**
-     * {@inheritDoc}
-     * @see \Application\Controller\AbstractCrudController::indexAction()
+     * 
+     * @return \Zend\View\Model\ViewModel
      */
     public function indexAction()
     {

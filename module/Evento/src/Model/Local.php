@@ -1,9 +1,9 @@
 <?php
 namespace Evento\Model;
 
-use Application\Model\AbstractModel;
-use Zend\I18n\Filter\Alnum;
+use Ftsl\Model\AbstractModel;
 use Zend\Filter\Digits;
+use Zend\I18n\Filter\Alnum;
 
 class Local extends AbstractModel
 {
@@ -46,7 +46,7 @@ class Local extends AbstractModel
     
     /**
      * {@inheritDoc}
-     * @see \Application\Model\AbstractModel::exchangeArray()
+     * @see \Ftsl\Model\AbstractModel::exchangeArray()
      */
     public function exchangeArray(array $array)
     {
@@ -59,7 +59,7 @@ class Local extends AbstractModel
 
     /**
      * {@inheritDoc}
-     * @see \Application\Model\AbstractModel::toArray()
+     * @see \Ftsl\Model\AbstractModel::toArray()
      */
     public function toArray()
     {
@@ -69,10 +69,10 @@ class Local extends AbstractModel
             'codigo_anfitria' => $this->anfitria->codigo
         ];
     }
-    
+
     /**
      * {@inheritDoc}
-     * @see \Application\Model\AbstractModel::exchangeObject()
+     * @see \Ftsl\Model\AbstractModel::exchangeObject()
      */
     public function exchangeObject($object)
     {

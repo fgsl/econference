@@ -6,7 +6,7 @@
  */
 namespace Evento\Controller;
 
-use Application\Controller\AbstractCrudController;
+use Ftsl\Controller\AbstractCrudController;
 
 class GradesController extends AbstractCrudController
 {

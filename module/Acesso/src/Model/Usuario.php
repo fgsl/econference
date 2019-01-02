@@ -1,7 +1,7 @@
 <?php
 namespace Acesso\Model;
 
-use Application\Model\AbstractModel;
+use Ftsl\Model\AbstractModel;
 
 class Usuario extends AbstractModel
 {

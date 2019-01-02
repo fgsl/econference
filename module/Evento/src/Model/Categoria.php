@@ -1,7 +1,7 @@
 <?php
 namespace Evento\Model;
 
-use Application\Model\AbstractModel;
+use Ftsl\Model\AbstractModel;
 use Zend\I18n\Filter\Alnum;
 
 class Categoria extends AbstractModel

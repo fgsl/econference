@@ -6,7 +6,7 @@
  */
 namespace Evento\Controller;
 
-use Application\Controller\AbstractCrudController;
+use Ftsl\Controller\AbstractCrudController;
 use Zend\Db\Sql\Where;
 
 class TrabalhosController extends AbstractCrudController implements ExceptionInterface

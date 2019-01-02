@@ -6,6 +6,8 @@
  */
 namespace Application\Controller;
 
+use Ftsl\Controller\AbstractControllerFactory;
+
 class SetupControllerFactory extends AbstractControllerFactory
 {
     /**

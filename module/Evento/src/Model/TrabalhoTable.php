@@ -6,7 +6,7 @@
  */
 namespace Evento\Model;
 
-use Application\Model\AbstractTable;
+use Ftsl\Model\AbstractTable;
 
 class TrabalhoTable extends AbstractTable
 {

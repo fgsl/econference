@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "556c5fd973e3ae185b2e6946e173d583",
+    "content-hash": "3a6235d429ef049062f44cba58f376ce",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -126,6 +126,49 @@
                 "zend"
             ],
             "time": "2018-12-28T14:50:16+00:00"
+        },
+        {
+            "name": "ftsl/framework",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ftslorgbr/framework.git",
+                "reference": "79d37a226d54c6e2a40da6f29191951068653e2d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ftslorgbr/framework/zipball/79d37a226d54c6e2a40da6f29191951068653e2d",
+                "reference": "79d37a226d54c6e2a40da6f29191951068653e2d",
+                "shasum": ""
+            },
+            "require": {
+                "fgsl/mock": "^1.2.0",
+                "php": ">=7.0",
+                "zendframework/zend-db": "^2.8.2",
+                "zendframework/zend-form": "^2.9",
+                "zendframework/zend-inputfilter": "^2.9",
+                "zendframework/zend-mvc": "^3.0.1",
+                "zendframework/zend-mvc-plugins": "^1.0",
+                "zendframework/zend-session": "^2.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ftsl\\": "Ftsl/src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "AGPL-3.0-or-later"
+            ],
+            "description": "Extensions of Zend Framework 3",
+            "homepage": "https://github.com/ftsl/framework",
+            "keywords": [
+                "framework",
+                "mvc",
+                "zend"
+            ],
+            "time": "2018-12-31T11:53:46+00:00"
         },
         {
             "name": "myclabs/deep-copy",
