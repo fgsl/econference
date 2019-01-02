@@ -1,0 +1,12 @@
+<?php
+echo (empty($this->usuario->codigo) ? 
+$this->translate('Add user') :
+$this->translate('Update user'));
+?>
+</h1>
+<?php
+$form = $this->form;
+$form->prepare();
+echo $this->form($form);
+?>
+<a href="<?=$this->url('usuarios')?>"><?=$this->translate('Go back')?></a>

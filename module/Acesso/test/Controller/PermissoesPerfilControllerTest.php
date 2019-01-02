@@ -5,23 +5,19 @@
  * @license   https://www.gnu.org/licenses/agpl-3.0.en.html GNU Affero General Public License
  */
 
-namespace EventoTest\Controller;
+namespace AcessoTest\Controller;
 
 use ApplicationTest\Controller\AbstractCrudControllerTest;
 
-class CredenciamentosControllerTest extends AbstractCrudControllerTest
+class PermissoesPerfilControllerTest extends AbstractCrudControllerTest
 {
     public function __construct($name = null, array $data = [], $dataName = '')
     {
         parent::__construct($name, $data, $dataName);
-        $this->route = 'credenciamentos';
-        $this->module = 'Evento';
-        $this->controller = 'Evento\Controller\CredenciamentosController';
+        $this->route = 'permissoesperfis';
+        $this->module = 'Acesso';
+        $this->controller = 'Acesso\Controller\PermissoesPerfilController';
         $this->getData = ['codigo'=>1];
-    }
-
-    public function testEditActionCanBeAccessed()
-    {
-        $this->assertTrue(true);
+        $this->expectedEditStatusCode = 200;
     }
 }

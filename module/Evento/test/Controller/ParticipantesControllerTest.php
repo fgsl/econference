@@ -7,6 +7,8 @@
 
 namespace EventoTest\Controller;
 
+use ApplicationTest\Controller\AbstractCrudControllerTest;
+
 class ParticipantesControllerTest extends AbstractCrudControllerTest
 {
     public function __construct($name = null, array $data = [], $dataName = '')

@@ -1,9 +1,0 @@
-<h1><?=$this->translate('Profiles Registration')?></h1>
-<form action="<?=$this->url('perfis',['action'=>'save'])?>" method="post">
-<?=$this->translate('Name')?>:
-<input type="text" autofocus="autofocus" name="nome" value="<?=$this->perfil->nome?>">
-<br/>
-<input type="hidden" value="<?=$this->perfil->codigo?>" name="codigo">
-<input type="submit" value="<?=$this->translate('save')?>">
-</form>
-<a href="<?=$this->url('perfis')?>"><?=$this->translate('Go Back')?></a>

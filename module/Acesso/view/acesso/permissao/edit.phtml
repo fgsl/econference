@@ -1,9 +1,0 @@
-<h1><?=$this->translate('Permissions Registry')?></h1>
-<form action="<?=$this->url('permissoes',['action'=>'save'])?>" method="post">
-<?=$this->translate('Name')?>:
-<input type="text" autofocus="autofocus" name="nome" value="<?=$this->permissao->nome?>">
-<br/>
-<input type="hidden" value="<?=$this->permissao->codigo?>" name="codigo">
-<input type="submit" value="<?=$this->translate('save')?>">
-</form>
-<a href="<?=$this->url('permissoes')?>"><?=$this->translate('Go back')?></a>

@@ -1,0 +1,12 @@
+<?php
+echo (empty($this->anfitria->codigo) ? 
+$this->translate('Add profile') :
+$this->translate('Update profile'));
+?>
+</h1>
+<?php
+$form = $this->form;
+$form->prepare();
+echo $this->form($form);
+?>
+<a href="<?=$this->url('perfis')?>"><?=$this->translate('Go back')?></a>

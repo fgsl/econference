@@ -6,6 +6,7 @@
  */
 namespace Evento\Controller;
 
+use Application\Controller\ExceptionInterface;
 use Evento\Model\Anfitria;
 use Ftsl\Controller\AbstractCrudController;
 

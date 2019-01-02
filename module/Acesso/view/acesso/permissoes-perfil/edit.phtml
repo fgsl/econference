@@ -1,12 +1,8 @@
-<h1><?=$this->translate('Permission for a Profile Registration')?></h1>
-<form action="<?=$this->url('permissoesperfis',['action'=>'save'])?>" method="post">
-<select name="codigo_perfil">
-<?=$this->partialLoop('perfis-permissoes-perfis.phtml',$this->perfis)?>
-</select>
-<select name="codigo_permissao">
-<?=$this->partialLoop('permissoes-permissoes-perfis.phtml',$this->permissoes)?>
-</select>
-<input type="hidden" value="<?=$this->grade->codigo?>" name="codigo">
-<input type="submit" value="<?=$this->translate('save')?>">
-</form>
+<?=$this->translate('Add permission to a profile')?>
+</h1>
+<?php
+$form = $this->form;
+$form->prepare();
+echo $this->form($form);
+?>
 <a href="<?=$this->url('permissoesperfis')?>"><?=$this->translate('Go back')?></a>

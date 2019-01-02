@@ -8,25 +8,25 @@ namespace Acesso\Controller;
 
 use Ftsl\Controller\AbstractCrudController;
 
-class PermissaoController extends AbstractCrudController
+class PerfisController extends AbstractCrudController
 {
-    protected $mainTableFactory = 'PermissaoTable';
-
-    protected $rowsObjectName = 'permissoes';
-
+    protected $mainTableFactory = 'PerfilTable';
+    
+    protected $rowsObjectName = 'perfis';
+    
     protected $primaryKeyName = 'codigo';
-
-    protected $modelName = 'Acesso\Model\Permissao';
-
-    protected $routeName = 'permissoes';
-
+    
+    protected $modelName = 'Acesso\Model\Perfil';
+    
+    protected $routeName = 'perfis';
+    
     public function getDataFromRequest()
     {
         $codigo = $this->getRequest()->getPost('codigo');
         $nome = $this->getRequest()->getPost('nome');
         return [
-            'codigo' => $codigo,
-            'nome' => $nome
+                'codigo' => $codigo,
+                'nome' => $nome
         ];
     }
 }

@@ -7,6 +7,7 @@
 
 namespace EventoTest\Controller;
 
+use ApplicationTest\Controller\AbstractCrudControllerTest;
 use Evento\Model\AnfitriaTable;
 use Fgsl\Mock\Db\TableGateway\Mock as MockTableGateway;
 use Zend\Stdlib\ArrayUtils;

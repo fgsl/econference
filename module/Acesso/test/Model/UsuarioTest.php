@@ -38,7 +38,7 @@ class UsuarioTest extends TestCase
 
     public function testModel()
     {
-        $array = ['codigo' => 42, 'nome' => 'Zaphod Beeblebrox'];
+        $array = ['codigo' => 42, 'nome' => 'Zaphod Beeblebrox','codigo_perfil' => 2];
         $model = new Usuario();
         $model->exchangeArray($array);
         $attributes = $model->toArray();

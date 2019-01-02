@@ -7,6 +7,7 @@
 
 namespace EventoTest\Controller;
 
+use ApplicationTest\Controller\AbstractCrudControllerTest;
 use Evento\Model\EdicaoTable;
 use Evento\Model\LocalTable;
 use Evento\Model\TrabalhoTable;

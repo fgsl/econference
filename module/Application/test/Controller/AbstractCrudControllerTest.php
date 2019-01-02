@@ -5,12 +5,11 @@
  * @license   https://www.gnu.org/licenses/agpl-3.0.en.html GNU Affero General Public License
  */
 
-namespace EventoTest\Controller;
+namespace ApplicationTest\Controller;
 
 use Zend\Stdlib\ArrayUtils;
-use Zend\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
 
-abstract class AbstractCrudControllerTest extends AbstractHttpControllerTestCase
+abstract class AbstractCrudControllerTest extends AbstractMockedControllerTest
 {
     protected $route = null;
     protected $module = null;

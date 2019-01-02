@@ -1,11 +1,4 @@
 <h1><?=$this->translate('Name or E-mail')?></h1>
-<h1>
-<?php
-echo (empty($this->anfitria->codigo) ? 
-$this->translate('Add hostess') :
-$this->translate('Update hostess'));
-?>
-</h1>
 <?php
 $form = $this->form;
 $form->prepare();

@@ -2,11 +2,12 @@
 <table>
 <thead>
 <tr>
-<th><?=$this->translate('Code_Profile')?></th>
-<th><?=$this->translate('Code_Permission')?></th>
+<th><?=$this->translate('Perfil')?></th>
+<th><?=$this->translate('Permission')?></th>
 </tr>
 </thead>
 <tbody>
 <?=$this->partialLoop('permissoes-perfis.phtml',$this->permissoesperfis)?>
 </tbody>
 </table>
+<a href="<?=$this->url('application',['action'=>'access-control'])?>"><?=$this->translate('Go back')?></a>

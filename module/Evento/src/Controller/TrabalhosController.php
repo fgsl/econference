@@ -6,6 +6,7 @@
  */
 namespace Evento\Controller;
 
+use Application\Controller\ExceptionInterface;
 use Ftsl\Controller\AbstractCrudController;
 use Zend\Db\Sql\Where;
 

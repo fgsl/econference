@@ -17,7 +17,7 @@ return [
                 'options' => [
                     'route'    => '/perfis[/:action[/:codigo]]',
                     'defaults' => [
-                        'controller' => Controller\PerfilController::class,
+                        'controller' => Controller\PerfisController::class,
                         'action'     => 'index',
                     ],
                 ],
@@ -27,7 +27,7 @@ return [
                 'options' => [
                     'route'    => '/permissoes[/:action[/:codigo]]',
                     'defaults' => [
-                        'controller' => Controller\PermissaoController::class,
+                        'controller' => Controller\PermissoesController::class,
                         'action'     => 'index',
                     ],
                 ],
@@ -47,7 +47,7 @@ return [
                 'options' => [
                     'route'    => '/usuarios[/:action[/:codigo]]',
                     'defaults' => [
-                        'controller' => Controller\UsuarioController::class,
+                        'controller' => Controller\UsuariosController::class,
                         'action'     => 'index',
                     ],
                 ],
@@ -56,10 +56,10 @@ return [
     ],
     'controllers' => [
         'factories' => [
-            Controller\PerfilController::class => 'Acesso\Controller\PerfilControllerFactory',
-            Controller\PermissaoController::class => 'Acesso\Controller\PermissaoControllerFactory',
+            Controller\PerfisController::class => 'Acesso\Controller\PerfisControllerFactory',
+            Controller\PermissoesController::class => 'Acesso\Controller\PermissoesControllerFactory',
             Controller\PermissoesPerfilController::class => 'Acesso\Controller\PermissoesPerfilControllerFactory',
-            Controller\UsuarioController::class => 'Acesso\Controller\UsuarioControllerFactory'
+            Controller\UsuariosController::class => 'Acesso\Controller\UsuariosControllerFactory'
         ],
     ],
     'view_manager' => [
@@ -69,10 +69,10 @@ return [
         'not_found_template'       => 'error/404',
         'exception_template'       => 'error/index',
         'template_map' => [
-            'acesso/perfil/index' => __DIR__ . '/../view/acesso/perfil/index.phtml',
-            'acesso/permissao/index' => __DIR__ . '/../view/acesso/permissao/index.phtml',
+            'acesso/perfis/index' => __DIR__ . '/../view/acesso/perfis/index.phtml',
+            'acesso/permissoes/index' => __DIR__ . '/../view/acesso/permissoes/index.phtml',
             'acesso/permissaoperfil/index' => __DIR__ . '/../view/acesso/permissoesperfil/index.phtml',
-            'acesso/usuario/index' => __DIR__ . '/../view/acesso/usuario/index.phtml',
+            'acesso/usuarios/index' => __DIR__ . '/../view/acesso/usuarios/index.phtml',
             'error/404'               => __DIR__ . '/../view/error/404.phtml',
             'error/index'             => __DIR__ . '/../view/error/index.phtml',
         ],
@@ -87,5 +87,15 @@ return [
                     'PermissoesPerfilTable' => 'Acesso\Model\PermissoesPerfilTableFactory',
                     'UsuarioTable' => 'Acesso\Model\UsuarioTableFactory'
             ]
+    ],
+    'translator' => [
+        'locale' => 'pt_BR',
+        'translation_file_patterns' => [
+            [
+                'type'     => 'phparray',
+                'base_dir' => getcwd() .  '/module/Acesso/data/language',
+                'pattern'  => '%s.php',
+            ],
+        ],
     ]
 ];

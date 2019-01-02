@@ -4,10 +4,11 @@
 <tr>
 <th><?=$this->translate('Code')?></th>
 <th><?=$this->translate('Name')?></th>
-<th><?=$this->translate('Code_Profile')?></th>
+<th><?=$this->translate('Profile')?></th>
 </tr>
 </thead>
 <tbody>
 <?=$this->partialLoop('usuarios.phtml',$this->usuarios)?>
 </tbody>
 </table>
+<a href="<?=$this->url('application',['action'=>'access-control'])?>"><?=$this->translate('Go back')?></a>

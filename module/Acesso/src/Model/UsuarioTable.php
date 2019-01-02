@@ -12,4 +12,12 @@ class UsuarioTable extends AbstractTable
 {
     protected $keyName = 'codigo';
     protected $tableName = 'usuarios';
+    
+    protected function getSelect()
+    {
+        $select = parent::getSelect();
+        $select->columns(['codigo','nome','codigo_perfil']);
+        $select->join('perfis', 'usuarios.codigo_perfil=perfis.codigo',['perfil' => 'nome']);
+        return $select;
+    }
 }

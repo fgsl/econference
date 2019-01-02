@@ -1,0 +1,12 @@
+<?php
+echo (empty($this->anfitria->codigo) ? 
+$this->translate('Add permission') :
+$this->translate('Update permission'));
+?>
+</h1>
+<?php
+$form = $this->form;
+$form->prepare();
+echo $this->form($form);
+?>
+<a href="<?=$this->url('permissoes')?>"><?=$this->translate('Go back')?></a>

@@ -6,9 +6,10 @@
  */
 namespace Acesso\Controller;
 
+use Application\Controller\ExceptionInterface;
 use Ftsl\Controller\AbstractCrudController;
 
-class PermissoesPerfilController extends AbstractCrudController
+class PermissoesPerfilController extends AbstractCrudController implements ExceptionInterface
 {
     protected $mainTableFactory = 'PermissoesPerfilTable';
 
@@ -23,6 +24,14 @@ class PermissoesPerfilController extends AbstractCrudController
     public function editAction()
     {
         $viewModel = parent::editAction();
+        $total = $this->sm->get('PerfilTable')->count();
+        if ($total == 0){
+            return $this->redirect()->toRoute($this->routeName,['action' => 'void']);
+        }
+        $total = $this->sm->get('PermissaoTable')->count();
+        if ($total == 0){
+            return $this->redirect()->toRoute($this->routeName,['action' => 'void']);
+        }
         $viewModel->perfis = $this->sm->get('PerfilTable')->getAll();
         $viewModel->permissoes = $this->sm->get('PermissaoTable')->getAll();
         return $viewModel;
@@ -37,5 +46,7 @@ class PermissoesPerfilController extends AbstractCrudController
             'codigo_perfil' => $codigo_perfil,
             'codigo_permissao' => $codigo_permissao
         ];
+    }
+    public function voidAction() {
     }
 }
