@@ -97,4 +97,9 @@ class IndexController extends AbstractActionController
         $sessionManager->destroy();
         return $this->redirect()->toRoute('home');
     }
+    
+    public function callForPapersAction()
+    {
+        return [];
+    }
 }

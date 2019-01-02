@@ -122,5 +122,6 @@ automatizar tarefas complexas na organização e conntrole de eventos
 envolvendo palestras e cursos.',
     'Exit' => 'Sair',
     'User' => 'Usuário',
-    'Editions' => 'Edições'
+    'Editions' => 'Edições',
+    'Has not an account? Create one' => 'Não tem uma conta? Crie uma'
 ];

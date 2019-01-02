@@ -6,8 +6,9 @@
  */
 namespace Publico\Controller;
 
-use Zend\View\Model\ViewModel;
+use Publico\Form\ContaForm;
 use Zend\Mvc\Controller\AbstractActionController;
+use Zend\View\Model\ViewModel;
 
 class IndexController extends AbstractActionController
 {
@@ -27,5 +28,13 @@ class IndexController extends AbstractActionController
     {
         $this->layout('layout/public');
         return new ViewModel();
+    }
+    
+    public function createAccountAction()
+    {  
+        $this->layout('layout/public');
+        $form = new ContaForm();
+        $form->prepareElements();
+        return new ViewModel(['form' => $form]);
     }
 }

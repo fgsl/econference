@@ -14,7 +14,7 @@ class AuthenticationListener
     const INDEXCONTROLLER = 'Application\Controller\IndexController';
     const SETUPCONTROLLER = 'Application\Controller\SetupController';
     const LOGINACTION = 'login';
-    const AUTHENTICATEACTION = 'authenticate'; 
+    const AUTHENTICATEACTION = 'authenticate';
     
     public static function verifyAuthentication(MvcEvent $event)
     {

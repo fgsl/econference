@@ -93,12 +93,14 @@ class DatabaseSchema extends AbstractDatabaseSchema{
                     'senha' => [Varchar::class, 255, false, ''],
                     'email' => [Varchar::class, 80, false, ''],
                     'nome' => [Varchar::class, 80, false, ''],
-                    'cidade' => [Varchar::class, 8, false, ''],
+                    'cidade' => [Varchar::class, 30, false, ''],
+                    'UF' => [Varchar::class, 30, false, ''],
                     'telefone' => [Varchar::class, 20, false, ''],
                     'instituicao' => [Varchar::class, 80, false, ''],
-                    'cpf' => [Varchar::class, 13, false, ''],
-                    'passaporte' => [Varchar::class, 10, false, ''],
-                    'conferencista' => [Boolean::class, false, null] 
+                    'documento_de_identificacao' => [Varchar::class, 20, false, ''],
+                    'tipo_de_documento' => [Varchar::class, 20, false, ''],
+                    'conferencista' => [Boolean::class, false, null],
+                    'curriculum' => [Blob::class, false, false, null]
                 ],
                 'constraints' => [
                     PrimaryKey::class => 'codigo'

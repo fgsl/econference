@@ -18,8 +18,10 @@ foreach($this->messages as $message):
     <p><?=str_replace('setup','<a href="' . $this->url('setup') . '">setup</a>',$this->translate($message))?></p>
 <?php
 endforeach;
-?>            
-            
+$linkCreateUser = $this->url('public',['action' => 'create-account']);
+echo '<p><a href="' . $linkCreateUser . '">' . $this->translate('Has not an account? Create one') . '</a></p>';
+?>
+
         </div>
     </div>
 

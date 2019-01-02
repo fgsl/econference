@@ -1,4 +1,9 @@
 <?php
+/**
+ * @link      http://github.com/fgsl/econference for the canonical source repository
+ * @copyright Copyleft 2018 FTSL. (http://www.ftsl.org.br)
+ * @license   https://www.gnu.org/licenses/agpl-3.0.en.html GNU Affero General Public License
+ */
 namespace Evento\Model;
 
 use Ftsl\Model\AbstractModel;
@@ -15,11 +20,13 @@ class Participante extends AbstractModel
     public $email;
     public $nome;
     public $cidade;
+    public $UF;
     public $telefone;
     public $instituicao;
     public $cpf;
     public $passaporte;
     public $conferencista;
+    public $curriculum;
     
     public function __construct(array $array = null)
     {
@@ -88,11 +95,11 @@ class Participante extends AbstractModel
                 ]
             ],
             [
-                'name' => 'cpf',
+                'name' => 'documento_de_identificacao',
                 'required' => false
             ],
             [
-                'name' => 'passaporte',
+                'name' => 'tipo_de_documento',
                 'required' => false
             ],
             [
@@ -103,19 +110,11 @@ class Participante extends AbstractModel
                 'validators' => [
                     new NotEmpty()
                 ]
+            ],
+            [
+                'name' => 'curriculum',
+                'required' => false
             ]
         ];
-    }
-
-    public function toArray()
-    {
-        $set = parent::toArray();
-        if (empty($set['cpf'])){
-            $set['cpf']="";
-        }
-        if (empty($set['passaporte'])){
-            $set['passaporte']="";
-        }
-        return $set;
     }
 }

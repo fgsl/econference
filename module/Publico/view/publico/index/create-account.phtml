@@ -1,0 +1,7 @@
+<p><?=$this->translate('Create account')?></p>
+<?php
+$form = $this->form;
+$form->prepare();
+echo $this->form($form);
+?>
+<a href="<?=$this->url('home')?>"><?=$this->translate('Go back')?></a>

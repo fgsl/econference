@@ -32,6 +32,6 @@ div.container a.navbar-brand > img {
     margin-top: -2px;
 }
 
-input, select, textarea {
+input, select, textarea, checkbox {
     display: block;
 }

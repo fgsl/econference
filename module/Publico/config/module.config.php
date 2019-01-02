@@ -58,4 +58,15 @@ return [
             __DIR__ . '/../view',
         ],
     ],
+    'translator' => [
+        'locale' => 'pt_BR',
+        'translation_file_patterns' => [
+            [
+                'type'     => 'phparray',
+                'base_dir' => getcwd() .  '/module/Publico/data/language',
+                'pattern'  => '%s.php',
+            ],
+        ],
+    ],
+    
 ];
