@@ -41,7 +41,7 @@ class Cidades
             $handle = fopen(realpath(__DIR__ . '/../../data/cities/cities.csv'),'r');
             while (!feof($handle))
             {
-                $line = explode(',',fgetcsv($handle));
+                $line = fgetcsv($handle);
                 if (!isset(self::$lista[$line[0]]))
                 {
                     self::$lista[$line[0]] = [];
