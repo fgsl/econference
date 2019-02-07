@@ -33,10 +33,13 @@ class ParticipanteForm extends AbstractForm
             $valueOptions[$uf] = $uf;
         }
         $this->addElement('UF','State',null,[
+            'id' => 'UF',
             'type' => 'select',
+            'onchange' => 'getCidades()'
         ],$valueOptions);
         $valueOptions = [];
         $this->addElement('cidade','City',null,[
+            'id' => 'cidade',
             'type' => 'select',
         ],$valueOptions);
         $this->addElement('telefone','Telephone',null,[

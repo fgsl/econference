@@ -14,6 +14,7 @@ use Evento\Controller\AnfitriasController;
 use Evento\Controller\TrabalhosController;
 use Evento\Controller\EdicoesController;
 use Evento\Controller\PropriedadesController;
+use Evento\Controller\ServicosController;
 
 return [
     'routes' => [
@@ -93,6 +94,16 @@ return [
                 'route'    => '/propriedades[/:action[/:codigo]]',
                 'defaults' => [
                     'controller' => PropriedadesController::class,
+                    'action'     => 'index',
+                ],
+            ],
+        ],
+        'servicos' => [
+            'type' => Segment::class,
+            'options' => [
+                'route'    => '/servicos[/:action[/:value]]',
+                'defaults' => [
+                    'controller' => ServicosController::class,
                     'action'     => 'index',
                 ],
             ],

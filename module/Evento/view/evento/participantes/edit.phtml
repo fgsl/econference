@@ -1,3 +1,31 @@
+<?php
+$url = $this->url('servicos',['action' => 'cidades','value' => 'uf']);
+$url = 'http://'. (isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : '') . (isset($_SERVER['SERVER_PORT']) ? ':' . $_SERVER['SERVER_PORT'] : '') . $url;
+$script = <<<SCRIPT
+function getCidades()
+{
+    var uf = document.getElementById('UF');
+    var cidades = document.getElementById('cidade');
+    var url = "$url".replace('uf',uf.value);
+    $.ajax({
+        type: "GET",
+        url: url.replace('uf',cidades.value)
+    }).done(function(data){
+        cidades.innerHTML = '';
+        data.forEach(function(item, index){
+            option = document.createElement('option'); 
+            cidades.appendChild(option);
+            option.setAttribute('value',item);
+            option.innerHTML = item;
+        });
+    }).fail(function(data){
+        window.alert("An error occurred. Status: "
+        + data.status + " Message: " + data.statusText);
+    });
+}
+SCRIPT;
+$this->headScript()->appendScript($script);
+?>
 <h1><?php
 echo is_null($this->participante->codigo) ? 
 $this->translate('Add attendee') :

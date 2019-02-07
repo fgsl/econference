@@ -18,7 +18,9 @@ class Cidades
      */
     public static function getUF()
     {
-        return array_keys(self::getListaDeCidades());
+        $listaDeCidades = array_keys(self::getListaDeCidades());
+        sort($listaDeCidades);
+        return $listaDeCidades;
     }
 
     /**
@@ -28,7 +30,9 @@ class Cidades
      */
     public static function getCidadesPorUf($uf)
     {
-        return self::getListaDeCidades()[$uf];
+        $cidades = array_values(self::getListaDeCidades()[$uf]);
+        sort($cidades);
+        return $cidades;
     }
     
     /**
