@@ -32,6 +32,6 @@ div.container a.navbar-brand > img {
     margin-top: -2px;
 }
 
-input, select, textarea, checkbox {
+input, select, textarea, checkbox, label[for=UF], label[for='cidade'] {
     display: block;
 }
